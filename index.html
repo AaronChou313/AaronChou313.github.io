@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title"></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand" id="nav-brand"></div>
+            <ul class="nav-links">
+                <li><a href="#about" id="nav-about"></a></li>
+                <li><a href="#education" id="nav-education"></a></li>
+                <li><a href="#awards" id="nav-awards"></a></li>
+                <li><a href="#publications" id="nav-publications"></a></li>
+                <li><a href="#journal" id="nav-journal"></a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="control-btn" id="theme-toggle"></button>
+                <button class="control-btn" id="lang-toggle"></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <div class="about-left">
+                    <div class="profile-img">
+                        <img src="src/profile.jpg" alt="" id="profile-photo">
+                    </div>
+                    <h1 id="name"></h1>
+                    <div class="subtitle" id="title"></div>
+                    <div class="institution" id="institution"></div>
+                    <div class="social-links">
+                        <a href="https://github.com/AaronChou313" id="github-link" class="social-link"></a>
+                        <a href="#" id="scholar-link" class="social-link"></a>
+                        <a href="#" id="linkedin-link" class="social-link"></a>
+                    </div>
+                </div>
+                <div class="about-right">
+                    <h2 id="about-title"></h2>
+                    <div class="about-text">
+                        <p id="about-content1"></p>
+                        <p id="about-content2"></p>
+                        <p id="about-content3"></p>
+                        <p id="about-interests"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2 id="education-title"></h2>
+            <div id="education-list"></div>
+        </section>
+
+        <!-- Awards Section -->
+        <section id="awards">
+            <h2 id="awards-title"></h2>
+            <div id="awards-list"></div>
+        </section>
+
+        <!-- Publications Section (Hidden) -->
+        <section id="publications" class="hidden">
+            <h2 id="publications-title"></h2>
+            <div id="publications-list"></div>
+        </section>
+
+        <!-- Journal Papers Section (Hidden) -->
+        <section id="journal" class="hidden">
+            <h2 id="journal-title"></h2>
+            <div id="journal-list"></div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p id="footer-text"></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
