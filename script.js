@@ -137,25 +137,29 @@ const journalData = {
 };
 
 // 其他共享数据
+// 修改 sharingData 数据结构，添加中英文的按钮文本
 const sharingData = {
     en: [
         {
             logo: "blog.png",
             name: "Technical Blog",
             description: "My personal blog for sharing technical insights and development experiences",
-            link: "https://blog.csdn.net/qq_39599112?spm=1000.2115.3001.10640"
+            link: "https://blog.csdn.net/qq_39599112?spm=1000.2115.3001.10640",
+            buttonText: "Visit"
         },
         {
             logo: "project.png",
             name: "Open Source Projects",
             description: "Collection of open source projects I've developed and maintained",
-            link: "https://github.com/AaronChou313"
+            link: "https://github.com/AaronChou313",
+            buttonText: "Visit"
         },
         {
             logo: "tutorial.png",
             name: "Learning Resources",
             description: "Curated learning resources and tutorials in my field of expertise",
-            link: "https://www.yuque.com/zhoumingyang-mhzvi"
+            link: "https://www.yuque.com/zhoumingyang-mhzvi",
+            buttonText: "Visit"
         }
     ],
     zh: [
@@ -163,19 +167,22 @@ const sharingData = {
             logo: "blog.png",
             name: "技术博客",
             description: "分享技术见解和开发经验的个人博客",
-            link: "https://blog.csdn.net/qq_39599112?spm=1000.2115.3001.10640"
+            link: "https://blog.csdn.net/qq_39599112?spm=1000.2115.3001.10640",
+            buttonText: "访问"
         },
         {
             logo: "project.png",
             name: "开源项目",
             description: "我开发和维护的开源项目集合",
-            link: "https://github.com/AaronChou313"
+            link: "https://github.com/AaronChou313",
+            buttonText: "访问"
         },
         {
             logo: "tutorial.png",
             name: "学习资源",
             description: "精选的学习资源和专业教程",
-            link: "https://www.yuque.com/zhoumingyang-mhzvi"
+            link: "https://www.yuque.com/zhoumingyang-mhzvi",
+            buttonText: "访问"
         }
     ]
 };
@@ -401,7 +408,7 @@ function updateJournalSection(lang) {
     }
 }
 
-// 添加更新分享部分的函数
+// 修改更新分享部分的函数
 function updateSharingSection(lang) {
     const sharingList = document.getElementById('sharing-list');
     sharingList.innerHTML = '';
@@ -417,7 +424,7 @@ function updateSharingSection(lang) {
             <div class="sharing-content">
                 <h3 class="sharing-name">${item.name}</h3>
                 <p class="sharing-description">${item.description}</p>
-                <a href="${item.link}" class="sharing-link" target="_blank">访问 →</a>
+                <a href="${item.link}" class="sharing-link" target="_blank">${item.buttonText} →</a>
             </div>
         `;
         

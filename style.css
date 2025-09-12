@@ -5,9 +5,9 @@
     --section-bg: #ffffff;
     --border-color: #e0e0e0;
     --link-color: #4a6fa5;
-    --shadow: 0 2px 10px rgba(0,0,0,0.05);
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     --nav-bg: #ffffff;
-    --nav-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    --nav-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .dark-mode {
@@ -17,9 +17,9 @@
     --section-bg: #2d2d2d;
     --border-color: #444444;
     --link-color: #6b9bd9;
-    --shadow: 0 2px 10px rgba(0,0,0,0.3);
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     --nav-bg: #2d2d2d;
-    --nav-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    --nav-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -108,7 +108,7 @@ body {
 }
 
 /* 主要内容区域 */
-.container > section {
+.container>section {
     background: var(--section-bg);
     margin: 30px 0;
     padding: 30px;
@@ -230,7 +230,8 @@ body {
 .social-icon {
     width: 20px;
     height: 20px;
-    filter: brightness(0) invert(1); /* 将图标变为白色 */
+    filter: brightness(0) invert(1);
+    /* 将图标变为白色 */
 }
 
 /* 在暗色模式下调整图标颜色 */
@@ -247,12 +248,12 @@ body {
     .social-links {
         gap: 10px;
     }
-    
+
     .social-link {
         width: 36px;
         height: 36px;
     }
-    
+
     .social-icon {
         width: 18px;
         height: 18px;
@@ -391,11 +392,11 @@ body {
     .award-item {
         flex-direction: row;
     }
-    
+
     .award-logo {
         text-align: left;
     }
-    
+
     .award-news {
         position: relative;
         margin-top: 10px;
@@ -414,11 +415,11 @@ body {
     .award-item {
         flex-direction: row;
     }
-    
+
     .award-logo {
         text-align: left;
     }
-    
+
     .award-news {
         position: relative;
         margin-top: 10px;
@@ -504,7 +505,7 @@ body {
     .sharing-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .sharing-item {
         padding: 15px;
     }
@@ -547,15 +548,15 @@ a:hover {
     .about-content {
         flex-direction: column;
     }
-    
+
     .about-left {
         padding: 0;
     }
-    
+
     .about-right {
         padding: 0;
     }
-    
+
     .nav-links {
         display: none;
     }
@@ -565,30 +566,30 @@ a:hover {
     .container {
         padding: 0 15px;
     }
-    
-    .container > section {
+
+    .container>section {
         padding: 20px;
     }
-    
+
     .award-item {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .award-icon {
         text-align: center;
     }
-    
+
     .award-details {
         flex-direction: column;
         gap: 5px;
     }
-    
+
     .navbar .container {
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .nav-controls {
         margin-top: 10px;
     }
