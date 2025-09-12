@@ -166,6 +166,20 @@ body {
     margin-bottom: 20px;
 }
 
+.email {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    word-break: break-all;
+}
+
+/* 在移动端适配中也要确保邮箱显示正常 */
+@media (max-width: 992px) {
+    .email {
+        margin: 15px 0;
+    }
+}
+
 .social-links {
     display: flex;
     justify-content: center;
@@ -173,19 +187,76 @@ body {
     margin-top: 20px;
 }
 
+/* 工具提示样式优化 */
 .social-link {
     display: inline-block;
-    padding: 8px 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     background-color: var(--link-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: background-color 0.3s;
+    position: relative;
 }
 
 .social-link:hover {
     background-color: #3a5a80;
+    transform: translateY(-2px);
+}
+
+/* 自定义工具提示样式（可选） */
+.social-link:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 1000;
+}
+
+.dark-mode .social-link:hover::after {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+}
+
+.social-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1); /* 将图标变为白色 */
+}
+
+/* 在暗色模式下调整图标颜色 */
+.dark-mode .social-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* 在亮色模式下也保持白色图标 */
+.social-icon {
+    filter: brightness(0) invert(1);
+}
+
+@media (max-width: 768px) {
+    .social-links {
+        gap: 10px;
+    }
+    
+    .social-link {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .social-icon {
+        width: 18px;
+        height: 18px;
+    }
 }
 
 .about-right {
@@ -251,6 +322,7 @@ body {
     padding-bottom: 25px;
     border-bottom: 1px solid var(--border-color);
     position: relative;
+    min-height: 100px;
 }
 
 .award-item:last-child {
@@ -297,7 +369,8 @@ body {
 .award-date {
     color: var(--link-color);
     font-size: 0.9rem;
-    margin-bottom: 20px;
+    margin-top: auto;
+    margin-bottom: 0;
 }
 
 .award-news {

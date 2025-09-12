@@ -5,6 +5,13 @@ let currentLang = 'en';
 // 教育经历数据
 const educationData = {
     en: [
+        
+        {
+            time: "2022.09 - 2026.06",
+            institution: "School of Remote Sensing and Information Engineering, Wuhan University",
+            degree: "Bachelor's Degree in Spatial Information and Digital Technology (In Progress)",
+            details: []
+        },
         {
             time: "2026.09 - 2028.06",
             institution: "National Key Laboratory of Surveying, Mapping and Remote Sensing, Wuhan University",
@@ -15,14 +22,15 @@ const educationData = {
                 "Advisor: Prof. Li You"
             ]
         },
-        {
-            time: "2022.09 - 2026.06",
-            institution: "School of Remote Sensing and Information Engineering, Wuhan University",
-            degree: "Bachelor's Degree in Spatial Information and Digital Technology (In Progress)",
-            details: []
-        }
     ],
     zh: [
+        
+        {
+            time: "2022.09 - 2026.06",
+            institution: "武汉大学 遥感信息工程学院",
+            degree: "空间信息与数字技术专业 本科在读",
+            details: []
+        },
         {
             time: "2026.09 - 2028.06",
             institution: "武汉大学 测绘遥感信息工程全国重点实验室",
@@ -33,12 +41,6 @@ const educationData = {
                 "导师：李由教授"
             ]
         },
-        {
-            time: "2022.09 - 2026.06",
-            institution: "武汉大学 遥感信息工程学院",
-            degree: "空间信息与数字技术专业 本科在读",
-            details: []
-        }
     ]
 };
 
@@ -51,7 +53,7 @@ const awardsData = {
             prize: "National First Prize",
             organization: "National University Robot Competition Organizing Committee / DJI Innovation",
             date: "2025",
-            news: "#"
+            news: "https://mp.weixin.qq.com/s/7cZJ-fV4WwXA3E49jD1Bvg"
         },
         {
             logo: "craic.png",
@@ -67,7 +69,7 @@ const awardsData = {
             prize: "National Second Prize",
             organization: "Ministry of Industry and Information Technology Talent Exchange Center",
             date: "2025",
-            news: "#"
+            news: "https://mp.weixin.qq.com/s/TEq7Q20iFrmV68r2q15VFQ"
         },
         {
             logo: "hzsk.png",
@@ -83,9 +85,9 @@ const awardsData = {
             logo: "robomaster.png",
             name: "RoboMaster机甲大师 高校联盟赛 步兵对抗赛",
             prize: "全国一等奖",
-            organization: "全国大学生机器人大赛组委会/大疆创新",
+            organization: "全国大学生机器人大赛组委会 / 大疆创新",
             date: "2025年",
-            news: "#"
+            news: "https://mp.weixin.qq.com/s/7cZJ-fV4WwXA3E49jD1Bvg"
         },
         {
             logo: "craic.png",
@@ -101,13 +103,13 @@ const awardsData = {
             prize: "全国二等奖",
             organization: "工业和信息化部人才交流中心",
             date: "2025年",
-            news: "#"
+            news: "https://mp.weixin.qq.com/s/TEq7Q20iFrmV68r2q15VFQ"
         },
         {
             logo: "hzsk.png",
             name: "华中数控杯工业协作机器人及数字孪生技术创新应用专项赛",
             prize: "湖北省特等奖",
-            organization: "全国三维数字化创新设计大赛组委会/国家制造业信息化培训中心/北京光华设计发展基金会",
+            organization: "全国三维数字化创新设计大赛组委会 / 国家制造业信息化培训中心 / 北京光华设计发展基金会",
             date: "2025年",
             news: "#"
         }
@@ -144,9 +146,12 @@ const translations = {
         name: "周明杨",
         title: "空间信息与数字技术专业 本科生",
         institution: "武汉大学 遥感信息工程学院",
+        email: "zhoumy@whu.edu.cn",
         "github-link": "GitHub",
+        "gitee-link": "Gitee",
         "scholar-link": "谷歌学术",
-        "linkedin-link": "领英",
+        "orcid-link": "ORCID",
+        "resume-link": "个人简历",
         "about-title": "关于我",
         "about-content1": "我是武汉大学遥感信息工程学院空间信息与数字技术专业本科生，预计2026年毕业。目前已推免保研至武汉大学测绘遥感全国重点实验室，预计研究方向为无人系统自主定位与感知，在李由教授的指导下开展相关研究工作。",
         "about-content2": "本科期间就读于空间信息与数字技术专业，积极参与多项大学生机器人赛事，均获得国家级奖项，在此过程中，学习积累了丰富的机器人开发知识与经验。",
@@ -172,9 +177,12 @@ const translations = {
         name: "Mingyang Zhou",
         title: "Undergraduate in Spatial Information and Digital Technology",
         institution: "School of Remote Sensing and Information Engineering, Wuhan University",
+        email: "zhoumy@whu.edu.cn",
         "github-link": "GitHub",
+        "gitee-link": "Gitee",
         "scholar-link": "Google Scholar",
-        "linkedin-link": "LinkedIn",
+        "orcid-link": "ORCID",
+        "resume-link": "Resume",
         "about-title": "About Me",
         "about-content1": "I am an undergraduate student majoring in Spatial Information and Digital Technology at the School of Remote Sensing and Information Engineering, Wuhan University, expected to graduate in 2026. I have been recommended for postgraduate studies at the National Key Laboratory of Surveying, Mapping and Remote Sensing, Wuhan University, with a research focus on autonomous positioning and perception of unmanned systems under the guidance of Professor Li You.",
         "about-content2": "During my undergraduate studies in Spatial Information and Digital Technology, I actively participated in multiple university robotics competitions and won national-level awards. Through these experiences, I have acquired extensive knowledge and experience in robotics development.",
@@ -221,9 +229,14 @@ function updatePageLanguage(lang) {
     document.getElementById('name').textContent = translations[lang].name;
     document.getElementById('title').textContent = translations[lang].title;
     document.getElementById('institution').textContent = translations[lang].institution;
-    document.getElementById('github-link').textContent = translations[lang]['github-link'];
-    document.getElementById('scholar-link').textContent = translations[lang]['scholar-link'];
-    document.getElementById('linkedin-link').textContent = translations[lang]['linkedin-link'];
+    document.getElementById('email').textContent = translations[lang].email;
+    
+    // Update social link titles based on language
+    document.getElementById('github-link').title = "GitHub";
+    document.getElementById('gitee-link').title = translations[lang]['gitee-link'];
+    document.getElementById('scholar-link').title = translations[lang]['scholar-link'];
+    document.getElementById('orcid-link').title = "ORCID";
+    document.getElementById('resume-link').title = translations[lang]['resume-link'];
     
     // Update about section
     document.getElementById('about-title').textContent = translations[lang]['about-title'];
@@ -290,6 +303,10 @@ function updateAwardsSection(lang) {
         const awardItem = document.createElement('div');
         awardItem.className = 'award-item';
         
+        // 只有当news不为"#"时才显示新闻链接
+        const newsLink = award.news !== '#' ? 
+            `<a href="${award.news}" class="award-news">${translations[lang]['news-link']}</a>` : '';
+        
         awardItem.innerHTML = `
             <div class="award-logo">
                 <img src="src/${award.logo}" alt="${award.name}" onerror="this.style.display='none'">
@@ -299,7 +316,7 @@ function updateAwardsSection(lang) {
                 <div class="award-prize">${award.prize}</div>
                 <div class="award-organization">${award.organization}</div>
                 <div class="award-date">${award.date}</div>
-                <a href="${award.news}" class="award-news">${translations[lang]['news-link']}</a>
+                ${newsLink}
             </div>
         `;
         
