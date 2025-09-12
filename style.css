@@ -428,6 +428,88 @@ body {
     }
 }
 
+/* Sharing Section */
+#sharing h2 {
+    color: var(--link-color);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sharing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.sharing-item {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: var(--section-bg);
+}
+
+.sharing-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.sharing-logo {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.sharing-logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.sharing-content {
+    text-align: center;
+}
+
+.sharing-name {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.sharing-description {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+.sharing-link {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 1px solid var(--link-color);
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.sharing-link:hover {
+    background-color: var(--link-color);
+    color: white;
+    text-decoration: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .sharing-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .sharing-item {
+        padding: 15px;
+    }
+}
+
 /* 隐藏模块 */
 .hidden {
     display: none;

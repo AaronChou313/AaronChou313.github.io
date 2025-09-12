@@ -136,6 +136,50 @@ const journalData = {
     ]
 };
 
+// 其他共享数据
+const sharingData = {
+    en: [
+        {
+            logo: "blog.png",
+            name: "Technical Blog",
+            description: "My personal blog for sharing technical insights and development experiences",
+            link: "https://blog.csdn.net/qq_39599112?spm=1000.2115.3001.10640"
+        },
+        {
+            logo: "project.png",
+            name: "Open Source Projects",
+            description: "Collection of open source projects I've developed and maintained",
+            link: "https://github.com/AaronChou313"
+        },
+        {
+            logo: "tutorial.png",
+            name: "Learning Resources",
+            description: "Curated learning resources and tutorials in my field of expertise",
+            link: "https://www.yuque.com/zhoumingyang-mhzvi"
+        }
+    ],
+    zh: [
+        {
+            logo: "blog.png",
+            name: "技术博客",
+            description: "分享技术见解和开发经验的个人博客",
+            link: "https://blog.csdn.net/qq_39599112?spm=1000.2115.3001.10640"
+        },
+        {
+            logo: "project.png",
+            name: "开源项目",
+            description: "我开发和维护的开源项目集合",
+            link: "https://github.com/AaronChou313"
+        },
+        {
+            logo: "tutorial.png",
+            name: "学习资源",
+            description: "精选的学习资源和专业教程",
+            link: "https://www.yuque.com/zhoumingyang-mhzvi"
+        }
+    ]
+};
+
 const translations = {
     zh: {
         "nav-about": "关于我",
@@ -165,8 +209,10 @@ const translations = {
         "lang-toggle": "🌐",
         "page-title": "周明杨 - 个人学术主页",
         "nav-brand": "周明杨",
-        "footer-text": "© 2024 周明杨. 个人学术主页 | 最后更新: 2024年4月",
-        "news-link": "新闻链接"
+        "footer-text": "© 2025 周明杨. 个人学术主页 | 最后更新: 2025年9月",
+        "news-link": "新闻链接",
+        "sharing-title": "其他共享",
+        "nav-sharing": "其他共享"
     },
     en: {
         "nav-about": "About",
@@ -196,8 +242,10 @@ const translations = {
         "lang-toggle": "🌐",
         "page-title": "Mingyang Zhou - Personal Academic Page",
         "nav-brand": "Mingyang Zhou",
-        "footer-text": "© 2024 Mingyang Zhou. Personal Academic Page | Last Updated: April 2024",
-        "news-link": "News Link"
+        "footer-text": "© 2025 Mingyang Zhou. Personal Academic Page | Last Updated: September 2025",
+        "news-link": "News Link",
+        "sharing-title": "Sharing",
+        "nav-sharing": "Sharing"
     }
 };
 
@@ -224,6 +272,7 @@ function updatePageLanguage(lang) {
     document.getElementById('nav-awards').textContent = translations[lang]["nav-awards"];
     document.getElementById('nav-publications').textContent = translations[lang]["nav-publications"];
     document.getElementById('nav-journal').textContent = translations[lang]["nav-journal"];
+    document.getElementById('nav-sharing').textContent = translations[lang]["nav-sharing"];
     
     // Update profile section
     document.getElementById('name').textContent = translations[lang].name;
@@ -250,6 +299,7 @@ function updatePageLanguage(lang) {
     document.getElementById('awards-title').textContent = translations[lang]['awards-title'];
     document.getElementById('publications-title').textContent = translations[lang]['publications-title'];
     document.getElementById('journal-title').textContent = translations[lang]['journal-title'];
+    document.getElementById('sharing-title').textContent = translations[lang]['sharing-title'];
     
     // Update footer
     document.getElementById('footer-text').textContent = translations[lang]['footer-text'];
@@ -269,6 +319,9 @@ function updatePageLanguage(lang) {
     
     // Update journal section
     updateJournalSection(lang);
+
+    // Update sharing section
+    updateSharingSection(lang);
 }
 
 function updateEducationSection(lang) {
@@ -346,6 +399,30 @@ function updateJournalSection(lang) {
     } else {
         journalList.innerHTML = '<p>Currently no journal papers available.</p>';
     }
+}
+
+// 添加更新分享部分的函数
+function updateSharingSection(lang) {
+    const sharingList = document.getElementById('sharing-list');
+    sharingList.innerHTML = '';
+    
+    sharingData[lang].forEach(item => {
+        const sharingItem = document.createElement('div');
+        sharingItem.className = 'sharing-item';
+        
+        sharingItem.innerHTML = `
+            <div class="sharing-logo">
+                <img src="src/${item.logo}" alt="${item.name}" onerror="this.style.display='none'">
+            </div>
+            <div class="sharing-content">
+                <h3 class="sharing-name">${item.name}</h3>
+                <p class="sharing-description">${item.description}</p>
+                <a href="${item.link}" class="sharing-link" target="_blank">访问 →</a>
+            </div>
+        `;
+        
+        sharingList.appendChild(sharingItem);
+    });
 }
 
 langToggle.addEventListener('click', () => {
