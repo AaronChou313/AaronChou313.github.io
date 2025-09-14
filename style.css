@@ -1,13 +1,15 @@
 :root {
     --bg-color: #ffffff;
     --text-color: #333333;
-    --header-bg: #4a6fa5;
+    --header-bg: var(--primary-color);
     --section-bg: #ffffff;
     --border-color: #e0e0e0;
-    --link-color: #4a6fa5;
+    --link-color: var(--primary-color);
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     --nav-bg: #ffffff;
     --nav-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --primary-color: #4a6fa5; /* 默认主色调 */
+    --primary-color-dark: #6b9bd9; /* 暗色模式下的主色调 */
 }
 
 .dark-mode {
@@ -16,7 +18,7 @@
     --header-bg: #2d2d2d;
     --section-bg: #2d2d2d;
     --border-color: #444444;
-    --link-color: #6b9bd9;
+    --link-color: var(--primary-color-dark);
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     --nav-bg: #2d2d2d;
     --nav-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -37,7 +39,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -107,37 +109,180 @@ body {
     border-color: var(--link-color);
 }
 
+/* 颜色选择器样式 - 改进版本 */
+.color-picker-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.color-picker-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.color-picker-container {
+    background-color: var(--section-bg);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    max-width: 500px;
+    width: 90%;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.color-picker-overlay.active .color-picker-container {
+    transform: translateY(0);
+}
+
+.color-picker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.color-picker-header h3 {
+    color: var(--text-color);
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.color-picker-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.color-picker-close:hover {
+    background-color: var(--border-color);
+}
+
+.color-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.color-option {
+    height: 110px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.color-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.color-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: currentColor;
+    opacity: 0.8;
+}
+
+.color-option.active::after {
+    content: '✓';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.color-option span {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 3px 8px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    text-align: center;
+    z-index: 1;
+    font-weight: 500;
+}
+
+.color-picker-footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
 /* 主要内容区域 */
 .container>section {
     background: var(--section-bg);
-    margin: 30px 0;
-    padding: 30px;
+    margin: 20px 0;
+    padding: 25px;
     border-radius: 10px;
     box-shadow: var(--shadow);
 }
 
 /* 个人简介模块 */
 .about-section {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .about-content {
     display: flex;
-    gap: 40px;
+    gap: 30px;
 }
 
 .about-left {
     flex: 1;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
 }
 
 .profile-img {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     border: 3px solid var(--border-color);
-    margin: 0 auto 20px;
+    margin: 0 auto 15px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -151,47 +296,47 @@ body {
 }
 
 .about-left h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
 }
 
 .about-left .subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--link-color);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .about-left .institution {
-    font-size: 1rem;
-    margin-bottom: 20px;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
 }
 
 .email {
     font-size: 0.9rem;
     color: var(--text-color);
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     word-break: break-all;
 }
 
 /* 在移动端适配中也要确保邮箱显示正常 */
 @media (max-width: 992px) {
     .email {
-        margin: 15px 0;
+        margin: 12px 0;
     }
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 12px;
+    margin-top: 15px;
 }
 
 /* 工具提示样式优化 */
 .social-link {
     display: inline-block;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background-color: var(--link-color);
     display: flex;
@@ -228,8 +373,8 @@ body {
 }
 
 .social-icon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     filter: brightness(0) invert(1);
     /* 将图标变为白色 */
 }
@@ -250,44 +395,44 @@ body {
     }
 
     .social-link {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
     }
 
     .social-icon {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
     }
 }
 
 .about-right {
     flex: 2;
-    padding: 20px;
+    padding: 15px;
 }
 
 .about-right h2 {
     color: var(--link-color);
-    margin-bottom: 20px;
-    padding-bottom: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
     border-bottom: 1px solid var(--border-color);
 }
 
 .about-text p {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     line-height: 1.7;
 }
 
 /* 教育经历模块 */
 #education h2 {
     color: var(--link-color);
-    margin-bottom: 25px;
-    padding-bottom: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
     border-bottom: 1px solid var(--border-color);
 }
 
 .education-item {
-    margin-bottom: 25px;
-    padding-bottom: 25px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -305,25 +450,25 @@ body {
 
 .education-item .institution {
     font-weight: bold;
-    margin: 10px 0;
+    margin: 8px 0;
 }
 
 /* 获奖经历模块 */
 #awards h2 {
     color: var(--link-color);
-    margin-bottom: 25px;
-    padding-bottom: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
     border-bottom: 1px solid var(--border-color);
 }
 
 .award-item {
     display: flex;
-    gap: 20px;
-    margin-bottom: 25px;
-    padding-bottom: 25px;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
     border-bottom: 1px solid var(--border-color);
     position: relative;
-    min-height: 100px;
+    min-height: 80px;
 }
 
 .award-item:last-child {
@@ -333,14 +478,14 @@ body {
 }
 
 .award-logo {
-    min-width: 50px;
+    min-width: 40px;
     display: flex;
     align-items: flex-start;
 }
 
 .award-logo img {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     object-fit: contain;
 }
 
@@ -351,25 +496,25 @@ body {
 }
 
 .award-name {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
     color: var(--text-color);
 }
 
 .award-prize {
     font-weight: bold;
     color: var(--link-color);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .award-organization {
-    margin-bottom: 8px;
-    font-size: 0.95rem;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
 }
 
 .award-date {
     color: var(--link-color);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     margin-top: auto;
     margin-bottom: 0;
 }
@@ -377,7 +522,7 @@ body {
 .award-news {
     color: var(--link-color);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -429,24 +574,174 @@ body {
     }
 }
 
+/* Papers Section */
+#papers h2 {
+    color: var(--link-color);
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#papers h3 {
+    color: var(--link-color);
+    margin: 20px 0 12px 0;
+}
+
+.paper-item {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background-color: var(--section-bg);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.paper-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.paper-item.selected {
+    display: flex;
+    gap: 15px;
+}
+
+.paper-item.other {
+    padding: 12px;
+}
+
+.paper-image {
+    flex: 0 0 150px;
+}
+
+.paper-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.paper-content {
+    flex: 1;
+}
+
+.paper-title {
+    font-size: 1.1rem;
+    margin: 0 0 8px 0;
+    color: var(--text-color);
+}
+
+.paper-authors {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    color: #666;
+}
+
+.paper-authors strong {
+    color: var(--link-color);
+    font-weight: bold;
+}
+
+.paper-venue {
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-bottom: 8px;
+    color: var(--link-color);
+}
+
+.paper-description {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.paper-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.paper-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: var(--link-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    transition: background-color 0.3s;
+}
+
+.paper-button:hover {
+    background-color: #3a5a80;
+    text-decoration: none;
+}
+
+/* Other papers specific styles */
+.paper-item.other .paper-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.paper-item.other .paper-reference {
+    flex: 3;
+    min-width: 200px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+.paper-item.other .paper-reference strong {
+    color: var(--link-color);
+    font-weight: bold;
+}
+
+.paper-item.other .paper-buttons {
+    flex: 1;
+    min-width: 100px;
+    justify-content: flex-end;
+}
+
+/* Responsive design for papers section */
+@media (max-width: 768px) {
+    .paper-item.selected {
+        flex-direction: column;
+    }
+    
+    .paper-image {
+        flex: 0 0 auto;
+    }
+    
+    .paper-item.other .paper-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .paper-item.other .paper-buttons {
+        justify-content: flex-start;
+    }
+}
+
 /* Sharing Section */
 #sharing h2 {
     color: var(--link-color);
-    margin-bottom: 25px;
-    padding-bottom: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
     border-bottom: 1px solid var(--border-color);
 }
 
 .sharing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
 }
 
 .sharing-item {
     border: 1px solid var(--border-color);
     border-radius: 10px;
-    padding: 20px;
+    padding: 15px;
     transition: transform 0.3s, box-shadow 0.3s;
     background-color: var(--section-bg);
 }
@@ -458,12 +753,12 @@ body {
 
 .sharing-logo {
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .sharing-logo img {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     object-fit: contain;
 }
 
@@ -472,14 +767,14 @@ body {
 }
 
 .sharing-name {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
     color: var(--text-color);
 }
 
 .sharing-description {
-    font-size: 0.95rem;
-    margin-bottom: 15px;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
     line-height: 1.5;
     color: var(--text-color);
 }
@@ -488,10 +783,11 @@ body {
     color: var(--link-color);
     text-decoration: none;
     font-weight: bold;
-    padding: 8px 16px;
+    padding: 6px 12px;
     border: 1px solid var(--link-color);
     border-radius: 5px;
     transition: all 0.3s;
+    font-size: 0.85rem;
 }
 
 .sharing-link:hover {
@@ -507,7 +803,7 @@ body {
     }
 
     .sharing-item {
-        padding: 15px;
+        padding: 12px;
     }
 }
 
@@ -519,19 +815,19 @@ body {
 /* 标题样式 */
 h2 {
     color: var(--link-color);
-    margin-bottom: 20px;
-    padding-bottom: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
     border-bottom: 1px solid var(--border-color);
 }
 
 /* 页脚样式 */
 footer {
     text-align: center;
-    padding: 25px;
+    padding: 20px;
     color: var(--text-color);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     opacity: 0.8;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 a {
@@ -545,8 +841,12 @@ a:hover {
 
 /* 响应式设计 */
 @media (max-width: 992px) {
+    .container {
+        max-width: 900px;
+    }
+    
     .about-content {
-        flex-direction: column;
+        gap: 20px;
     }
 
     .about-left {
@@ -564,16 +864,16 @@ a:hover {
 
 @media (max-width: 768px) {
     .container {
-        padding: 0 15px;
+        padding: 0 10px;
     }
 
     .container>section {
-        padding: 20px;
+        padding: 15px;
     }
 
     .award-item {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
     }
 
     .award-icon {
@@ -587,10 +887,30 @@ a:hover {
 
     .navbar .container {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
     }
 
     .nav-controls {
-        margin-top: 10px;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+        padding: 0 8px;
+    }
+    
+    .container>section {
+        padding: 12px;
+        margin: 15px 0;
+    }
+    
+    .paper-item {
+        padding: 12px;
+    }
+    
+    .paper-item.selected {
+        gap: 12px;
     }
 }

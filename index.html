@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="content="width=device-width, initial-scale=1.0">
     <title id="page-title"></title>
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -16,14 +16,14 @@
             <ul class="nav-links">
                 <li><a href="#about" id="nav-about"></a></li>
                 <li><a href="#education" id="nav-education"></a></li>
+                <li><a href="#papers" id="nav-papers"></a></li>
                 <li><a href="#awards" id="nav-awards"></a></li>
-                <li><a href="#publications" id="nav-publications"></a></li>
-                <li><a href="#journal" id="nav-journal"></a></li>
                 <li><a href="#sharing" id="nav-sharing"></a></li>
             </ul>
             <div class="nav-controls">
                 <button class="control-btn" id="theme-toggle"></button>
                 <button class="control-btn" id="lang-toggle"></button>
+                <button class="control-btn" id="color-toggle"></button> <!-- 添加颜色选择按钮 -->
             </div>
         </div>
     </nav>
@@ -40,23 +40,8 @@
                     <div class="subtitle" id="title"></div>
                     <div class="institution" id="institution"></div>
                     <div class="email" id="email"></div>
-                    <div class="social-links">
-                        <a href="https://github.com/AaronChou313" id="github-link" class="social-link" target="_blank">
-                            <img src="./src/github.svg" alt="GitHub" class="social-icon">
-                        </a>
-                        <a href="https://gitee.com/aaron-chou313" id="gitee-link" class="social-link">
-                            <img src="./src/gitee.svg" alt="Gitee" class="social-icon">
-                        </a>
-                        <a href="#" id="scholar-link" class="social-link">
-                            <img src="./src/google-scholar.svg" alt="Google Scholar" class="social-icon">
-                        </a>
-                        <a href="#" id="orcid-link" class="social-link">
-                            <img src="./src/orcid.svg" alt="ORCID" class="social-icon">
-                        </a>
-                        <a href="#" id="resume-link" class="social-link">
-                            <img src="./src/resume.svg" alt="Resume" class="social-icon">
-                        </a>
-                    </div>
+                    <!-- 修改这一部分：移除所有硬编码的链接，只保留容器 -->
+                    <div class="social-links"></div>
                 </div>
                 <div class="about-right">
                     <h2 id="about-title"></h2>
@@ -76,22 +61,24 @@
             <div id="education-list"></div>
         </section>
 
+        <!-- Papers Section -->
+        <section id="papers">
+            <h2 id="papers-title"></h2>
+            <div id="papers-content">
+                <!-- Selected Papers -->
+                <h3 id="selected-papers-title"></h3>
+                <div id="selected-papers-list"></div>
+                
+                <!-- Other Papers -->
+                <h3 id="other-papers-title"></h3>
+                <div id="other-papers-list"></div>
+            </div>
+        </section>
+
         <!-- Awards Section -->
         <section id="awards">
             <h2 id="awards-title"></h2>
             <div id="awards-list"></div>
-        </section>
-
-        <!-- Publications Section (Hidden) -->
-        <section id="publications" class="hidden">
-            <h2 id="publications-title"></h2>
-            <div id="publications-list"></div>
-        </section>
-
-        <!-- Journal Papers Section (Hidden) -->
-        <section id="journal" class="hidden">
-            <h2 id="journal-title"></h2>
-            <div id="journal-list"></div>
         </section>
 
         <!-- Sharing Section -->
@@ -107,6 +94,7 @@
         </div>
     </footer>
 
+    <script src="./config.js"></script>
     <script src="./script.js"></script>
 </body>
 

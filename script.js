@@ -1,380 +1,422 @@
-// Theme toggle functionality
+// ==========================================
+// 全局变量和元素引用
+// ==========================================
 const themeToggle = document.getElementById('theme-toggle');
+const colorToggle = document.getElementById('color-toggle');
+const langToggle = document.getElementById('lang-toggle');
+
 let currentLang = 'en';
+let currentColor = config.defaultColor || 'blue'; // 使用配置的默认颜色
 
-// 教育经历数据
-const educationData = {
-    en: [
-        
-        {
-            time: "2022.09 - 2026.06",
-            institution: "School of Remote Sensing and Information Engineering, Wuhan University",
-            degree: "Bachelor's Degree in Spatial Information and Digital Technology (In Progress)",
-            details: []
-        },
-        {
-            time: "2026.09 - 2028.06",
-            institution: "National Key Laboratory of Surveying, Mapping and Remote Sensing, Wuhan University",
-            degree: "Master's Degree in Remote Sensing Science and Technology",
-            details: [
-                "Recommended for postgraduate studies at: National Key Laboratory of Surveying, Mapping and Remote Sensing, Wuhan University",
-                "Expected Research Focus: Autonomous Positioning and Perception of Unmanned Systems",
-                "Advisor: Prof. Li You"
-            ]
-        },
-    ],
-    zh: [
-        
-        {
-            time: "2022.09 - 2026.06",
-            institution: "武汉大学 遥感信息工程学院",
-            degree: "空间信息与数字技术专业 本科在读",
-            details: []
-        },
-        {
-            time: "2026.09 - 2028.06",
-            institution: "武汉大学 测绘遥感信息工程全国重点实验室",
-            degree: "遥感科学与技术专业 硕士",
-            details: [
-                "已推免至：武汉大学 测绘遥感信息工程全国重点实验室",
-                "预计研究方向：无人系统自主定位与感知",
-                "导师：李由教授"
-            ]
-        },
-    ]
-};
-
-// 获奖经历数据
-const awardsData = {
-    en: [
-        {
-            logo: "robomaster.png",
-            name: "RoboMaster University League - Infantry Duel",
-            prize: "National First Prize",
-            organization: "National University Robot Competition Organizing Committee / DJI Innovation",
-            date: "2025",
-            news: "https://mp.weixin.qq.com/s/7cZJ-fV4WwXA3E49jD1Bvg"
-        },
-        {
-            logo: "craic.png",
-            name: "China Robotics and Artificial Intelligence Competition",
-            prize: "National Second Prize",
-            organization: "China Robotics and Artificial Intelligence Competition Organizing Committee",
-            date: "2025",
-            news: "#"
-        },
-        {
-            logo: "raicom.png",
-            name: "RAICOM National Robot Developer Competition",
-            prize: "National Second Prize",
-            organization: "Ministry of Industry and Information Technology Talent Exchange Center",
-            date: "2025",
-            news: "https://mp.weixin.qq.com/s/TEq7Q20iFrmV68r2q15VFQ"
-        },
-        {
-            logo: "hzsk.png",
-            name: "Huazhong CNC Cup Industrial Collaborative Robot and Digital Twinning Technology Innovation Application Special Competition",
-            prize: "Hubei Special Prize",
-            organization: "National 3D Digital Innovation Design Competition Organizing Committee / National Manufacturing Informatization Training Center / Beijing Guanghua Design Foundation",
-            date: "2025",
-            news: "#"
-        }
-    ],
-    zh: [
-        {
-            logo: "robomaster.png",
-            name: "RoboMaster机甲大师 高校联盟赛 步兵对抗赛",
-            prize: "全国一等奖",
-            organization: "全国大学生机器人大赛组委会 / 大疆创新",
-            date: "2025年",
-            news: "https://mp.weixin.qq.com/s/7cZJ-fV4WwXA3E49jD1Bvg"
-        },
-        {
-            logo: "craic.png",
-            name: "中国机器人及人工智能大赛",
-            prize: "全国二等奖",
-            organization: "中国机器人及人工智能大赛组委会",
-            date: "2025年",
-            news: "#"
-        },
-        {
-            logo: "raicom.png",
-            name: "睿抗全国机器人开发者大赛",
-            prize: "全国二等奖",
-            organization: "工业和信息化部人才交流中心",
-            date: "2025年",
-            news: "https://mp.weixin.qq.com/s/TEq7Q20iFrmV68r2q15VFQ"
-        },
-        {
-            logo: "hzsk.png",
-            name: "华中数控杯工业协作机器人及数字孪生技术创新应用专项赛",
-            prize: "湖北省特等奖",
-            organization: "全国三维数字化创新设计大赛组委会 / 国家制造业信息化培训中心 / 北京光华设计发展基金会",
-            date: "2025年",
-            news: "#"
-        }
-    ]
-};
-
-// 发表论文数据（示例）
-const publicationsData = {
-    en: [
-        // 可以添加论文数据
-    ],
-    zh: [
-        // 可以添加论文数据
-    ]
-};
-
-// 期刊论文数据（示例）
-const journalData = {
-    en: [
-        // 可以添加期刊论文数据
-    ],
-    zh: [
-        // 可以添加期刊论文数据
-    ]
-};
-
-// 其他共享数据
-// 修改 sharingData 数据结构，添加中英文的按钮文本
-const sharingData = {
-    en: [
-        {
-            logo: "blog.png",
-            name: "Technical Blog",
-            description: "My personal blog for sharing technical insights and development experiences",
-            link: "https://blog.csdn.net/qq_39599112?spm=1000.2115.3001.10640",
-            buttonText: "Visit"
-        },
-        {
-            logo: "project.png",
-            name: "Open Source Projects",
-            description: "Collection of open source projects I've developed and maintained",
-            link: "https://github.com/AaronChou313",
-            buttonText: "Visit"
-        },
-        {
-            logo: "tutorial.png",
-            name: "Learning Resources",
-            description: "Curated learning resources and tutorials in my field of expertise",
-            link: "https://www.yuque.com/zhoumingyang-mhzvi",
-            buttonText: "Visit"
-        }
-    ],
-    zh: [
-        {
-            logo: "blog.png",
-            name: "技术博客",
-            description: "分享技术见解和开发经验的个人博客",
-            link: "https://blog.csdn.net/qq_39599112?spm=1000.2115.3001.10640",
-            buttonText: "访问"
-        },
-        {
-            logo: "project.png",
-            name: "开源项目",
-            description: "我开发和维护的开源项目集合",
-            link: "https://github.com/AaronChou313",
-            buttonText: "访问"
-        },
-        {
-            logo: "tutorial.png",
-            name: "学习资源",
-            description: "精选的学习资源和专业教程",
-            link: "https://www.yuque.com/zhoumingyang-mhzvi",
-            buttonText: "访问"
-        }
-    ]
-};
-
-const translations = {
-    zh: {
-        "nav-about": "关于我",
-        "nav-education": "教育经历",
-        "nav-awards": "获奖经历",
-        "nav-publications": "发表论文",
-        "nav-journal": "期刊论文",
-        name: "周明杨",
-        title: "空间信息与数字技术专业 本科生",
-        institution: "武汉大学 遥感信息工程学院",
-        email: "zhoumy@whu.edu.cn",
-        "github-link": "GitHub",
-        "gitee-link": "Gitee",
-        "scholar-link": "谷歌学术",
-        "orcid-link": "ORCID",
-        "resume-link": "个人简历",
-        "about-title": "关于我",
-        "about-content1": "我是武汉大学遥感信息工程学院空间信息与数字技术专业本科生，预计2026年毕业。目前已推免保研至武汉大学测绘遥感全国重点实验室，预计研究方向为无人系统自主定位与感知，在李由教授的指导下开展相关研究工作。",
-        "about-content2": "本科期间就读于空间信息与数字技术专业，积极参与多项大学生机器人赛事，均获得国家级奖项，在此过程中，学习积累了丰富的机器人开发知识与经验。",
-        "about-content3": "我希望通过严谨的研究和创新为我国机器人领域的发展做出贡献。",
-        "about-interests": "研究兴趣：人工智能、机器人开发、建图导航与定位",
-        "education-title": "教育经历",
-        "awards-title": "获奖经历",
-        "publications-title": "发表论文",
-        "journal-title": "期刊论文",
-        "theme-toggle": "🌓",
-        "lang-toggle": "🌐",
-        "page-title": "周明杨 - 个人学术主页",
-        "nav-brand": "周明杨",
-        "footer-text": "© 2025 周明杨. 个人学术主页 | 最后更新: 2025年9月",
-        "news-link": "新闻链接",
-        "sharing-title": "其他共享",
-        "nav-sharing": "其他共享"
-    },
-    en: {
-        "nav-about": "About",
-        "nav-education": "Education",
-        "nav-awards": "Awards",
-        "nav-publications": "Publications",
-        "nav-journal": "Journal Papers",
-        name: "Mingyang Zhou",
-        title: "Undergraduate in Spatial Information and Digital Technology",
-        institution: "School of Remote Sensing and Information Engineering, Wuhan University",
-        email: "zhoumy@whu.edu.cn",
-        "github-link": "GitHub",
-        "gitee-link": "Gitee",
-        "scholar-link": "Google Scholar",
-        "orcid-link": "ORCID",
-        "resume-link": "Resume",
-        "about-title": "About Me",
-        "about-content1": "I am an undergraduate student majoring in Spatial Information and Digital Technology at the School of Remote Sensing and Information Engineering, Wuhan University, expected to graduate in 2026. I have been recommended for postgraduate studies at the National Key Laboratory of Surveying, Mapping and Remote Sensing, Wuhan University, with a research focus on autonomous positioning and perception of unmanned systems under the guidance of Professor Li You.",
-        "about-content2": "During my undergraduate studies in Spatial Information and Digital Technology, I actively participated in multiple university robotics competitions and won national-level awards. Through these experiences, I have acquired extensive knowledge and experience in robotics development.",
-        "about-content3": "I aspire to contribute to the development of robotics in China through rigorous research and innovation.",
-        "about-interests": "Research Interests: Artificial Intelligence, Robotics Development, SLAM and Localization",
-        "education-title": "Education",
-        "awards-title": "Awards & Honors",
-        "publications-title": "Publications",
-        "journal-title": "Journal Papers",
-        "theme-toggle": "🌓",
-        "lang-toggle": "🌐",
-        "page-title": "Mingyang Zhou - Personal Academic Page",
-        "nav-brand": "Mingyang Zhou",
-        "footer-text": "© 2025 Mingyang Zhou. Personal Academic Page | Last Updated: September 2025",
-        "news-link": "News Link",
-        "sharing-title": "Sharing",
-        "nav-sharing": "Sharing"
-    }
-};
-
-// Initialize page content on load
+// ==========================================
+// 页面初始化
+// ==========================================
 document.addEventListener('DOMContentLoaded', function() {
     updatePageLanguage(currentLang);
+    updateColorTheme(currentColor);
 });
 
+// ==========================================
+// 主题切换功能
+// ==========================================
 themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
 
-// Language toggle functionality
-const langToggle = document.getElementById('lang-toggle');
+// ==========================================
+// 颜色切换功能
+// ==========================================
+colorToggle.addEventListener('click', () => {
+    showColorPicker();
+});
+
+function showColorPicker() {
+    // 检查是否已经存在颜色选择器
+    let colorPickerOverlay = document.querySelector('.color-picker-overlay');
+    
+    if (!colorPickerOverlay) {
+        // 创建颜色选择器弹窗
+        colorPickerOverlay = document.createElement('div');
+        colorPickerOverlay.className = 'color-picker-overlay';
+        colorPickerOverlay.innerHTML = `
+            <div class="color-picker-container">
+                <div class="color-picker-header">
+                    <h3>${currentLang === 'en' ? 'Choose Theme Color' : '选择主题颜色'}</h3>
+                    <button class="color-picker-close">&times;</button>
+                </div>
+                <div class="color-options">
+                    ${Object.keys(config.themeColors).map(colorKey => `
+                        <div class="color-option ${colorKey === currentColor ? 'active' : ''}" 
+                             data-color="${colorKey}" 
+                             style="color: ${config.themeColors[colorKey].color}"
+                             title="${config.themeColors[colorKey].name[currentLang]}">
+                            <span>${config.themeColors[colorKey].name[currentLang]}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="color-picker-footer">
+                    ${currentLang === 'en' ? 'Click on a color to apply' : '点击颜色应用'}
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(colorPickerOverlay);
+        
+        // 添加关闭事件监听器
+        const closeBtn = colorPickerOverlay.querySelector('.color-picker-close');
+        closeBtn.addEventListener('click', () => {
+            closeColorPicker(colorPickerOverlay);
+        });
+        
+        // 点击遮罩层关闭
+        colorPickerOverlay.addEventListener('click', (e) => {
+            if (e.target === colorPickerOverlay) {
+                closeColorPicker(colorPickerOverlay);
+            }
+        });
+        
+        // 添加颜色选择事件监听器
+        colorPickerOverlay.querySelectorAll('.color-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const selectedColor = this.getAttribute('data-color');
+                currentColor = selectedColor;
+                updateColorTheme(selectedColor);
+                
+                // 更新选中状态
+                colorPickerOverlay.querySelectorAll('.color-option').forEach(opt => {
+                    opt.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // 选择颜色后自动关闭颜色选择器
+                setTimeout(() => {
+                    closeColorPicker(colorPickerOverlay);
+                }, 300);
+            });
+        });
+    }
+    
+    // 显示颜色选择器
+    setTimeout(() => {
+        colorPickerOverlay.classList.add('active');
+    }, 10);
+}
+
+function closeColorPicker(colorPickerOverlay) {
+    colorPickerOverlay.classList.remove('active');
+    setTimeout(() => {
+        if (colorPickerOverlay.parentNode) {
+            colorPickerOverlay.parentNode.removeChild(colorPickerOverlay);
+        }
+    }, 300);
+}
+
+function updateColorTheme(colorKey) {
+    const colorValue = config.themeColors[colorKey].color;
+    document.documentElement.style.setProperty('--primary-color', colorValue);
+    
+    // 在暗色模式下，稍微调整颜色以保持良好的对比度
+    const darkModeColor = adjustColorForDarkMode(colorValue);
+    document.documentElement.style.setProperty('--primary-color-dark', darkModeColor);
+}
+
+function adjustColorForDarkMode(hexColor) {
+    // 将十六进制颜色转换为RGB
+    const r = parseInt(hexColor.slice(1, 3), 16);
+    const g = parseInt(hexColor.slice(3, 5), 16);
+    const b = parseInt(hexColor.slice(5, 7), 16);
+    
+    // 在暗色模式下稍微提亮颜色
+    const factor = 1.3;
+    const newR = Math.min(255, Math.floor(r * factor));
+    const newG = Math.min(255, Math.floor(g * factor));
+    const newB = Math.min(255, Math.floor(b * factor));
+    
+    return `#${newR.toString(16).padStart(2, '0')}${newG.toString(16).padStart(2, '0')}${newB.toString(16).padStart(2, '0')}`;
+}
+
+// ==========================================
+// 语言切换功能
+// ==========================================
+langToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'zh' : 'en';
+    updatePageLanguage(currentLang);
+});
 
 function updatePageLanguage(lang) {
+    currentLang = lang;
+    
     // Update page title
-    document.getElementById('page-title').textContent = translations[lang]['page-title'];
+    document.getElementById('page-title').textContent = config.translations[lang]['page-title'];
     
     // Update navigation
-    document.getElementById('nav-brand').textContent = translations[lang]['nav-brand'];
-    document.getElementById('nav-about').textContent = translations[lang]["nav-about"];
-    document.getElementById('nav-education').textContent = translations[lang]["nav-education"];
-    document.getElementById('nav-awards').textContent = translations[lang]["nav-awards"];
-    document.getElementById('nav-publications').textContent = translations[lang]["nav-publications"];
-    document.getElementById('nav-journal').textContent = translations[lang]["nav-journal"];
-    document.getElementById('nav-sharing').textContent = translations[lang]["nav-sharing"];
+    document.getElementById('nav-brand').textContent = config.translations[lang]['nav-brand'];
+    document.getElementById('nav-about').textContent = config.translations[lang]["nav-about"];
+    document.getElementById('nav-education').textContent = config.translations[lang]["nav-education"];
+    document.getElementById('nav-papers').textContent = config.translations[lang]["nav-papers"];
+    document.getElementById('nav-awards').textContent = config.translations[lang]["nav-awards"];
+    document.getElementById('nav-sharing').textContent = config.translations[lang]["nav-sharing"];
     
-    // Update profile section
-    document.getElementById('name').textContent = translations[lang].name;
-    document.getElementById('title').textContent = translations[lang].title;
-    document.getElementById('institution').textContent = translations[lang].institution;
-    document.getElementById('email').textContent = translations[lang].email;
+    // Update profile section - 从配置中获取个人信息
+    document.getElementById('name').textContent = config.personalInfo.name[lang];
+    document.getElementById('title').textContent = config.personalInfo.title[lang];
+    document.getElementById('institution').textContent = config.personalInfo.institution[lang];
+    document.getElementById('email').textContent = config.personalInfo.email; // 统一的邮箱
+    // 更新头像 - 统一的头像
+    document.getElementById('profile-photo').src = config.personalInfo.profileImage;
     
-    // Update social link titles based on language
-    document.getElementById('github-link').title = "GitHub";
-    document.getElementById('gitee-link').title = translations[lang]['gitee-link'];
-    document.getElementById('scholar-link').title = translations[lang]['scholar-link'];
-    document.getElementById('orcid-link').title = "ORCID";
-    document.getElementById('resume-link').title = translations[lang]['resume-link'];
+    // Update social links - 从配置中动态生成
+    updateSocialLinks(lang);
     
-    // Update about section
-    document.getElementById('about-title').textContent = translations[lang]['about-title'];
-    document.getElementById('about-content1').textContent = translations[lang]['about-content1'];
-    document.getElementById('about-content2').textContent = translations[lang]['about-content2'];
-    document.getElementById('about-content3').textContent = translations[lang]['about-content3'];
-    document.getElementById('about-interests').textContent = translations[lang]['about-interests'];
+    // Update about section - 使用新的自我介绍内容配置
+    document.getElementById('about-title').textContent = config.translations[lang]['about-title'];
+    document.getElementById('about-content1').textContent = config.aboutContent[lang].content1;
+    document.getElementById('about-content2').textContent = config.aboutContent[lang].content2;
+    document.getElementById('about-content3').textContent = config.aboutContent[lang].content3;
+    document.getElementById('about-interests').textContent = config.aboutContent[lang].interests;
     
     // Update section titles
-    document.getElementById('education-title').textContent = translations[lang]['education-title'];
-    document.getElementById('awards-title').textContent = translations[lang]['awards-title'];
-    document.getElementById('publications-title').textContent = translations[lang]['publications-title'];
-    document.getElementById('journal-title').textContent = translations[lang]['journal-title'];
-    document.getElementById('sharing-title').textContent = translations[lang]['sharing-title'];
+    document.getElementById('education-title').textContent = config.translations[lang]['education-title'];
+    document.getElementById('papers-title').textContent = config.translations[lang]['papers-title'];
+    document.getElementById('awards-title').textContent = config.translations[lang]['awards-title'];
+    document.getElementById('sharing-title').textContent = config.translations[lang]['sharing-title'];
+    
+    // Update papers section titles
+    document.getElementById('selected-papers-title').textContent = config.translations[lang]['selected-papers-title'];
+    document.getElementById('other-papers-title').textContent = config.translations[lang]['other-papers-title'];
     
     // Update footer
-    document.getElementById('footer-text').textContent = translations[lang]['footer-text'];
+    document.getElementById('footer-text').textContent = config.translations[lang]['footer-text'];
     
     // Update control buttons
-    document.getElementById('theme-toggle').textContent = translations[lang]['theme-toggle'];
-    document.getElementById('lang-toggle').textContent = translations[lang]['lang-toggle'];
+    document.getElementById('theme-toggle').textContent = config.translations[lang]['theme-toggle'];
+    document.getElementById('lang-toggle').textContent = config.translations[lang]['lang-toggle'];
+    document.getElementById('color-toggle').textContent = config.translations[lang]['color-toggle'];
     
     // Update education section
     updateEducationSection(lang);
     
+    // Update papers section
+    updatePapersSection(lang);
+    
     // Update awards section
     updateAwardsSection(lang);
     
-    // Update publications section
-    updatePublicationsSection(lang);
-    
-    // Update journal section
-    updateJournalSection(lang);
-
     // Update sharing section
     updateSharingSection(lang);
+    
+    // 如果颜色选择器打开，则更新其语言
+    updateColorPickerLanguage(lang);
+}
+
+function updateColorPickerLanguage(lang) {
+    const colorPickerOverlay = document.querySelector('.color-picker-overlay');
+    if (colorPickerOverlay) {
+        const header = colorPickerOverlay.querySelector('.color-picker-header h3');
+        const footer = colorPickerOverlay.querySelector('.color-picker-footer');
+        
+        header.textContent = lang === 'en' ? 'Choose Theme Color' : '选择主题颜色';
+        footer.textContent = lang === 'en' ? 'Click on a color to apply' : '点击颜色应用';
+        
+        // 更新颜色选项的文本
+        colorPickerOverlay.querySelectorAll('.color-option').forEach(option => {
+            const colorKey = option.getAttribute('data-color');
+            const span = option.querySelector('span');
+            span.textContent = config.themeColors[colorKey].name[lang];
+            option.title = config.themeColors[colorKey].name[lang];
+        });
+    }
+}
+
+// ==========================================
+// 各部分内容更新函数
+// ==========================================
+
+function updateSocialLinks(lang) {
+    const socialLinksContainer = document.querySelector('.social-links');
+    socialLinksContainer.innerHTML = '';
+    
+    Object.keys(config.socialLinks).forEach(key => {
+        const socialLink = config.socialLinks[key];
+        
+        if (socialLink.visible !== false) {
+            const linkElement = document.createElement('a');
+            linkElement.href = socialLink.url;
+            linkElement.id = `${key}-link`;
+            linkElement.className = 'social-link';
+            linkElement.title = socialLink.title[lang];
+            if (key === 'github') {
+                linkElement.target = '_blank';
+            }
+            
+            const imgElement = document.createElement('img');
+            imgElement.src = socialLink.icon;
+            imgElement.alt = socialLink.title[lang];
+            imgElement.className = 'social-icon';
+            
+            linkElement.appendChild(imgElement);
+            socialLinksContainer.appendChild(linkElement);
+        }
+    });
 }
 
 function updateEducationSection(lang) {
+    const educationSection = document.getElementById('education');
     const educationList = document.getElementById('education-list');
     educationList.innerHTML = '';
     
-    educationData[lang].forEach(edu => {
+    config.educationData.common.forEach(edu => {
         const eduItem = document.createElement('div');
         eduItem.className = 'education-item';
         
         let detailsHTML = '';
         edu.details.forEach(detail => {
-            detailsHTML += `<div>${detail}</div>`;
+            detailsHTML += `<div>${detail[lang]}</div>`;
         });
         
         eduItem.innerHTML = `
             <div class="time">${edu.time}</div>
-            <div class="institution">${edu.institution}</div>
-            <div>${edu.degree}</div>
+            <div class="institution">${edu.institution[lang]}</div>
+            <div>${edu.degree[lang]}</div>
             ${detailsHTML}
         `;
         
         educationList.appendChild(eduItem);
     });
+    
+    // 如果教育经历列表为空，则隐藏整个模块
+    if (config.educationData.common.length === 0) {
+        educationSection.classList.add('hidden');
+    } else {
+        educationSection.classList.remove('hidden');
+    }
+}
+
+function updatePapersSection(lang) {
+    // Update selected papers
+    const papersSection = document.getElementById('papers');
+    const selectedPapersList = document.getElementById('selected-papers-list');
+    const otherPapersList = document.getElementById('other-papers-list');
+    const selectedPapersTitle = document.getElementById('selected-papers-title');
+    const otherPapersTitle = document.getElementById('other-papers-title');
+    
+    selectedPapersList.innerHTML = '';
+    otherPapersList.innerHTML = '';
+    
+    // 处理精选论文
+    config.papersData.common.selected.forEach(paper => {
+        const paperItem = document.createElement('div');
+        paperItem.className = 'paper-item selected';
+        
+        // 处理作者列表，将**name**转换为<strong>name</strong>
+        const authorsHTML = paper.authors.map(author => 
+            author.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        ).join(', ');
+        
+        // 创建按钮HTML
+        let buttonsHTML = '';
+        if (paper.links.pdf && paper.links.pdf !== '#') {
+            buttonsHTML += `<a href="${paper.links.pdf}" class="paper-button" target="_blank">${config.translations[lang]['pdf-button']}</a>`;
+        }
+        if (paper.links.cite && paper.links.cite !== '#') {
+            buttonsHTML += `<a href="${paper.links.cite}" class="paper-button" target="_blank">${config.translations[lang]['cite-button']}</a>`;
+        }
+        if (paper.links.slides && paper.links.slides !== '#') {
+            buttonsHTML += `<a href="${paper.links.slides}" class="paper-button" target="_blank">${config.translations[lang]['slides-button']}</a>`;
+        }
+        if (paper.links.video && paper.links.video !== '#') {
+            buttonsHTML += `<a href="${paper.links.video}" class="paper-button" target="_blank">${config.translations[lang]['video-button']}</a>`;
+        }
+        
+        paperItem.innerHTML = `
+            <div class="paper-image">
+                <img src="src/${paper.image}" alt="${paper.title[lang]}" onerror="this.style.display='none'">
+            </div>
+            <div class="paper-content">
+                <h4 class="paper-title">${paper.title[lang]}</h4>
+                <div class="paper-authors">${authorsHTML}</div>
+                <div class="paper-venue">${paper.venue}</div>
+                <div class="paper-description">${paper.description[lang]}</div>
+                <div class="paper-buttons">
+                    ${buttonsHTML}
+                </div>
+            </div>
+        `;
+        
+        selectedPapersList.appendChild(paperItem);
+    });
+    
+    // Update other papers
+    config.papersData.common.other.forEach(paper => {
+        const paperItem = document.createElement('div');
+        paperItem.className = 'paper-item other';
+        
+        // 处理引用文本，将**name**转换为<strong>name</strong>
+        const referenceHTML = paper.reference[lang].replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        
+        // 创建按钮HTML
+        let buttonsHTML = '';
+        if (paper.links.pdf && paper.links.pdf !== '#') {
+            buttonsHTML += `<a href="${paper.links.pdf}" class="paper-button" target="_blank">${config.translations[lang]['pdf-button']}</a>`;
+        }
+        if (paper.links.cite && paper.links.cite !== '#') {
+            buttonsHTML += `<a href="${paper.links.cite}" class="paper-button" target="_blank">${config.translations[lang]['cite-button']}</a>`;
+        }
+        
+        paperItem.innerHTML = `
+            <div class="paper-content">
+                <div class="paper-reference">${referenceHTML}</div>
+                <div class="paper-buttons">
+                    ${buttonsHTML}
+                </div>
+            </div>
+        `;
+        
+        otherPapersList.appendChild(paperItem);
+    });
+    
+    // 显示或隐藏论文标题
+    if (config.papersData.common.selected.length > 0) {
+        selectedPapersTitle.style.display = 'block';
+    } else {
+        selectedPapersTitle.style.display = 'none';
+    }
+    
+    if (config.papersData.common.other.length > 0) {
+        otherPapersTitle.style.display = 'block';
+    } else {
+        otherPapersTitle.style.display = 'none';
+    }
+    
+    // 如果两个列表都为空，则隐藏整个模块
+    if (config.papersData.common.selected.length === 0 && config.papersData.common.other.length === 0) {
+        papersSection.classList.add('hidden');
+    } else {
+        papersSection.classList.remove('hidden');
+    }
 }
 
 function updateAwardsSection(lang) {
+    const awardsSection = document.getElementById('awards');
     const awardsList = document.getElementById('awards-list');
     awardsList.innerHTML = '';
     
-    awardsData[lang].forEach(award => {
+    config.awardsData.common.forEach(award => {
         const awardItem = document.createElement('div');
         awardItem.className = 'award-item';
         
         // 只有当news不为"#"时才显示新闻链接
         const newsLink = award.news !== '#' ? 
-            `<a href="${award.news}" class="award-news">${translations[lang]['news-link']}</a>` : '';
+            `<a href="${award.news}" class="award-news">${config.translations[lang]['news-link']}</a>` : '';
         
         awardItem.innerHTML = `
             <div class="award-logo">
-                <img src="src/${award.logo}" alt="${award.name}" onerror="this.style.display='none'">
+                <img src="src/${award.logo}" alt="${award.name[lang]}" onerror="this.style.display='none'">
             </div>
             <div class="award-content">
-                <h3 class="award-name">${award.name}</h3>
-                <div class="award-prize">${award.prize}</div>
-                <div class="award-organization">${award.organization}</div>
+                <h3 class="award-name">${award.name[lang]}</h3>
+                <div class="award-prize">${award.prize[lang]}</div>
+                <div class="award-organization">${award.organization[lang]}</div>
                 <div class="award-date">${award.date}</div>
                 ${newsLink}
             </div>
@@ -382,62 +424,49 @@ function updateAwardsSection(lang) {
         
         awardsList.appendChild(awardItem);
     });
-}
-
-function updatePublicationsSection(lang) {
-    const publicationsList = document.getElementById('publications-list');
-    publicationsList.innerHTML = '';
     
-    // 如果有论文数据，可以在这里处理
-    if (publicationsData[lang].length > 0) {
-        // 处理论文数据
+    // 如果获奖列表为空，则隐藏整个模块
+    if (config.awardsData.common.length === 0) {
+        awardsSection.classList.add('hidden');
     } else {
-        publicationsList.innerHTML = '<p>Currently no publications available.</p>';
+        awardsSection.classList.remove('hidden');
     }
 }
 
-function updateJournalSection(lang) {
-    const journalList = document.getElementById('journal-list');
-    journalList.innerHTML = '';
-    
-    // 如果有期刊论文数据，可以在这里处理
-    if (journalData[lang].length > 0) {
-        // 处理期刊论文数据
-    } else {
-        journalList.innerHTML = '<p>Currently no journal papers available.</p>';
-    }
-}
-
-// 修改更新分享部分的函数
 function updateSharingSection(lang) {
+    const sharingSection = document.getElementById('sharing');
     const sharingList = document.getElementById('sharing-list');
     sharingList.innerHTML = '';
     
-    sharingData[lang].forEach(item => {
+    config.sharingData.common.forEach(item => {
         const sharingItem = document.createElement('div');
         sharingItem.className = 'sharing-item';
         
         sharingItem.innerHTML = `
             <div class="sharing-logo">
-                <img src="src/${item.logo}" alt="${item.name}" onerror="this.style.display='none'">
+                <img src="src/${item.logo}" alt="${item.name[lang]}" onerror="this.style.display='none'">
             </div>
             <div class="sharing-content">
-                <h3 class="sharing-name">${item.name}</h3>
-                <p class="sharing-description">${item.description}</p>
-                <a href="${item.link}" class="sharing-link" target="_blank">${item.buttonText} →</a>
+                <h3 class="sharing-name">${item.name[lang]}</h3>
+                <p class="sharing-description">${item.description[lang]}</p>
+                <a href="${item.link}" class="sharing-link" target="_blank">${item.buttonText[lang]} →</a>
             </div>
         `;
         
         sharingList.appendChild(sharingItem);
     });
+    
+    // 如果分享列表为空，则隐藏整个模块
+    if (config.sharingData.common.length === 0) {
+        sharingSection.classList.add('hidden');
+    } else {
+        sharingSection.classList.remove('hidden');
+    }
 }
 
-langToggle.addEventListener('click', () => {
-    currentLang = currentLang === 'en' ? 'zh' : 'en';
-    updatePageLanguage(currentLang);
-});
-
+// ==========================================
 // 平滑滚动功能
+// ==========================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
