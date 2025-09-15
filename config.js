@@ -147,7 +147,7 @@ const experienceData = {
                     zh: "空间信息与数字技术"
                 },
                 degree: {
-                    en: "Bachelor's Degree in Spatial Information and Digital Technology",
+                    en: "Bachelor's Degree",
                     zh: "学士 本科在读"
                 },
                 advisor: {},
@@ -165,7 +165,7 @@ const experienceData = {
                     zh: "遥感科学与技术"
                 },
                 degree: {
-                    en: "Master's Degree in Remote Sensing Science and Technology",
+                    en: "Master's Degree",
                     zh: "硕士"
                 },
                 advisor: {
