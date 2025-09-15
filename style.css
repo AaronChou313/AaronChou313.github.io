@@ -44,7 +44,9 @@ body {
     padding: 0 20px;
 }
 
+/* ========================================== */
 /* 导航栏样式 */
+/* ========================================== */
 .navbar {
     background-color: var(--nav-bg);
     box-shadow: var(--nav-shadow);
@@ -109,7 +111,7 @@ body {
     border-color: var(--link-color);
 }
 
-/* 颜色选择器样式 - 改进版本 */
+/* 颜色选择器样式 */
 .color-picker-overlay {
     position: fixed;
     top: 0;
@@ -252,7 +254,9 @@ body {
     opacity: 0.7;
 }
 
+/* ========================================== */
 /* 主要内容区域 */
+/* ========================================== */
 .container>section {
     background: var(--section-bg);
     margin: 20px 0;
@@ -261,7 +265,22 @@ body {
     box-shadow: var(--shadow);
 }
 
+/* 隐藏模块 */
+.hidden {
+    display: none;
+}
+
+/* 标题样式 */
+h2 {
+    color: var(--link-color);
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ========================================== */
 /* 个人简介模块 */
+/* ========================================== */
 .about-section {
     margin-top: 20px;
 }
@@ -318,13 +337,6 @@ body {
     word-break: break-all;
 }
 
-/* 在移动端适配中也要确保邮箱显示正常 */
-@media (max-width: 992px) {
-    .email {
-        margin: 12px 0;
-    }
-}
-
 .social-links {
     display: flex;
     justify-content: center;
@@ -332,7 +344,6 @@ body {
     margin-top: 15px;
 }
 
-/* 工具提示样式优化 */
 .social-link {
     display: inline-block;
     width: 36px;
@@ -351,7 +362,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* 自定义工具提示样式（可选） */
 .social-link:hover::after {
     content: attr(title);
     position: absolute;
@@ -376,33 +386,14 @@ body {
     width: 18px;
     height: 18px;
     filter: brightness(0) invert(1);
-    /* 将图标变为白色 */
 }
 
-/* 在暗色模式下调整图标颜色 */
 .dark-mode .social-icon {
     filter: brightness(0) invert(1);
 }
 
-/* 在亮色模式下也保持白色图标 */
 .social-icon {
     filter: brightness(0) invert(1);
-}
-
-@media (max-width: 768px) {
-    .social-links {
-        gap: 10px;
-    }
-
-    .social-link {
-        width: 32px;
-        height: 32px;
-    }
-
-    .social-icon {
-        width: 16px;
-        height: 16px;
-    }
 }
 
 .about-right {
@@ -422,159 +413,9 @@ body {
     line-height: 1.7;
 }
 
-/* 教育经历模块 */
-#education h2 {
-    color: var(--link-color);
-    margin-bottom: 20px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.education-item {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.education-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.time {
-    color: var(--link-color);
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.education-item .institution {
-    font-weight: bold;
-    margin: 8px 0;
-}
-
-/* 获奖经历模块 */
-#awards h2 {
-    color: var(--link-color);
-    margin-bottom: 20px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.award-item {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
-    position: relative;
-    min-height: 80px;
-}
-
-.award-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.award-logo {
-    min-width: 40px;
-    display: flex;
-    align-items: flex-start;
-}
-
-.award-logo img {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-}
-
-.award-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.award-name {
-    font-size: 1.1rem;
-    margin-bottom: 6px;
-    color: var(--text-color);
-}
-
-.award-prize {
-    font-weight: bold;
-    color: var(--link-color);
-    margin-bottom: 6px;
-}
-
-.award-organization {
-    margin-bottom: 6px;
-    font-size: 0.9rem;
-}
-
-.award-date {
-    color: var(--link-color);
-    font-size: 0.85rem;
-    margin-top: auto;
-    margin-bottom: 0;
-}
-
-.award-news {
-    color: var(--link-color);
-    text-decoration: none;
-    font-size: 0.85rem;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-}
-
-.award-news:hover {
-    text-decoration: underline;
-}
-
-/* 在媒体查询中添加移动端适配 */
-@media (max-width: 768px) {
-    .award-item {
-        flex-direction: row;
-    }
-
-    .award-logo {
-        text-align: left;
-    }
-
-    .award-news {
-        position: relative;
-        margin-top: 10px;
-        text-align: right;
-        right: auto;
-        bottom: auto;
-    }
-}
-
-.award-news:hover {
-    text-decoration: underline;
-}
-
-/* 在媒体查询中添加移动端适配 */
-@media (max-width: 768px) {
-    .award-item {
-        flex-direction: row;
-    }
-
-    .award-logo {
-        text-align: left;
-    }
-
-    .award-news {
-        position: relative;
-        margin-top: 10px;
-        text-align: right;
-        right: auto;
-        bottom: auto;
-    }
-}
-
-/* Papers Section */
+/* ========================================== */
+/* 论文模块 */
+/* ========================================== */
 #papers h2 {
     color: var(--link-color);
     margin-bottom: 20px;
@@ -704,27 +545,145 @@ body {
     justify-content: flex-end;
 }
 
-/* Responsive design for papers section */
-@media (max-width: 768px) {
-    .paper-item.selected {
-        flex-direction: column;
-    }
-    
-    .paper-image {
-        flex: 0 0 auto;
-    }
-    
-    .paper-item.other .paper-content {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .paper-item.other .paper-buttons {
-        justify-content: flex-start;
-    }
+/* ========================================== */
+/* 获奖经历模块 */
+/* ========================================== */
+#awards h2 {
+    color: var(--link-color);
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
 }
 
-/* Sharing Section */
+.award-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    min-height: 80px;
+}
+
+.award-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.award-logo {
+    min-width: 40px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.award-logo img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.award-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.award-name {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    color: var(--text-color);
+}
+
+.award-prize {
+    font-weight: bold;
+    color: var(--link-color);
+    margin-bottom: 6px;
+}
+
+.award-organization {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
+.award-date {
+    color: var(--link-color);
+    font-size: 0.85rem;
+    margin-top: auto;
+    margin-bottom: 0;
+}
+
+.award-news {
+    color: var(--link-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.award-news:hover {
+    text-decoration: underline;
+}
+
+/* ========================================== */
+/* 经历模块 */
+/* ========================================== */
+#experience h2 {
+    color: var(--link-color);
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#experience h3 {
+    color: var(--link-color);
+    margin: 20px 0 12px 0;
+}
+
+.experience-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.experience-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.time {
+    color: var(--link-color);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.institution, .company {
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.major-degree {
+    margin: 5px 0;
+}
+
+.advisor, .research, .type, .position, .description {
+    margin: 5px 0;
+}
+
+.experience-details {
+    margin-top: 10px;
+}
+
+.experience-detail {
+    margin: 3px 0;
+    font-size: 0.9rem;
+}
+
+/* ========================================== */
+/* 分享模块 */
+/* ========================================== */
 #sharing h2 {
     color: var(--link-color);
     margin-bottom: 20px;
@@ -796,31 +755,9 @@ body {
     text-decoration: none;
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .sharing-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .sharing-item {
-        padding: 12px;
-    }
-}
-
-/* 隐藏模块 */
-.hidden {
-    display: none;
-}
-
-/* 标题样式 */
-h2 {
-    color: var(--link-color);
-    margin-bottom: 15px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border-color);
-}
-
+/* ========================================== */
 /* 页脚样式 */
+/* ========================================== */
 footer {
     text-align: center;
     padding: 20px;
@@ -839,7 +776,9 @@ a:hover {
     text-decoration: underline;
 }
 
+/* ========================================== */
 /* 响应式设计 */
+/* ========================================== */
 @media (max-width: 992px) {
     .container {
         max-width: 900px;
@@ -860,6 +799,10 @@ a:hover {
     .nav-links {
         display: none;
     }
+    
+    .email {
+        margin: 12px 0;
+    }
 }
 
 @media (max-width: 768px) {
@@ -871,6 +814,29 @@ a:hover {
         padding: 15px;
     }
 
+    .navbar .container {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav-controls {
+        margin-top: 8px;
+    }
+    
+    .social-links {
+        gap: 10px;
+    }
+
+    .social-link {
+        width: 32px;
+        height: 32px;
+    }
+
+    .social-icon {
+        width: 16px;
+        height: 16px;
+    }
+    
     .award-item {
         flex-direction: column;
         gap: 8px;
@@ -884,14 +850,38 @@ a:hover {
         flex-direction: column;
         gap: 5px;
     }
-
-    .navbar .container {
+    
+    .award-news {
+        position: relative;
+        margin-top: 10px;
+        text-align: right;
+        right: auto;
+        bottom: auto;
+    }
+    
+    .paper-item.selected {
         flex-direction: column;
-        gap: 12px;
+    }
+    
+    .paper-image {
+        flex: 0 0 auto;
+    }
+    
+    .paper-item.other .paper-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .paper-item.other .paper-buttons {
+        justify-content: flex-start;
+    }
+    
+    .sharing-grid {
+        grid-template-columns: 1fr;
     }
 
-    .nav-controls {
-        margin-top: 8px;
+    .sharing-item {
+        padding: 12px;
     }
 }
 

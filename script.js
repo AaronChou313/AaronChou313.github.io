@@ -152,16 +152,16 @@ function updatePageLanguage(lang) {
     // Update navigation
     document.getElementById('nav-brand').textContent = config.translations[lang]['nav-brand'];
     document.getElementById('nav-about').textContent = config.translations[lang]["nav-about"];
-    document.getElementById('nav-education').textContent = config.translations[lang]["nav-education"];
     document.getElementById('nav-papers').textContent = config.translations[lang]["nav-papers"];
     document.getElementById('nav-awards').textContent = config.translations[lang]["nav-awards"];
+    document.getElementById('nav-experience').textContent = config.translations[lang]["nav-experience"];
     document.getElementById('nav-sharing').textContent = config.translations[lang]["nav-sharing"];
     
     // Update profile section - 从配置中获取个人信息
     document.getElementById('name').textContent = config.personalInfo.name[lang];
     document.getElementById('title').textContent = config.personalInfo.title[lang];
     document.getElementById('institution').textContent = config.personalInfo.institution[lang];
-    document.getElementById('email').textContent = config.personalInfo.email; // 统一的邮箱
+    document.getElementById('email').textContent = config.personalInfo.email;
     // 更新头像 - 统一的头像
     document.getElementById('profile-photo').src = config.personalInfo.profileImage;
     
@@ -176,14 +176,14 @@ function updatePageLanguage(lang) {
     document.getElementById('about-interests').textContent = config.aboutContent[lang].interests;
     
     // Update section titles
-    document.getElementById('education-title').textContent = config.translations[lang]['education-title'];
     document.getElementById('papers-title').textContent = config.translations[lang]['papers-title'];
-    document.getElementById('awards-title').textContent = config.translations[lang]['awards-title'];
-    document.getElementById('sharing-title').textContent = config.translations[lang]['sharing-title'];
-    
-    // Update papers section titles
     document.getElementById('selected-papers-title').textContent = config.translations[lang]['selected-papers-title'];
     document.getElementById('other-papers-title').textContent = config.translations[lang]['other-papers-title'];
+    document.getElementById('awards-title').textContent = config.translations[lang]['awards-title'];
+    document.getElementById('experience-title').textContent = config.translations[lang]['experience-title'];
+    document.getElementById('education-experience-title').textContent = config.translations[lang]['education-experience-title'];
+    document.getElementById('occupation-experience-title').textContent = config.translations[lang]['occupation-experience-title'];
+    document.getElementById('sharing-title').textContent = config.translations[lang]['sharing-title'];
     
     // Update footer
     document.getElementById('footer-text').textContent = config.translations[lang]['footer-text'];
@@ -193,16 +193,10 @@ function updatePageLanguage(lang) {
     document.getElementById('lang-toggle').textContent = config.translations[lang]['lang-toggle'];
     document.getElementById('color-toggle').textContent = config.translations[lang]['color-toggle'];
     
-    // Update education section
-    updateEducationSection(lang);
-    
-    // Update papers section
+    // Update sections
+    updateExperienceSection(lang);
     updatePapersSection(lang);
-    
-    // Update awards section
     updateAwardsSection(lang);
-    
-    // Update sharing section
     updateSharingSection(lang);
     
     // 如果颜色选择器打开，则更新其语言
@@ -258,38 +252,6 @@ function updateSocialLinks(lang) {
             socialLinksContainer.appendChild(linkElement);
         }
     });
-}
-
-function updateEducationSection(lang) {
-    const educationSection = document.getElementById('education');
-    const educationList = document.getElementById('education-list');
-    educationList.innerHTML = '';
-    
-    config.educationData.common.forEach(edu => {
-        const eduItem = document.createElement('div');
-        eduItem.className = 'education-item';
-        
-        let detailsHTML = '';
-        edu.details.forEach(detail => {
-            detailsHTML += `<div>${detail[lang]}</div>`;
-        });
-        
-        eduItem.innerHTML = `
-            <div class="time">${edu.time}</div>
-            <div class="institution">${edu.institution[lang]}</div>
-            <div>${edu.degree[lang]}</div>
-            ${detailsHTML}
-        `;
-        
-        educationList.appendChild(eduItem);
-    });
-    
-    // 如果教育经历列表为空，则隐藏整个模块
-    if (config.educationData.common.length === 0) {
-        educationSection.classList.add('hidden');
-    } else {
-        educationSection.classList.remove('hidden');
-    }
 }
 
 function updatePapersSection(lang) {
@@ -430,6 +392,110 @@ function updateAwardsSection(lang) {
         awardsSection.classList.add('hidden');
     } else {
         awardsSection.classList.remove('hidden');
+    }
+}
+
+function updateExperienceSection(lang) {
+    const experienceSection = document.getElementById('experience');
+    const educationList = document.getElementById('education-list');
+    const occupationList = document.getElementById('occupation-list');
+    const educationTitle = document.getElementById('education-experience-title');
+    const occupationTitle = document.getElementById('occupation-experience-title');
+    
+    educationList.innerHTML = '';
+    occupationList.innerHTML = '';
+    
+    // 更新教育经历
+    config.experienceData.common.education.forEach(edu => {
+        const eduItem = document.createElement('div');
+        eduItem.className = 'experience-item education-item';
+        
+        let detailsHTML = '';
+        if (edu.details && edu.details.length > 0) {
+            detailsHTML = '<div class="experience-details">';
+            edu.details.forEach(detail => {
+                detailsHTML += `<div class="experience-detail">${detail[lang]}</div>`;
+            });
+            detailsHTML += '</div>';
+        }
+        
+        // 构建教育经历HTML，只显示非空字段
+        let eduHTML = `
+            <div class="time">${edu.time}</div>
+            <div class="institution">${edu.institution[lang]}</div>
+        `;
+        
+        // 将专业和学位放在同一行
+        let majorDegreeText = '';
+        if (edu.major && edu.major[lang]) {
+            majorDegreeText += edu.major[lang];
+        }
+        if (edu.degree && edu.degree[lang]) {
+            majorDegreeText += ' ' + edu.degree[lang];
+        }
+        if (majorDegreeText) {
+            eduHTML += `<div class="major-degree">${majorDegreeText}</div>`;
+        }
+        
+        if (edu.advisor && edu.advisor[lang]) {
+            eduHTML += `<div class="advisor"><strong>${lang === 'en' ? 'Advisor: ' : '导师: '}</strong>${edu.advisor[lang]}</div>`;
+        }
+        
+        if (edu.research && edu.research[lang]) {
+            eduHTML += `<div class="research"><strong>${lang === 'en' ? 'Research: ' : '研究内容: '}</strong>${edu.research[lang]}</div>`;
+        }
+        
+        eduHTML += detailsHTML;
+        
+        eduItem.innerHTML = eduHTML;
+        educationList.appendChild(eduItem);
+    });
+    
+    // 更新工作经历
+    config.experienceData.common.occupation.forEach(job => {
+        const jobItem = document.createElement('div');
+        jobItem.className = 'experience-item occupation-item';
+        
+        // 构建工作经历HTML
+        let jobHTML = `
+            <div class="time">${job.time}</div>
+            <div class="company">${job.company[lang]}</div>
+        `;
+        
+        if (job.type && job.type[lang]) {
+            jobHTML += `<div class="type"><strong>${lang === 'en' ? 'Type: ' : '类型: '}</strong>${job.type[lang]}</div>`;
+        }
+        
+        if (job.position && job.position[lang]) {
+            jobHTML += `<div class="position"><strong>${lang === 'en' ? 'Position: ' : '岗位: '}</strong>${job.position[lang]}</div>`;
+        }
+        
+        if (job.description && job.description[lang]) {
+            jobHTML += `<div class="description"><strong>${lang === 'en' ? 'Description: ' : '工作内容: '}</strong>${job.description[lang]}</div>`;
+        }
+        
+        jobItem.innerHTML = jobHTML;
+        occupationList.appendChild(jobItem);
+    });
+    
+    // 控制标题显示
+    if (config.experienceData.common.education.length > 0) {
+        educationTitle.style.display = 'block';
+    } else {
+        educationTitle.style.display = 'none';
+    }
+    
+    if (config.experienceData.common.occupation.length > 0) {
+        occupationTitle.style.display = 'block';
+    } else {
+        occupationTitle.style.display = 'none';
+    }
+    
+    // 如果两个列表都为空，则隐藏整个模块
+    if (config.experienceData.common.education.length === 0 && config.experienceData.common.occupation.length === 0) {
+        experienceSection.classList.add('hidden');
+    } else {
+        experienceSection.classList.remove('hidden');
     }
 }
 

@@ -1,46 +1,46 @@
 // config.js - 个人信息和内容配置文件
 
 // 默认颜色配置
-const defaultColor = 'blue'; // 可选值: 'blue', 'green', 'purple', 'orange', 'red', 'teal'
+const defaultColor = 'color1'; // 可选值: 'color1', 'color2', 'color3', 'color4', 'color5', 'color6'
 
 // 主题颜色配置
 const themeColors = {
-    blue: {
+    color1: {
         name: {
             en: "Blue",
             zh: "蓝色"
         },
         color: "#4a6fa5"
     },
-    green: {
+    color2: {
         name: {
             en: "Green",
             zh: "绿色"
         },
         color: "#2e7d32"
     },
-    purple: {
+    color3: {
         name: {
             en: "Purple",
             zh: "紫色"
         },
         color: "#5e35b1"
     },
-    orange: {
+    color4: {
         name: {
             en: "Orange",
             zh: "橙色"
         },
         color: "#ef6c00"
     },
-    red: {
+    color5: {
         name: {
             en: "Red",
             zh: "红色"
         },
         color: "#c62828"
     },
-    teal: {
+    color6: {
         name: {
             en: "Teal",
             zh: "蓝绿色"
@@ -63,7 +63,6 @@ const personalInfo = {
         en: "School of Remote Sensing and Information Engineering, Wuhan University",
         zh: "武汉大学 遥感信息工程学院"
     },
-    // 统一的邮箱和头像配置
     email: "zhoumy@whu.edu.cn",
     profileImage: "./src/profile.jpg"
 };
@@ -133,47 +132,81 @@ const socialLinks = {
     }
 };
 
-// 教育经历配置
-const educationData = {
-    common: [
-        {
-            time: "2022.09 - 2026.06",
-            institution: {
-                en: "School of Remote Sensing and Information Engineering, Wuhan University",
-                zh: "武汉大学 遥感信息工程学院"
-            },
-            degree: {
-                en: "Bachelor's Degree in Spatial Information and Digital Technology (In Progress)",
-                zh: "空间信息与数字技术专业 本科在读"
-            },
-            details: []
-        },
-        {
-            time: "2026.09 - 2028.06",
-            institution: {
-                en: "National Key Laboratory of Surveying, Mapping and Remote Sensing, Wuhan University",
-                zh: "武汉大学 测绘遥感信息工程全国重点实验室"
-            },
-            degree: {
-                en: "Master's Degree in Remote Sensing Science and Technology",
-                zh: "遥感科学与技术专业 硕士"
-            },
-            details: [
-                {
-                    en: "Recommended for postgraduate studies at: National Key Laboratory of Surveying, Mapping and Remote Sensing, Wuhan University",
-                    zh: "已推免至：武汉大学 测绘遥感信息工程全国重点实验室"
+// 教育和工作经历配置
+const experienceData = {
+    common: {
+        education: [
+            {
+                time: "2022.09 - 2026.06",
+                institution: {
+                    en: "School of Remote Sensing and Information Engineering, Wuhan University",
+                    zh: "武汉大学 遥感信息工程学院"
                 },
-                {
-                    en: "Expected Research Focus: Autonomous Positioning and Perception of Unmanned Systems",
-                    zh: "预计研究方向：无人系统自主定位与感知"
+                major: {
+                    en: "Spatial Information and Digital Technology",
+                    zh: "空间信息与数字技术"
                 },
-                {
-                    en: "Advisor: Prof. Li You",
-                    zh: "导师：李由教授"
-                }
-            ]
-        }
-    ]
+                degree: {
+                    en: "Bachelor's Degree in Spatial Information and Digital Technology",
+                    zh: "学士 本科在读"
+                },
+                advisor: {},
+                research: {},
+                details: []
+            },
+            {
+                time: "2026.09 - 2028.06",
+                institution: {
+                    en: "National Key Laboratory of Surveying, Mapping and Remote Sensing, Wuhan University",
+                    zh: "武汉大学 测绘遥感信息工程全国重点实验室"
+                },
+                major: {
+                    en: "Remote Sensing Science and Technology",
+                    zh: "遥感科学与技术"
+                },
+                degree: {
+                    en: "Master's Degree in Remote Sensing Science and Technology",
+                    zh: "硕士"
+                },
+                advisor: {
+                    en: "Prof. Li You",
+                    zh: "李由教授"
+                },
+                research: {
+                    en: "Autonomous positioning and perception of unmanned systems",
+                    zh: "无人系统自主定位与感知"
+                },
+                details: [
+                    {
+                        en: "Already recommended for postgraduate studies",
+                        zh: "已获得推荐免试研究生资格"
+                    }
+                ]
+            }
+        ],
+        occupation: [
+            // 示例工作经历
+            // {
+            //     time: "2024.07 - 2024.09",
+            //     company: {
+            //         en: "Example Company",
+            //         zh: "示例公司"
+            //     },
+            //     type: {
+            //         en: "Internship",
+            //         zh: "实习"
+            //     },
+            //     position: {
+            //         en: "Software Engineering Intern",
+            //         zh: "软件工程实习生"
+            //     },
+            //     description: {
+            //         en: "Developed web applications using React and Node.js",
+            //         zh: "使用React和Node.js开发Web应用程序"
+            //     }
+            // },
+        ]
+    }
 };
 
 // 论文配置
@@ -215,7 +248,7 @@ const papersData = {
     }
 };
 
-// 修改 awardsData 结构，将图片和链接统一设置，只将描述文字分为中英文
+// 获奖经历配置
 const awardsData = {
     common: [
         {
@@ -416,7 +449,7 @@ const translations = {
         
         // 导航栏
         "nav-about": "About",
-        "nav-education": "Education",
+        "nav-experience": "Experience", // 修改为 Experience
         "nav-papers": "Papers",
         "nav-awards": "Awards",
         "nav-sharing": "Sharing",
@@ -435,7 +468,9 @@ const translations = {
         
         // 各个板块标题
         "about-title": "About Me",
-        "education-title": "Education",
+        "experience-title": "Experience", // 添加
+        "education-experience-title": "Education", // 添加
+        "occupation-experience-title": "Occupation", // 添加
         "papers-title": "Papers",
         "selected-papers-title": "Selected Papers",
         "other-papers-title": "Other Papers",
@@ -459,7 +494,7 @@ const translations = {
         
         // 导航栏
         "nav-about": "关于我",
-        "nav-education": "教育经历",
+        "nav-experience": "经历", // 修改为 经历
         "nav-papers": "论文发表",
         "nav-awards": "获奖经历",
         "nav-sharing": "其他分享",
@@ -478,7 +513,9 @@ const translations = {
         
         // 各个板块标题
         "about-title": "关于我",
-        "education-title": "教育经历",
+        "experience-title": "经历", // 添加
+        "education-experience-title": "教育经历", // 添加
+        "occupation-experience-title": "工作经历", // 添加
         "papers-title": "论文发表",
         "selected-papers-title": "精选论文",
         "other-papers-title": "其他论文",
@@ -504,7 +541,7 @@ const config = {
     personalInfo,
     aboutContent,
     socialLinks,
-    educationData,
+    experienceData,
     papersData,
     awardsData,
     sharingData,
