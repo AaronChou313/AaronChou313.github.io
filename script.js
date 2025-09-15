@@ -427,11 +427,11 @@ function updateExperienceSection(lang) {
         
         // 将专业和学位放在同一行
         let majorDegreeText = '';
-        if (edu.major && edu.major[lang]) {
-            majorDegreeText += edu.major[lang];
-        }
         if (edu.degree && edu.degree[lang]) {
-            majorDegreeText += ' ' + edu.degree[lang];
+            majorDegreeText += edu.degree[lang];
+        }
+        if (edu.major && edu.major[lang]) {
+            majorDegreeText += '   ' + edu.major[lang];
         }
         if (majorDegreeText) {
             eduHTML += `<div class="major-degree">${majorDegreeText}</div>`;
