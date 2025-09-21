@@ -154,35 +154,6 @@ const experienceData = {
                 research: {},
                 details: []
             },
-            {
-                time: "2026.09 - 2028.06",
-                institution: {
-                    en: "National Key Laboratory of Surveying, Mapping and Remote Sensing, Wuhan University",
-                    zh: "武汉大学 测绘遥感信息工程全国重点实验室"
-                },
-                major: {
-                    en: "Remote Sensing Science and Technology",
-                    zh: "遥感科学与技术"
-                },
-                degree: {
-                    en: "Master's Degree",
-                    zh: "硕士"
-                },
-                advisor: {
-                    en: "Prof. Li You",
-                    zh: "李由教授"
-                },
-                research: {
-                    en: "Autonomous positioning and perception of unmanned systems",
-                    zh: "无人系统自主定位与感知"
-                },
-                details: [
-                    {
-                        en: "Already recommended for postgraduate studies",
-                        zh: "已获得推荐免试研究生资格"
-                    }
-                ]
-            }
         ],
         occupation: [
             // 示例工作经历
