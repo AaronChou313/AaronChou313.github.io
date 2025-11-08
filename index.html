@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="{language}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="author" content="{author}">
+    <meta name="description" content="{description}">
+    <meta name="keywords" content="{keywords}">
+    <!-- Base styles -->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="css/layout.css">
+    <!-- Navigation styles -->
+    <link rel="stylesheet" href="css/navigation.css">
+    <!-- Sidebar styles -->
+    <link rel="stylesheet" href="css/sidebar.css">
+    <!-- Content styles -->
+    <link rel="stylesheet" href="css/content.css">
+    <!-- Timeline styles -->
+    <link rel="stylesheet" href="css/timeline.css">
+    <!-- Experience styles -->
+    <link rel="stylesheet" href="css/experience.css">
+    <!-- Publications styles -->
+    <link rel="stylesheet" href="css/publications.css">
+    <!-- Works styles -->
+    <link rel="stylesheet" href="css/works.css">
+    <!-- Awards styles -->
+    <link rel="stylesheet" href="css/awards.css">
+    <!-- Markdown styles -->
+    <link rel="stylesheet" href="css/markdown.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" data-page="">{author}</a>
+            </div>
+            <ul class="nav-menu">
+                <!-- Navigation items will be loaded dynamically -->
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <button id="theme-toggle" class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <!-- Profile content will be loaded dynamically -->
+                <div class="loading">Loading profile...</div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <!-- Content will be loaded by JavaScript -->
+        </main>
+    </div>
+
+    <script src="js/loadNavbar.js"></script>
+    <script src="js/loadSidebar.js"></script>
+    <script src="js/markdownRenderer.js"></script>
+    <script src="js/contentRouter.js"></script>
+    <script src="js/loadWorks.js"></script>
+    <script src="js/loadExperience.js"></script>
+    <script src="js/loadPublications.js"></script>
+    <script src="js/loadAwards.js"></script>
+    <script src="js/loadWorkDetail.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Initialize content router when page loads
+        ContentRouter.init();
+    </script>
+</body>
+</html>

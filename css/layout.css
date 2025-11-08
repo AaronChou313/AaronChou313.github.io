@@ -1,0 +1,20 @@
+/* Main Layout */
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 80px auto 0;
+  padding: 20px;
+  min-height: calc(100vh - 80px);
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "publications": [
+    {
+      "id": 1,
+      "title": "Publication Title 1",
+      "authors": ["Author 1", "Author 2", "Mingyang Zhou", "Author 4"],
+      "journal": "Journal Name",
+      "year": "2023",
+      "img": "assets/images/publication1.jpg",
+      "links": [
+        {
+          "text": "PDF",
+          "url": "#"
+        },
+        {
+          "text": "DOI",
+          "url": "#"
+        },
+        {
+          "text": "Code",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Publication Title 2",
+      "authors": ["Author 1", "Mingyang Zhou", "Author 3"],
+      "journal": "Conference Name",
+      "year": "2023",
+      "img": "assets/images/publication2.jpg",
+      "links": [
+        {
+          "text": "PDF",
+          "url": "#"
+        },
+        {
+          "text": "DOI",
+          "url": "#"
+        },
+        {
+          "text": "Code",
+          "url": "#"
+        }
+      ]
+    }
+  ]
+}

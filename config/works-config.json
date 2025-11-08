@@ -1,0 +1,21 @@
+{
+  "works": [
+    {
+      "id": 1,
+      "title": "robot-arm-with-LLM-controller",
+      "description": "A desktop robotic arm controlled by Tongyi Qianwen (Qwen) large language model with real-time digital twin visualization.",
+      "tech": "Python, SolidWorks, STM32F103C8T6, MG996R Servo, Node.js, Vue.js, Serial Communication",
+      "image": "assets/images/work/robot-arm-with-LLM-controller.jpg",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com"
+        },
+        {
+          "text": "View Details",
+          "url": "content/works/robot-arm-with-LLM-controller.md"
+        }
+      ]
+    }
+  ]
+}

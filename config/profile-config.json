@@ -1,0 +1,283 @@
+{
+  "profile": {
+    "name": "Mingyang Zhou",
+    "title": "Undergraduate Student",
+    "description": "Spatial Information and Digital Technology, Wuhan University",
+    "image": "assets/images/profile.jpg",
+    "motto": "True progress quietly and persistently moves along without notice.     — St. Francis of Assisi",
+    "personal-info": {
+      "location": {
+        "value": "Wuhan, China",
+        "icon": "location.svg",
+        "url": ""
+      },
+      "institution": {
+        "value": "Wuhan University",
+        "icon": "institution.svg",
+        "url": "https://www.whu.edu.cn/"
+      },
+      "identity": {
+        "value": "Undergraduate Student",
+        "icon": "identity.svg",
+        "url": ""
+      },
+      "major": {
+        "value": "Remote Sensing",
+        "icon": "major.svg",
+        "url": ""
+      },
+      "email": {
+        "value": "zhoumy@whu.edu.cn",
+        "icon": "email.svg",
+        "url": "mailto:zhoumy@whu.edu.cn"
+      }
+    },
+    "social": [
+      {
+        "name": "Google Scholar",
+        "url": "",
+        "icon": "google-scholar.svg"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com/AaronChou313",
+        "icon": "github.svg"
+      },
+      {
+        "name": "Gitee",
+        "url": "https://gitee.com/aaron-chou313",
+        "icon": "gitee.svg"
+      },
+      {
+        "name": "ORCID",
+        "url": "https://orcid.org/0009-0002-1527-7603",
+        "icon": "orcid.svg"
+      },
+      {
+        "name": "Obsidian",
+        "url": "",
+        "icon": "obsidian.svg"
+      },
+      {
+        "name": "CV",
+        "url": "",
+        "icon": "resume.svg"
+      },
+      {
+        "name": "CSDN",
+        "url": "https://blog.csdn.net/qq_39599112",
+        "icon": "csdn.svg"
+      },
+      {
+        "name": "Yuque",
+        "url": "https://www.yuque.com/zhoumingyang-mhzvi",
+        "icon": "yuque.svg"
+      },
+      {
+        "name": "Bilibili",
+        "url": "https://space.bilibili.com/43859485",
+        "icon": "bilibili.svg"
+      },
+      {
+        "name": "Zhihu",
+        "url": "",
+        "icon": "zhihu.svg"
+      },
+      {
+        "name": "TikTok",
+        "url": "",
+        "icon": "tiktok.svg"
+      },
+      {
+        "name": "RedBook",
+        "url": "",
+        "icon": "redbook.svg"
+      },
+      {
+        "name": "Academia",
+        "url": "",
+        "icon": "academia.svg"
+      },
+      {
+        "name": "ArXiv",
+        "url": "",
+        "icon": "arxiv.svg"
+      },
+      {
+        "name": "INSPIRE-HEP",
+        "url": "",
+        "icon": "inspire-hep.svg"
+      },
+      {
+        "name": "ImpactStory",
+        "url": "",
+        "icon": "impactstory.svg"
+      },
+      {
+        "name": "Semantic Scholar",
+        "url": "",
+        "icon": "semantic.svg"
+      },
+      {
+        "name": "PubMed",
+        "url": "",
+        "icon": "pubmed.svg"
+      },
+      {
+        "name": "ResearchGate",
+        "url": "https://www.researchgate.net/profile/Mingyang-Zhou-16",
+        "icon": "researchgate.svg"
+      },
+      {
+        "name": "Scopus",
+        "url": "",
+        "icon": "scopus.svg"
+      },
+      {
+        "name": "Bitbucket",
+        "url": "",
+        "icon": "bitbucket.svg"
+      },
+      {
+        "name": "CodePen",
+        "url": "",
+        "icon": "codepen.svg"
+      },
+      {
+        "name": "Dribbble",
+        "url": "",
+        "icon": "dribbble.svg"
+      },
+      {
+        "name": "Kaggle",
+        "url": "",
+        "icon": "kaggle.svg"
+      },
+      {
+        "name": "Stack Overflow",
+        "url": "",
+        "icon": "stackoverflow.svg"
+      },
+      {
+        "name": "ArtStation",
+        "url": "",
+        "icon": "artstation.svg"
+      },
+      {
+        "name": "Bluesky",
+        "url": "",
+        "icon": "bluesky.svg"
+      },
+      {
+        "name": "Facebook",
+        "url": "",
+        "icon": "facebook.svg"
+      },
+      {
+        "name": "Flickr",
+        "url": "",
+        "icon": "flickr.svg"
+      },
+      {
+        "name": "Foursquare",
+        "url": "",
+        "icon": "foursquare.svg"
+      },
+      {
+        "name": "Goodreads",
+        "url": "",
+        "icon": "goodreads.svg"
+      },
+      {
+        "name": "Google Plus",
+        "url": "",
+        "icon": "google-plus.svg"
+      },
+      {
+        "name": "Keybase",
+        "url": "",
+        "icon": "keybase.svg"
+      },
+      {
+        "name": "Instagram",
+        "url": "",
+        "icon": "instagram.svg"
+      },
+      {
+        "name": "Last.fm",
+        "url": "",
+        "icon": "lastfm.svg"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "",
+        "icon": "linkedin.svg"
+      },
+      {
+        "name": "Mastodon",
+        "url": "",
+        "icon": "mastodon.svg"
+      },
+      {
+        "name": "Medium",
+        "url": "",
+        "icon": "medium.svg"
+      },
+      {
+        "name": "Pinterest",
+        "url": "",
+        "icon": "pinterest.svg"
+      },
+      {
+        "name": "SoundCloud",
+        "url": "",
+        "icon": "soundcloud.svg"
+      },
+      {
+        "name": "Steam",
+        "url": "",
+        "icon": "steam.svg"
+      },
+      {
+        "name": "Telegram",
+        "url": "",
+        "icon": "telegram.svg"
+      },
+      {
+        "name": "Tumblr",
+        "url": "",
+        "icon": "tumblr.svg"
+      },
+      {
+        "name": "Twitter",
+        "url": "",
+        "icon": "twitter.svg"
+      },
+      {
+        "name": "Vine",
+        "url": "",
+        "icon": "vine.svg"
+      },
+      {
+        "name": "Weibo",
+        "url": "",
+        "icon": "weibo.svg"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "",
+        "icon": "wikipedia.svg"
+      },
+      {
+        "name": "Xing",
+        "url": "",
+        "icon": "xing.svg"
+      },
+      {
+        "name": "YouTube",
+        "url": "",
+        "icon": "youtube.svg"
+      }
+    ]
+  }
+}
