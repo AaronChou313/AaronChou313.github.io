@@ -46,7 +46,7 @@ A self-made desktop robotic arm integrated with Tongyi Qianwen (Qwen) large lang
    - Serial instruction interface
    - GUI-based manual control
 
-<iframe width="560" height="315" src="https://youtu.be/Kkg0zgn8mN4" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Kkg0zgn8mN4" frameborder="0" allowfullscreen></iframe>
 
 ## Source Code
 
@@ -58,3 +58,4 @@ A self-made desktop robotic arm integrated with Tongyi Qianwen (Qwen) large lang
 - Enhanced precision control algorithms
 - Extended functionality with additional sensors
 - Improved 3D visualization capabilities
+
