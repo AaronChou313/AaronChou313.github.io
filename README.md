@@ -12,6 +12,12 @@ To create your own personal website using this template:
 4. Select Branch: `master` and folder: `/ (root)`
 5. Your website will be available at `https://your-github-username.github.io`
 
+## Demo
+Check out the live demo to see how the website looks and functions: [aaronchou313.github.io](https://aaronchou313.github.io)
+
+## Responsive Design
+This website supports responsive design and can be accessed normally on mobile devices. However, for the best viewing experience, we recommend accessing it on a PC.
+
 ## Customization Guide
 
 ### Configuration Files
