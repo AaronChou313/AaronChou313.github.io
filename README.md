@@ -1,208 +1,177 @@
-# Academic Personal Homepage
+# Aaron Chou's Personal Academic Website
 
-This is a responsive, static academic homepage designed for researchers and students to showcase their profile, experience, publications, awards, and projects.
+This repository contains the source code for Aaron Chou's personal academic website, which can also serve as a template for your own personal website.
 
-## Features
+## Quick Start
 
-- Responsive design that works on mobile, tablet, and desktop devices
-- Light/dark theme toggle with automatic system preference detection
-- Single Page Application (SPA) architecture with dynamic content loading
-- Modular structure with reusable components
-- JSON-based configuration for easy content updates
-- Markdown-based content management
-- Dynamic loading of sidebar content from configuration files
-- Dynamic loading of works/projects from configuration files
-- Dynamic loading of experience (Education, Research, Occupation) from configuration files
-- Dynamic loading of publications from configuration files with image support
-- Dynamic loading of awards from configuration files with image and news link support
-- Dynamic loading of about content from configuration files
-- Grayscale color scheme (black and white) for a professional academic look
-- Work details loaded dynamically from Markdown files
-- Fast loading static pages
+To create your own personal website using this template:
 
-## Structure
+1. Fork this repository and rename it to `your-github-username.github.io`
+2. Go to Repository Settings → Pages
+3. Set Source to "Deploy from a branch" 
+4. Select Branch: `master` and folder: `/ (root)`
+5. Your website will be available at `https://your-github-username.github.io`
+
+## Customization Guide
+
+### Configuration Files
+
+All personal information is stored in the `config` directory. Modify these JSON files to customize your website:
+
+- `basic-config.json`: Site title, description, and basic metadata
+- `navigation-config.json`: Navigation menu configuration
+- `profile-config.json`: Personal information, motto, and social links
+- `experience-config.json`: Education, research, and work experience
+- `awards-config.json`: Honors and awards
+- `publications-config.json`: Publications and research works
+- `works-config.json`: Projects and portfolio items
+
+### Content Management
+
+Page content is stored as markdown files in the `content` directory:
+
+- Main pages are directly in the `content` folder
+- Project details are in the `content/works` subfolder
+
+### Media Assets
+
+Replace images in the `assets/images` directory:
+- `assets/images/award`: Images for awards/honors
+- `assets/images/publication`: Images for publications
+- `assets/images/work`: Images for projects and works
+
+## Adding or Removing Pages
+
+### To Add a New Page:
+1. Add a new entry in `config/navigation-config.json`
+2. Create a corresponding markdown file in the `content` directory
+
+### To Remove a Page:
+1. Remove the entry from `config/navigation-config.json`
+2. Delete the corresponding markdown file from the `content` directory
+
+## Managing Projects/Works
+
+### To Add a New Project:
+1. Add a new entry in `config/works-config.json`
+2. Create a detailed markdown file in `content/works` directory
+
+### To Remove a Project:
+1. Remove the entry from `config/works-config.json`
+2. Delete the corresponding markdown file from `content/works` directory
+
+## Technical Architecture
+
+The website is built as a single-page application where different content sections are dynamically loaded:
+
+- Main entry point: `index.html`
+- Navigation logic: When users click on menu items, the corresponding markdown content is loaded and rendered in the main content area
+- JavaScript modules handle routing, content loading, and dynamic rendering
+
+This architecture allows for a seamless user experience while maintaining the simplicity of static site hosting through GitHub Pages.
+
+## Project Structure
 
 ```
-├── index.html              # Main SPA page
-├── css/
-│   └── style.css           # Main stylesheet
-├── js/
-│   ├── main.js             # JavaScript functionality
-│   ├── loadSidebar.js      # Dynamic sidebar loading
-│   ├── loadNavbar.js       # Dynamic navbar loading
-│   ├── loadWorks.js        # Dynamic works loading
-│   ├── loadExperience.js   # Dynamic experience loading
-│   ├── loadPublications.js # Dynamic publications loading
-│   ├── loadAwards.js       # Dynamic awards loading
-│   ├── contentRouter.js    # SPA content router
-│   ├── markdownRenderer.js # Markdown to HTML renderer
-│   └── markdown.js         # Simple markdown parser
-├── config/
-│   ├── site-config.json    # Site configuration
-│   ├── works-config.json   # Works configuration
-│   ├── experience-config.json # Experience configuration (Education, Research, Occupation)
-│   ├── publications-config.json # Publications configuration
-│   ├── awards-config.json  # Awards configuration
-│   └── about-config.json   # About configuration
-├── content/
-│   ├── about.md            # About page content
-│   ├── experience.md       # Experience page content
-│   ├── publications.md     # Publications page content
-│   ├── awards.md           # Awards page content
-│   └── works.md            # Works page content
-├── assets/
-│   ├── images/             # Image assets
-├── components/             # Reusable components (planned)
-├── works/                  
-│   ├── work-detail.html    # Work detail page template
-│   └── markdown/           # Work detail content in markdown format
-└── blogs/                  # Blog posts (planned)
+├─assets
+│  ├─icons
+│  └─images
+│      ├─award
+│      ├─publication
+│      └─work
+├─config
+├─content
+│  └─works
+├─css
+└─js
 ```
 
-## Running Locally
+## Detailed Directory and File Structure
 
-Because of browser security policies (CORS), you cannot directly open the HTML files in your browser. You need to run a local server to view the website properly.
+### `/assets` - Media and Static Resources
 
-### Option 1: Using Node.js (Recommended)
+#### `/assets/icons` - Icon Resources
+Contains SVG icon files used throughout the website for social links and informational elements
 
-If you have Node.js installed:
+#### `/assets/images` - Image Resources
+Contains categorized images used in different sections of the website:
 
-1. Run the local server:
-   ```
-   node server.js
-   ```
+##### `/assets/images/award` - Award Section Images
+Images related to honors, awards, and recognitions received
 
-2. Open your browser and navigate to `http://127.0.0.1:8080`
+##### `/assets/images/publication` - Publication Section Images
+Images related to research publications, papers, and academic works
 
-### Option 2: Using Python
+##### `/assets/images/work` - Work Section Images
+Project and portfolio images, including:
+- Work thumbnails displayed in the main works grid
+- Detailed project images shown on individual work pages
+- GIF demonstrations of robot projects and other technical works
 
-If you have Python installed:
+### `/config` - Configuration Files
+JSON configuration files that control website content and structure:
+- [awards-config.json](config\awards-config.json) - Configuration for awards/honors section
+- [basic-config.json](config\basic-config.json) - Basic site metadata (title, description, author)
+- [experience-config.json](config\experience-config.json) - Education, research, and work experience information
+- [navigation-config.json](config\navigation-config.json) - Navigation menu structure and page routing
+- [profile-config.json](config\profile-config.json) - Personal profile information (bio, contact, social links)
+- [publications-config.json](config\publications-config.json) - Research publications and academic works
+- [works-config.json](config\works-config.json) - Portfolio projects and technical works
 
-For Python 3:
-```
-python -m http.server 8080
-```
+### `/content` - Content Files
+Markdown files containing the main content for each page:
 
-For Python 2:
-```
-python -m SimpleHTTPServer 8080
-```
+#### `/content/works` - Individual Work Details
+Detailed markdown files for each portfolio project:
+- [fruit-picking-robot.md](content\works\fruit-picking-robot.md)(for instance) - Autonomous fruit harvesting robot project
 
-Then open your browser and navigate to `http://127.0.0.1:8080`
+Other content files:
+- [works.md](content\works.md) - Main works/portfolio page that dynamically loads project grid
+- Other section content files (About, Experience, Publications, Awards, etc.)
 
-### Option 3: Using VS Code Live Server Extension
+### `/css` - Stylesheets
+Cascading Style Sheets that control the visual appearance:
+- [awards.css](css\awards.css) - Styles specific to the awards section
+- [base.css](css\base.css) - Base styles and CSS variables (colors, themes)
+- [content.css](css\content.css) - Main content area styles
+- [experience.css](file://c:\Users\zhoum\Documents\Github\AaronsPersonalPage\css\experience.css) - Experience section styles
+- [layout.css](css\layout.css) - Overall page layout styles
+- [markdown.css](css\markdown.css) - Markdown content rendering styles
+- [navigation.css](css\navigation.css) - Navigation bar and menu styles
+- [publications.css](css\publications.css) - Publications section styles
+- [sidebar.css](css\sidebar.css) - Sidebar/profile section styles
+- [style.css](css\style.css) - Main stylesheet that combines all other styles
+- [timeline.css](css\timeline.css) - Timeline component styles (used in experience section)
+- [works.css](css\works.css) - Works/portfolio section styles
 
-If you're using VS Code, you can install the "Live Server" extension and use it to serve your website.
+### [/js](js\main.js) - JavaScript Files
+Client-side scripts that power the single-page application functionality:
+- [contentRouter.js](js\contentRouter.js) - Main routing system that loads different content based on URL
+- [loadAwards.js](js\loadAwards.js) - Dynamically loads and renders awards data from config
+- [loadExperience.js](js\loadExperience.js) - Loads and displays experience information
+- [loadNavbar.js](js\loadNavbar.js) - Loads and manages navigation menu
+- [loadPublications.js](js\loadPublications.js) - Renders publications from configuration data
+- [loadSidebar.js](js\loadSidebar.js) - Loads profile information in the sidebar
+- [loadWorkDetail.js](js\loadWorkDetail.js) - Loads detailed work/project pages
+- [loadWorks.js](js\loadWorks.js) - Loads and displays works/portfolio grid
+- [main.js](js\main.js) - Main application entry point, handles theme switching and basic setup
+- [markdownRenderer.js](js\markdownRenderer.js) - Renders markdown content to HTML
 
-## Customization
+### Root Level Files
+- [index.html](index.html) - Main HTML file and entry point for the website
+- [README.md](README.md) - Project documentation and setup instructions
+- `.gitignore` - Git ignore file specifying untracked files
+- Other configuration files (favicon.ico, robots.txt, etc.)
 
-### Updating Personal Information
+## Architecture Overview
 
-Edit [config/site-config.json](config/site-config.json) to update your personal information and social links.
+This is a single-page application (SPA) built with vanilla JavaScript that dynamically loads content based on URL parameters. The architecture separates concerns through:
 
-### Updating About Content
+1. **Configuration-driven content**: Most content is stored in JSON config files
+2. **Markdown-based pages**: Detailed content is written in markdown format
+3. **Component-based loading**: Each section has dedicated JavaScript loaders
+4. **Centralized routing**: ContentRouter.js manages page navigation and content loading
+5. **Modular styling**: CSS is organized by section for maintainability
+6. **Static asset organization**: Images and icons are categorized by usage
 
-Edit [config/about-config.json](config/about-config.json) to update your about page content.
-
-The about section has the following fields:
-- `introduction`: A brief introduction paragraph
-- `researchInterests`: An array of research interest items
-
-Edit [content/about.md](content/about.md) to update the structure and static content of the about page.
-
-### Updating Experience
-
-Edit [config/experience-config.json](config/experience-config.json) to update your experience information.
-
-The experience is categorized into three sections:
-1. Education - Educational background
-2. Research - Research experience
-3. Occupation - Work experience
-
-Each category has its own array of items with the following fields:
-- `id`: Unique identifier
-- `title/degree`: Position title or degree name
-- `organization/institution`: Company, institution or university
-- `mentors`: Mentors or supervisors (optional)
-- `description`: Description of responsibilities or work
-- `startDate`: Start date
-- `endDate`: End date or "Present"
-
-Edit [content/experience.md](content/experience.md) to update the structure and static content of the experience page.
-
-### Updating Publications
-
-Edit [config/publications-config.json](config/publications-config.json) to update your publications.
-
-Each publication has the following fields:
-- `id`: Unique identifier
-- `title`: Publication title
-- `authors`: Array of authors
-- `journal`: Journal or conference name
-- `year`: Publication year
-- `img`: Path to publication image (optional)
-- `links`: Array of links (PDF, DOI, Code, etc.)
-
-Edit [content/publications.md](content/publications.md) to update the structure and static content of the publications page.
-
-### Updating Awards
-
-Edit [config/awards-config.json](config/awards-config.json) to update your awards and honors.
-
-Each award has the following fields:
-- `id`: Unique identifier
-- `title`: Award title
-- `organization`: Awarding organization
-- `date`: Award date
-- `description`: Award description
-- `img`: Path to award image (optional)
-- `news`: News link for the award (optional)
-
-Edit [content/awards.md](content/awards.md) to update the structure and static content of the awards page.
-
-### Updating Works/Projects
-
-Edit [config/works-config.json](config/works-config.json) to update your works and projects.
-
-Each work/project can have a detailed description stored in a separate Markdown file in the [works/markdown/](works/markdown/) directory.
-
-To add a new work:
-1. Create a new Markdown file in [works/markdown/](works/markdown/) with the work details
-2. Add an entry in [config/works-config.json](config/works-config.json) with the work information and path to the Markdown file
-3. Add any images to [assets/images/](assets/images/) if needed
-
-Edit [content/works.md](content/works.md) to update the structure and static content of the works page.
-
-### Changing Theme
-
-The site automatically detects your system preference for light or dark mode. You can also manually toggle between themes using the sun/moon icon in the navigation bar.
-
-The website uses a professional grayscale color scheme that is appropriate for academic contexts.
-
-### Adding Content
-
-To add new content:
-1. Create a new Markdown file in the [content/](content/) directory
-2. Update the navigation in [config/site-config.json](config/site-config.json) to include the new page
-3. Add corresponding styles in [css/style.css](css/style.css) if needed
-4. Update configuration files as needed
-
-## Deployment
-
-To deploy this website:
-1. Fork this repository
-2. Customize the content to your needs
-3. Enable GitHub Pages in your repository settings
-4. Select the branch you want to deploy from
-
-## Browser Support
-
-This website works on all modern browsers that support CSS variables and ES6 JavaScript features:
-- Chrome 49+
-- Firefox 31+
-- Safari 9.1+
-- Edge 15+
-
-## License
-
-This project is open source and available under the MIT License.
+The website is designed to be easily forked and customized, with all personal information contained in the config files and content directories.

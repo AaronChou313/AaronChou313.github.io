@@ -1,51 +1,62 @@
-## Automatic Item Handling Robot
+# Autonomous Item Handling Robot
 
 An autonomous robot capable of navigating simple terrain, avoiding obstacles, and performing item handling tasks based on known maps. The robot can autonomously navigate, grasp items, carry them, and sort them into designated recycling areas marked with QR codes.
 
-### Hardware Components
+## Hardware Components
 
-- **Sensors**:
-  - Mid-360 LiDAR for environment scanning
-  - USB Camera for visual recognition
-- **Manipulator**:
-  - Stepper motor-driven robotic arm
-  - Servo-driven gripper
-- **Mobility**:
-  - Mecanum wheel chassis for omnidirectional movement
-- **Control Units**:
-  - Jetson Orin NX computing module
-  - STM32F407 control board
+The robot's hardware system is designed for robust performance in varied environments:
 
-### Software Architecture
+### Sensors
+- **Mid-360 LiDAR**: Provides comprehensive environment scanning for navigation and obstacle detection
+- **USB Camera**: Enables visual recognition and item identification capabilities
 
-- **Mapping and Navigation**:
-  - FAST-LIO for scanning and mapping
-- **Object Detection**:
-  - YOLOv5 for item detection
-- **Vision Processing**:
-  - OpenCV for coordinate calculation
+### Manipulator System
+- **Stepper Motor-driven Robotic Arm**: Offers precise control for lifting and moving objects
+- **Servo-driven Gripper**: Ensures reliable grasping of various item types and sizes
 
-### Key Features
+### Mobility Platform
+- **Mecanum Wheel Chassis**: Enables omnidirectional movement for flexible navigation in tight spaces
 
-1. **Autonomous Navigation**:
-   - Map-based path planning
-   - Obstacle avoidance capabilities
-   - Terrain traversal (curbs and slopes)
+### Control Units
+- **Jetson Orin NX Computing Module**: Handles complex computational tasks including navigation and object recognition
+- **STM32F407 Control Board**: Manages real-time control of motors and sensors
 
-2. **Item Handling**:
-   - Visual recognition of items
-   - Precise grasping mechanism
-   - QR code-based sorting system
+## Software Architecture
 
-3. **Multi-modal Mobility**:
-   - Omnidirectional movement
-   - Obstacle negotiation capabilities
+The software framework integrates multiple technologies to enable autonomous operation:
 
-### Demonstration
+### Mapping and Navigation
+- **FAST-LIO**: Implements efficient scanning and mapping algorithms for real-time localization
+
+### Object Detection
+- **YOLOv5**: Provides fast and accurate item detection capabilities
+
+### Vision Processing
+- **OpenCV**: Processes visual data for coordinate calculation and spatial awareness
+
+## Key Features
+
+The robot offers several distinct capabilities that make it suitable for automated item handling tasks:
+
+1. **Autonomous Navigation**
+   - Map-based path planning for efficient route calculation
+   - Advanced obstacle avoidance capabilities for safe operation
+   - Terrain traversal including curbs and slopes
+
+2. **Item Handling**
+   - Visual recognition of items for identification and sorting
+   - Precise grasping mechanism for reliable item pickup
+   - QR code-based sorting system for accurate item placement
+
+3. **Multi-modal Mobility**
+   - Omnidirectional movement for flexible positioning
+   - Obstacle negotiation capabilities for navigating complex environments
+
+## Demonstration
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ERiQQB5y8SE" frameborder="0" allowfullscreen></iframe>
 
-### Images
+## Images
 
 #### Chassis movement demonstration
 <figure>
@@ -69,31 +80,24 @@ An autonomous robot capable of navigating simple terrain, avoiding obstacles, an
 
 #### Robot traversing slopes
 <figure>
-  <img src="assets/images/work/item-handling-robot/uphill.gif" alt="Obstacle Negotiation" />
+  <img src="assets/images/work/item-handling-robot/uphill.gif" alt="Traversing Slopes" />
 </figure>
 
 #### Robot gripper opening and closing
 <figure>
-  <img src="assets/images/work/item-handling-robot/claw-operation.gif" alt="Obstacle Negotiation" />
+  <img src="assets/images/work/item-handling-robot/claw-operation.gif" alt="Gripper Opening and Closing" />
 </figure>
 
 #### Robot storage box switch
 <figure>
-  <img src="assets/images/work/item-handling-robot/storage-box-rotate.gif" alt="Obstacle Negotiation" />
+  <img src="assets/images/work/item-handling-robot/storage-box-rotate.gif" alt="Storage Box Switch" />
 </figure>
 
-### Source Code
+## Future Improvements
 
-- Repository links (to be added)
+Several enhancements are planned to further improve the robot's capabilities:
 
-### Future Improvements
-
-- Enhanced object recognition capabilities
-- Improved terrain handling algorithms
-- Extended battery life and efficiency
-- More sophisticated sorting mechanisms
-
-To implement this, you would need to:
-1. Add your GIF images to your project directory
-2. Update the image paths in the markdown
-3. Add links to your source code repositories when available
+- Enhanced object recognition capabilities for better item identification
+- Improved terrain handling algorithms for more challenging environments
+- Extended battery life and efficiency for longer operational periods
+- More sophisticated sorting mechanisms for complex classification tasks

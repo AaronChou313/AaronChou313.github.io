@@ -1,4 +1,4 @@
-# Robot Arm with Tongyi Qianwen (Qwen) LLM Controller
+# ApoArm - Robot Arm with Tongyi Qianwen (Qwen) LLM Controller
 
 A self-made desktop robotic arm integrated with Tongyi Qianwen (Qwen) large language model, featuring real-time digital twin visualization and multiple control interfaces.
 
@@ -12,6 +12,11 @@ A self-made desktop robotic arm integrated with Tongyi Qianwen (Qwen) large lang
 - **Microcontroller**: STM32F103C8T6
 - **Power Supply**: 5V 3A
 - **Actuators**: MG996R servo motors for joint control
+
+#### ApoArm Display Diagram
+<figure>
+  <img src="assets/images/work/robot-arm-with-LLM-controller/display-diagram.jpg" alt="Diaplay Diagram" />
+</figure>
 
 ## Software Architecture
 
@@ -30,6 +35,8 @@ A self-made desktop robotic arm integrated with Tongyi Qianwen (Qwen) large lang
   - Multiple control modes integration
 
 ## Key Features
+
+The robot arm offers several distinctive capabilities that enhance its usability:
 
 1. **Multi-modal Control**:
    - Natural language control via Tongyi Qianwen LLM
@@ -58,4 +65,3 @@ A self-made desktop robotic arm integrated with Tongyi Qianwen (Qwen) large lang
 - Enhanced precision control algorithms
 - Extended functionality with additional sensors
 - Improved 3D visualization capabilities
-
