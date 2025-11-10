@@ -67,17 +67,35 @@ document.addEventListener('DOMContentLoaded', function () {
     const navMenu = document.querySelector('.nav-menu');
 
     if (navToggle && navMenu) {
-        navToggle.addEventListener('click', () => {
+        // Toggle menu when clicking the hamburger icon
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on a link
+        // Close menu when clicking on a navigation link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
                 navToggle.classList.remove('active');
             });
+        });
+
+        // Close menu when clicking anywhere outside the menu
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
+
+        // Close menu when resizing window to desktop size
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
         });
     }
 });

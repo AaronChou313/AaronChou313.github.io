@@ -2,12 +2,12 @@
 class ContentRouter {
     static defaultPage = 'About';
     static contentMap = {};
-    
+
     static async initContentMap() {
         try {
             const response = await fetch('config/navigation-config.json');
             const navConfig = await response.json();
-            
+
             // Build contentMap from navigation config
             navConfig.navigation.forEach(item => {
                 // Extract page name from the URL by removing 'content/' prefix and '.md' suffix
@@ -18,24 +18,24 @@ class ContentRouter {
             console.error('Error loading navigation config:', error);
         }
     }
-    
+
     static async loadContent(page) {
         const contentContainer = document.getElementById('main-content');
         if (!contentContainer) {
             console.error('Main content container not found');
             return;
         }
-        
+
         // Initialize content map if not already done
         if (Object.keys(this.contentMap).length === 0) {
             await this.initContentMap();
         }
-        
+
         // Handle homepage (no page parameter) - load default page
         if (!page) {
             page = this.defaultPage;
         }
-        
+
         // Check if it's a work detail page
         if (page.startsWith('work-detail-')) {
             const workId = page.split('-')[2];
@@ -47,21 +47,21 @@ class ContentRouter {
             }
             return;
         }
-        
+
         // Check if page exists in our map
         if (!this.contentMap[page]) {
             contentContainer.innerHTML = '<h1>Page Not Found</h1><p>The requested page could not be found.</p>';
             return;
         }
-        
+
         // Show loading state
         contentContainer.innerHTML = '<div class="loading">Loading content...</div>';
-        
+
         try {
             // Load and render the markdown content
             const content = await MarkdownRenderer.loadAndRender(this.contentMap[page]);
             contentContainer.innerHTML = `<div class="markdown-content">${content}</div>`;
-            
+
             // Load any additional functionality needed for specific pages
             this.loadPageSpecificScripts(page);
         } catch (error) {
@@ -69,7 +69,7 @@ class ContentRouter {
             contentContainer.innerHTML = `<h1>Error</h1><p>Failed to load page content: ${error.message}</p>`;
         }
     }
-    
+
     static loadPageSpecificScripts(page) {
         // Use setTimeout to ensure DOM is updated before calling functions
         setTimeout(() => {
@@ -77,13 +77,13 @@ class ContentRouter {
             if (typeof loadSidebar === 'function') {
                 loadSidebar();
             }
-            
+
             if (typeof loadNavbar === 'function') {
                 loadNavbar();
             }
-            
+
             // Load scripts based on page type
-            switch(page) {
+            switch (page) {
                 case 'Works':
                     // Reload works if needed
                     if (typeof loadWorks === 'function') {
@@ -117,33 +117,33 @@ class ContentRouter {
             }
         }, 100);
     }
-    
+
     static init() {
         // Initialize content map
         this.initContentMap().then(() => {
             // Get page from URL parameter
             const urlParams = new URLSearchParams(window.location.search);
             const page = urlParams.get('page');
-            
+
             // Load the content
             this.loadContent(page);
-            
+
             // Handle navigation clicks
             this.setupNavigation();
-            
+
             // Load sidebar and navbar initially
             setTimeout(() => {
                 if (typeof loadSidebar === 'function') {
                     loadSidebar();
                 }
-                
+
                 if (typeof loadNavbar === 'function') {
                     loadNavbar();
                 }
             }, 0);
         });
     }
-    
+
     static setupNavigation() {
         // Add click handlers to navigation links
         document.addEventListener('click', (e) => {
@@ -157,17 +157,21 @@ class ContentRouter {
                     // Handle home page
                     this.navigateTo('');
                 }
+                // Close mobile menu after navigation
+                this.closeMobileMenu();
             }
-            
+
             // Handle internal links with data-page attribute
             if (e.target.hasAttribute('data-page')) {
                 e.preventDefault();
                 const page = e.target.getAttribute('data-page');
                 if (page !== null) {
                     this.navigateTo(page);
+                    // Close mobile menu after navigation
+                    this.closeMobileMenu();
                 }
             }
-            
+
             // Handle work detail links from works page
             if (e.target.closest('.work-links a')) {
                 const link = e.target.closest('.work-links a');
@@ -178,31 +182,64 @@ class ContentRouter {
                     const page = urlParams.get('page');
                     if (page) {
                         this.navigateTo(page);
+                        // Close mobile menu after navigation
+                        this.closeMobileMenu();
                     }
                 }
             }
-            
+
             // Handle back to works link
             if (e.target.classList.contains('back-link')) {
                 e.preventDefault();
                 this.navigateTo('Works');
+                // Close mobile menu after navigation
+                this.closeMobileMenu();
             }
-            
+
             // Handle logo/homepage link
             if (e.target.tagName === 'A' && e.target.closest('.nav-logo')) {
                 e.preventDefault();
                 this.navigateTo('');
+                // Close mobile menu after navigation
+                this.closeMobileMenu();
             }
         });
-        
+
         // Handle browser back/forward buttons
         window.addEventListener('popstate', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const page = urlParams.get('page');
             this.loadContent(page);
+            // Close mobile menu when using browser navigation
+            this.closeMobileMenu();
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const navMenu = document.querySelector('.nav-menu');
+            const navToggle = document.querySelector('.nav-toggle');
+
+            if (navMenu && navToggle &&
+                !navMenu.contains(e.target) &&
+                !navToggle.contains(e.target) &&
+                navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
         });
     }
-    
+
+    // Add this helper method to ContentRouter class
+    static closeMobileMenu() {
+        const navMenu = document.querySelector('.nav-menu');
+        const navToggle = document.querySelector('.nav-toggle');
+
+        if (navMenu && navToggle) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+        }
+    }
+
     static navigateTo(page) {
         // Update URL
         let url;
@@ -211,8 +248,8 @@ class ContentRouter {
         } else {
             url = window.location.pathname;
         }
-        history.pushState({page: page}, '', url);
-        
+        history.pushState({ page: page }, '', url);
+
         // Load content
         this.loadContent(page);
     }
