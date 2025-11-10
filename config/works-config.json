@@ -2,10 +2,10 @@
   "works": [
     {
       "id": 1,
-      "title": "robot-arm-with-LLM-controller",
+      "title": "Robot Arm with Tongyi Qianwen (Qwen) LLM Controller",
       "description": "A desktop robotic arm controlled by Tongyi Qianwen (Qwen) large language model with real-time digital twin visualization.",
       "tech": "Python, SolidWorks, STM32F103C8T6, MG996R Servo, Node.js, Vue.js, Serial Communication",
-      "image": "assets/images/work/robot-arm-with-LLM-controller.jpg",
+      "image": "assets/images/work/robot-arm-with-LLM-controller/robot-arm-with-LLM-controller.jpg",
       "links": [
         {
           "text": "GitHub",
@@ -14,6 +14,19 @@
         {
           "text": "View Details",
           "url": "content/works/robot-arm-with-LLM-controller.md"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Automatic Item Handling Robot",
+      "description": "An autonomous robot capable of navigating simple terrain, avoiding obstacles, and performing item handling tasks based on known maps with QR code-based sorting system.",
+      "tech": "Jetson Orin NX, STM32F407, Mid-360 LiDAR, YOLOv5, OpenCV, FAST-LIO, Mecanum Wheels, Stepper Motors",
+      "image": "assets/images/work/item-handling-robot/item-handling-robot.jpg",
+      "links": [
+        {
+          "text": "View Details",
+          "url": "content/works/item-handling-robot.md"
         }
       ]
     }
