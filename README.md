@@ -1,5 +1,9 @@
 # Aaron Chou's Personal Academic Website
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> This project is licensed under the MIT License - you are free to fork and modify it for your personal academic homepage.
+
 This repository contains the source code for Aaron Chou's personal academic website, which can also serve as a template for your own personal website.
 
 ## Quick Start
