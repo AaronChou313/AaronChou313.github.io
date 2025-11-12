@@ -1,4 +1,4 @@
-# Aaron Chou's Personal Academic Website
+#  Academic Website Template Designed by Aaron Chou
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -31,7 +31,45 @@ Replace the template content on the `master` branch with your own information. T
 
 Check out the live demo to see how the website looks and functions: [aaronchou313.github.io](https://aaronchou313.github.io)
 
-Note: This demo website is Aaron Chou's official academic website, but you can use it to preview the template's functionality and design.
+❗**Note:** This demo website is Aaron Chou's official academic website, but you can use it to preview the template's functionality and design.
+
+### Page Previews
+
+Below are screenshots showing the different pages of the template:
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+  <figure style="text-align: center; margin: 10px;">
+    <img src="assets/images/demo/about_demo.jpg" alt="About Page Demo" width="200">
+    <figcaption>About Page</figcaption>
+  </figure>
+  
+  <figure style="text-align: center; margin: 10px;">
+    <img src="assets/images/demo/experience_demo.jpg" alt="Experience Page Demo" width="200">
+    <figcaption>Experience Page</figcaption>
+  </figure>
+  
+  <figure style="text-align: center; margin: 10px;">
+    <img src="assets/images/demo/publications_demo.jpg" alt="Publications Page Demo" width="200">
+    <figcaption>Publications Page</figcaption>
+  </figure>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+  <figure style="text-align: center; margin: 10px;">
+    <img src="assets/images/demo/awards_demo.jpg" alt="Awards Page Demo" width="200">
+    <figcaption>Awards Page</figcaption>
+  </figure>
+  
+  <figure style="text-align: center; margin: 10px;">
+    <img src="assets/images/demo/works_demo.jpg" alt="Works Page Demo" width="200">
+    <figcaption>Works Page</figcaption>
+  </figure>
+  
+  <figure style="text-align: center; margin: 10px;">
+    <img src="assets/images/demo/work_detail_demo.jpg" alt="Work Detail Page Demo" width="200">
+    <figcaption>Work Detail Page</figcaption>
+  </figure>
+</div>
 
 ## Local Development
 
