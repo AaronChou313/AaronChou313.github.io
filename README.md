@@ -2,19 +2,30 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> This project is licensed under the MIT License - you are free to fork and modify it for your personal academic homepage.
-
-This repository contains the source code for Aaron Chou's personal academic website, which can also serve as a template for your own personal website.
-
 ## Quick Start
 
-To create your own personal website using this template:
+⚠️ **IMPORTANT: Use as Template, Don't Fork!**
 
-1. Fork this repository and rename it to `your-github-username.github.io`
-2. Go to Repository Settings → Pages
-3. Set Source to "Deploy from a branch" 
-4. Select Branch: `master` and folder: `/ (root)`
-5. Your website will be available at `https://your-github-username.github.io`
+**DO NOT FORK** this repository directly. Forking will copy all development branches, which is unnecessary and not recommended.
+
+### To create your personal website:
+
+1. Click the **"Use this template"** button at the top right of this page
+2. Select **"Create a new repository"**
+3. Name your repository: `your-github-username.github.io`
+4. Clone your new repository locally
+
+### Deploy your website:
+
+1. Go to your repository's **Settings** → **Pages**
+2. Under **Source**, select **"Deploy from a branch"**
+3. Choose **Branch**: `master` and **Folder**: `/ (root)`
+4. Click **Save**
+5. Your website will be live at `https://your-github-username.github.io`
+
+### Customize:
+
+Replace the template content on the `master` branch with your own information. The website will automatically rebuild and deploy your changes.
 
 ## Demo
 
