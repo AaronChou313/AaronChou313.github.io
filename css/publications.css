@@ -58,6 +58,10 @@
   margin-top: auto;
 }
 
+.publication-links .btn{
+  color: white;
+}
+
 .btn {
   display: inline-block;
   padding: 8px 15px;
