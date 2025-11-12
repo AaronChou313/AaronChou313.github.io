@@ -37,39 +37,36 @@ Check out the live demo to see how the website looks and functions: [aaronchou31
 
 Below are screenshots showing the different pages of the template:
 
-<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-  <figure style="text-align: center; margin: 10px;">
-    <img src="assets/images/demo/about_demo.jpg" alt="About Page Demo" width="200">
-    <figcaption>About Page</figcaption>
-  </figure>
-  
-  <figure style="text-align: center; margin: 10px;">
-    <img src="assets/images/demo/experience_demo.jpg" alt="Experience Page Demo" width="200">
-    <figcaption>Experience Page</figcaption>
-  </figure>
-  
-  <figure style="text-align: center; margin: 10px;">
-    <img src="assets/images/demo/publications_demo.jpg" alt="Publications Page Demo" width="200">
-    <figcaption>Publications Page</figcaption>
-  </figure>
-</div>
-
-<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-  <figure style="text-align: center; margin: 10px;">
-    <img src="assets/images/demo/awards_demo.jpg" alt="Awards Page Demo" width="200">
-    <figcaption>Awards Page</figcaption>
-  </figure>
-  
-  <figure style="text-align: center; margin: 10px;">
-    <img src="assets/images/demo/works_demo.jpg" alt="Works Page Demo" width="200">
-    <figcaption>Works Page</figcaption>
-  </figure>
-  
-  <figure style="text-align: center; margin: 10px;">
-    <img src="assets/images/demo/work_detail_demo.jpg" alt="Work Detail Page Demo" width="200">
-    <figcaption>Work Detail Page</figcaption>
-  </figure>
-</div>
+<table>
+  <tr>
+    <td align="center">
+      <img src="assets/images/demo/about_demo.jpg" width="200"/><br/>
+      <strong>About Page</strong>
+    </td>
+    <td align="center">
+      <img src="assets/images/demo/experience_demo.jpg" width="200"/><br/>
+      <strong>Experience Page</strong>
+    </td>
+    <td align="center">
+      <img src="assets/images/demo/publications_demo.jpg" width="200"/><br/>
+      <strong>Publications Page</strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="assets/images/demo/awards_demo.jpg" width="200"/><br/>
+      <strong>Awards Page</strong>
+    </td>
+    <td align="center">
+      <img src="assets/images/demo/works_demo.jpg" width="200"/><br/>
+      <strong>Works Page</strong>
+    </td>
+    <td align="center">
+      <img src="assets/images/demo/work_detail_demo.jpg" width="200"/><br/>
+      <strong>Work Detail Page</strong>
+    </td>
+  </tr>
+</table>
 
 ## Local Development
 
