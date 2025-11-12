@@ -2,88 +2,10 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> This project is licensed under the MIT License - you are free to fork and modify it for your personal academic homepage.
-
 This repository contains the source code for Aaron Chou's personal academic website, which can also serve as a template for your own personal website.
-
-## Quick Start
-
-To create your own personal website using this template:
-
-1. Fork this repository and rename it to `your-github-username.github.io`
-2. Go to Repository Settings → Pages
-3. Set Source to "Deploy from a branch" 
-4. Select Branch: `master` and folder: `/ (root)`
-5. Your website will be available at `https://your-github-username.github.io`
-
-## Demo
-
-Check out the live demo to see how the website looks and functions: [aaronchou313.github.io](https://aaronchou313.github.io)
-
-Note: This demo website is Aaron Chou's official academic website, but you can use it to preview the template's functionality and design.
-
-## Local Development
-
-For local development and testing, you can use VS Code with the Live Server extension:
-
-1. Install the "Live Server" extension in VS Code
-2. Open [index.html](index.html) in VS Code
-3. Right-click anywhere in the editor
-4. Select "Open with Live Server"
-5. Your browser will automatically open and display the website
-
-This method allows you to preview changes in real-time during development without deploying to GitHub Pages.
 
 ## Responsive Design
 This website supports responsive design and can be accessed normally on mobile devices. However, for the best viewing experience, we recommend accessing it on a PC.
-
-## Customization Guide
-
-### Configuration Files
-
-All personal information is stored in the `config` directory. Modify these JSON files to customize your website:
-
-- `basic-config.json`: Site title, description, and basic metadata
-- `navigation-config.json`: Navigation menu configuration
-- `profile-config.json`: Personal information, motto, and social links
-- `experience-config.json`: Education, research, and work experience
-- `awards-config.json`: Honors and awards
-- `publications-config.json`: Publications and research works
-- `works-config.json`: Projects and portfolio items
-
-### Content Management
-
-Page content is stored as markdown files in the `content` directory:
-
-- Main pages are directly in the `content` folder
-- Project details are in the `content/works` subfolder
-
-### Media Assets
-
-Replace images in the `assets/images` directory:
-- `assets/images/award`: Images for awards/honors
-- `assets/images/publication`: Images for publications
-- `assets/images/work`: Images for projects and works
-
-## Adding or Removing Pages
-
-### To Add a New Page:
-1. Add a new entry in `config/navigation-config.json`
-2. Create a corresponding markdown file in the `content` directory
-
-### To Remove a Page:
-1. Remove the entry from `config/navigation-config.json`
-2. Delete the corresponding markdown file from the `content` directory
-
-## Managing Projects/Works
-
-### To Add a New Project:
-1. Add a new entry in `config/works-config.json`
-2. Create a detailed markdown file in `content/works` directory
-
-### To Remove a Project:
-1. Remove the entry from `config/works-config.json`
-2. Delete the corresponding markdown file from `content/works` directory
 
 ## Technical Architecture
 
