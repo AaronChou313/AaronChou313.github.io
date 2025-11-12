@@ -2,33 +2,34 @@
   "education": [
     {
       "id": 1,
-      "degree": "Bachelor of Engineering",
-      "institution": "Wuhan University",
-      "major": "Spatial Information and Digital Technology",
+      "degree": "Bachelor of Coding",
+      "institution": "Github University",
+      "major": "Git Science and Technology",
       "startDate": "2022",
       "endDate": "2026",
       "description": "Expected graduation: 2026"
-    },
-    {
-      "id": 2,
-      "degree": "Master of Engineering",
-      "institution": "University of Chinese Academy of Sciences",
-      "major": "Surveying and Mapping",
-      "startDate": "2026",
-      "endDate": "2029",
-      "description": "Expected graduation: 2029"
     }
   ],
   "research": [
     {
       "id": 1,
       "title": "Research Assistant",
-      "organization": "SKLEI Laboratory, Wuhan University",
-      "mentors": "Prof. Baocheng Zhang and Prof. You Li",
-      "description": "Research on unmanned systems autonomous localization and perception technologies",
+      "organization": "Github Laboratory",
+      "mentors": "Prof.Octocat",
+      "description": "Research on git science and technology",
+      "startDate": "2021",
+      "endDate": "2022"
+    }
+  ],
+  "occupation": [
+    {
+      "id": 1,
+      "title": "Engineer of Github",
+      "organization": "Github Company",
+      "mentors": "",
+      "description": "Research on automation and robotics",
       "startDate": "2025",
       "endDate": "Present"
     }
-  ],
-  "occupation": []
+  ]
 }

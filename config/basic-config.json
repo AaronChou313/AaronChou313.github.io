@@ -1,7 +1,7 @@
 {
-  "title": "Mingyang Zhou - Personal Academic Page",
-  "author": "Mingyang Zhou",
-  "description": "Personal homepage of Mingyang Zhou, undergraduate student at Wuhan University",
-  "keywords": "Mingyang Zhou, Wuhan University, Remote Sensing, Spatial Information, Digital Technology",
+  "title": "{author} - Personal Academic Page",
+  "author": "{author}",
+  "description": "Personal homepage of {author}, {title} at {institution}",
+  "keywords": "{author}, {institution}, {major}, robotics, autonomous systems",
   "language": "en"
 }

@@ -2,38 +2,20 @@
   "awards": [
     {
       "id": 1,
-      "title": "RoboMaster University League Infantry Duel 🏆 National First Prize",
-      "organization": "National University Robot Competition Organizing Committee",
+      "title": "Github Competition 🏆 First Prize",
+      "organization": "Github",
       "date": "2025",
-      "description": "Outstanding performance of the self-made wheeled auto-aiming shooting robot",
-      "img": "assets/images/award/robomaster.png",
-      "news": "https://mp.weixin.qq.com/s/7cZJ-fV4WwXA3E49jD1Bvg"
+      "description": "Outstanding performance in the Github competition",
+      "img": "assets/images/award/competition.jpg",
+      "news": "https://github.com"
     },
     {
       "id": 2,
-      "title": "China Robotics and Artificial Intelligence Competition 🏅 National Second Prize",
+      "title": "Github Competition 🏅 Second Prize",
       "organization": "National Level",
       "date": "2025",
       "description": "Logistics handling robots in home scenarios efficiently complete tasks",
-      "img": "assets/images/award/craic.png",
-      "news": ""
-    },
-    {
-      "id": 3,
-      "title": "RAICOM National Robot Developer Competition 🏅 National Second Prize",
-      "organization": "National Level",
-      "date": "2025",
-      "description": "The self-made fruit-picking robot performed exceptionally well in the time-limited scene",
-      "img": "assets/images/award/raicom.png",
-      "news": "https://mp.weixin.qq.com/s/TEq7Q20iFrmV68r2q15VFQ"
-    },
-    {
-      "id": 4,
-      "title": "Huazhong CNC Cup Industrial Collaborative Robot and Digital Twinning Technology Innovation Application Special Competition 🏅 Hubei Special Prize",
-      "organization": "Province Level",
-      "date": "2025",
-      "description": "Operate the industrial collaborative robot smoothly to complete the canning operation",
-      "img": "assets/images/award/hzsk.png",
+      "img": "assets/images/award/competition.jpg",
       "news": ""
     }
   ]

@@ -1,20 +1,20 @@
 {
   "profile": {
-    "name": "Mingyang Zhou",
+    "name": "your-name",
     "title": "Undergraduate Student",
-    "description": "Spatial Information and Digital Technology, Wuhan University",
+    "description": "your-description",
     "image": "assets/images/profile.jpg",
-    "motto": "True progress quietly and persistently moves along without notice.     — St. Francis of Assisi",
+    "motto": "Doubt is the key to knowledge.",
     "personal-info": {
       "location": {
-        "value": "Wuhan, China",
+        "value": "New York, USA",
         "icon": "location.svg",
         "url": ""
       },
       "institution": {
-        "value": "Wuhan University",
+        "value": "Github University",
         "icon": "institution.svg",
-        "url": "https://www.whu.edu.cn/"
+        "url": "https://github.com/"
       },
       "identity": {
         "value": "Undergraduate Student",
@@ -22,76 +22,41 @@
         "url": ""
       },
       "major": {
-        "value": "Remote Sensing",
+        "value": "Git Science and Technology",
         "icon": "major.svg",
         "url": ""
       },
       "email": {
-        "value": "zhoumy@whu.edu.cn",
+        "value": "your-email@address.com",
         "icon": "email.svg",
-        "url": "mailto:zhoumy@whu.edu.cn"
+        "url": "mailto:your-email@address.com"
       }
     },
     "social": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com",
+        "icon": "github.svg"
+      },
+      {
+        "name": "Gitee",
+        "url": "https://gitee.com",
+        "icon": "gitee.svg"
+      },
+       {
+        "name": "Facebook",
+        "url": "",
+        "icon": "facebook.svg"
+      },
       {
         "name": "Google Scholar",
         "url": "",
         "icon": "google-scholar.svg"
       },
       {
-        "name": "GitHub",
-        "url": "https://github.com/AaronChou313",
-        "icon": "github.svg"
-      },
-      {
-        "name": "Gitee",
-        "url": "https://gitee.com/aaron-chou313",
-        "icon": "gitee.svg"
-      },
-      {
         "name": "ORCID",
-        "url": "https://orcid.org/0009-0002-1527-7603",
+        "url": "",
         "icon": "orcid.svg"
-      },
-      {
-        "name": "Obsidian",
-        "url": "",
-        "icon": "obsidian.svg"
-      },
-      {
-        "name": "CV",
-        "url": "",
-        "icon": "resume.svg"
-      },
-      {
-        "name": "CSDN",
-        "url": "https://blog.csdn.net/qq_39599112",
-        "icon": "csdn.svg"
-      },
-      {
-        "name": "Yuque",
-        "url": "https://www.yuque.com/zhoumingyang-mhzvi",
-        "icon": "yuque.svg"
-      },
-      {
-        "name": "Bilibili",
-        "url": "https://space.bilibili.com/43859485",
-        "icon": "bilibili.svg"
-      },
-      {
-        "name": "Zhihu",
-        "url": "",
-        "icon": "zhihu.svg"
-      },
-      {
-        "name": "TikTok",
-        "url": "",
-        "icon": "tiktok.svg"
-      },
-      {
-        "name": "RedBook",
-        "url": "",
-        "icon": "redbook.svg"
       },
       {
         "name": "Academia",
@@ -125,8 +90,48 @@
       },
       {
         "name": "ResearchGate",
-        "url": "https://www.researchgate.net/profile/Mingyang-Zhou-16",
+        "url": "",
         "icon": "researchgate.svg"
+      },
+      {
+        "name": "Obsidian",
+        "url": "",
+        "icon": "obsidian.svg"
+      },
+      {
+        "name": "CV",
+        "url": "",
+        "icon": "resume.svg"
+      },
+      {
+        "name": "CSDN",
+        "url": "",
+        "icon": "csdn.svg"
+      },
+      {
+        "name": "Yuque",
+        "url": "",
+        "icon": "yuque.svg"
+      },
+      {
+        "name": "Bilibili",
+        "url": "",
+        "icon": "bilibili.svg"
+      },
+      {
+        "name": "Zhihu",
+        "url": "",
+        "icon": "zhihu.svg"
+      },
+      {
+        "name": "TikTok",
+        "url": "",
+        "icon": "tiktok.svg"
+      },
+      {
+        "name": "RedBook",
+        "url": "",
+        "icon": "redbook.svg"
       },
       {
         "name": "Scopus",
@@ -167,11 +172,6 @@
         "name": "Bluesky",
         "url": "",
         "icon": "bluesky.svg"
-      },
-      {
-        "name": "Facebook",
-        "url": "",
-        "icon": "facebook.svg"
       },
       {
         "name": "Flickr",
