@@ -522,8 +522,18 @@
     const PROFILE_API = `https://api.github.com/users/${USER}`;
     const REPOS_API = `https://api.github.com/users/${USER}/repos`;
 
-    let repos = [];
-    let currentLang = localStorage.getItem("lang") || "zh";
+    const FALLBACK_REPOS = [{"name":"UCAS-lessons","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/UCAS-lessons","private":false,"archived":false,"topics":[],"homepage":""},{"name":"tensornote","description":"Local-first, Markdown-first executable knowledge workspace powered by Jupyter.","language":"TypeScript","stargazers_count":2,"forks_count":0,"updated_at":"2026-09-09T18:45:10Z","has_pages":true,"homepage":"https://aaronchou313.github.io/tensornote/","html_url":"https://github.com/AaronChou313/tensornote","private":false,"archived":false,"topics":[]},{"name":"SICISP-YOLO","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/SICISP-YOLO","private":false,"archived":false,"topics":[],"homepage":""},{"name":"WHURM2025-infantry","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/WHURM2025-infantry","private":false,"archived":false,"topics":[],"homepage":""},{"name":"SICISP-intelligence-algorithm","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/SICISP-intelligence-algorithm","private":false,"archived":false,"topics":[],"homepage":""},{"name":"nn-research-vault","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/nn-research-vault","private":false,"archived":false,"topics":[],"homepage":""},{"name":"wordward-game","description":"以汉字组词为核心的三国主题塔防游戏。","language":"JavaScript","stargazers_count":1,"forks_count":0,"updated_at":"2026-09-01T02:57:10Z","has_pages":false,"homepage":"https://sheepgame.top","html_url":"https://github.com/AaronChou313/wordward-game","private":false,"archived":false,"topics":[]},{"name":"learn-dl","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/learn-dl","private":false,"archived":false,"topics":[],"homepage":""},{"name":"personal-page","description":"中英双语个人学术主页模板，支持语言切换、深浅主题与响应式布局。","language":"JavaScript","stargazers_count":0,"forks_count":0,"updated_at":"2026-07-26T08:26:07Z","has_pages":false,"html_url":"https://github.com/AaronChou313/personal-page","private":false,"archived":false,"topics":[],"homepage":""},{"name":"sheep-tool","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/sheep-tool","private":false,"archived":false,"topics":[],"homepage":""},{"name":"apoarm-stm32","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/apoarm-stm32","private":false,"archived":false,"topics":[],"homepage":""},{"name":"alex-agent","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/alex-agent","private":false,"archived":false,"topics":[],"homepage":""},{"name":"AaronChou313.github.io","description":"AaronChou313 的 GitHub 项目展示主页。","language":"HTML","stargazers_count":0,"forks_count":0,"updated_at":"2026-09-10T04:09:23Z","has_pages":true,"homepage":"https://aaronchou313.github.io/","html_url":"https://github.com/AaronChou313/AaronChou313.github.io","private":false,"archived":false,"topics":[]},{"name":"trip-master","description":"旅行规划工具，包含兴趣点、行程、预算与备忘录等功能。","language":"Vue","stargazers_count":0,"forks_count":0,"updated_at":"2026-07-25T11:04:33Z","has_pages":false,"html_url":"https://github.com/AaronChou313/trip-master","private":false,"archived":false,"topics":[],"homepage":""},{"name":"transformer-graph","description":"用于学习 Transformer 网络结构的交互式单页 Web 应用。","language":"TypeScript","stargazers_count":0,"forks_count":0,"updated_at":"2026-09-10T03:55:02Z","has_pages":true,"homepage":"https://aaronchou313.github.io/transformer-graph/","html_url":"https://github.com/AaronChou313/transformer-graph","private":false,"archived":false,"topics":[]},{"name":"UCAS-measurement-data-processing","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/UCAS-measurement-data-processing","private":false,"archived":false,"topics":[],"homepage":""},{"name":"ISIMP-dace","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/ISIMP-dace","private":false,"archived":false,"topics":[],"homepage":""},{"name":"happy-llm-tensornote","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/happy-llm-tensornote","private":false,"archived":false,"topics":[],"homepage":""},{"name":"apoarm-control","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/apoarm-control","private":false,"archived":false,"topics":[],"homepage":""},{"name":"html-shelf","description":"","language":"HTML","stargazers_count":0,"forks_count":0,"updated_at":"2026-09-01T11:24:34Z","has_pages":false,"html_url":"https://github.com/AaronChou313/html-shelf","private":false,"archived":false,"topics":[],"homepage":""},{"name":"SICISP-webpoi","description":"空间智能计算与服务课程实习项目，提供地图 POI 搜索与空间范围查询。","language":"TypeScript","stargazers_count":0,"forks_count":0,"updated_at":"2026-07-21T11:37:04Z","has_pages":false,"html_url":"https://github.com/AaronChou313/SICISP-webpoi","private":false,"archived":false,"topics":[],"homepage":""},{"name":"workspace-bridge","description":"本地 MCP 工作区桥接服务。","language":"","stargazers_count":0,"forks_count":0,"updated_at":"2026-07-24T04:36:07Z","has_pages":false,"html_url":"https://github.com/AaronChou313/workspace-bridge","private":false,"archived":false,"topics":[],"homepage":""},{"name":"sheep-env-manager","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/sheep-env-manager","private":false,"archived":false,"topics":[],"homepage":""},{"name":"UCAS-intelligent-sensing-and-information-processing","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/UCAS-intelligent-sensing-and-information-processing","private":false,"archived":false,"topics":[],"homepage":""}];
+
+    // 页面首先使用内置数据渲染，GitHub API 仅用于后台刷新。
+    // 这样即使 api.github.com 被限流、DNS/网络异常或浏览器拦截，内容也不会空白。
+    let repos = FALLBACK_REPOS.map(repo => ({ ...repo }));
+
+    let currentLang = "zh";
+    try {
+      currentLang = localStorage.getItem("lang") || "zh";
+    } catch (_) {
+      currentLang = "zh";
+    }
 
     const texts = {
       zh: {
@@ -671,7 +681,7 @@
               </a>
             ` : ""}
 
-            <span class="meta">${escapeHtml(t.updated)} ${escapeHtml(formatDate(repo.updated_at))}</span>
+            ${repo.updated_at ? `<span class="meta">${escapeHtml(t.updated)} ${escapeHtml(formatDate(repo.updated_at))}</span>` : ""}
           </div>
         </article>
       `;
@@ -781,12 +791,64 @@
       document.getElementById("pageCount").textContent = pageRepos.length;
     }
 
+    function updateStats() {
+      document.getElementById("repoCount").textContent = repos.length;
+      document.getElementById("starCount").textContent =
+        repos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
+    }
+
+    async function refreshProfile() {
+      try {
+        const profileResponse = await fetch(PROFILE_API, {
+          headers: { "Accept": "application/vnd.github+json" }
+        });
+
+        if (!profileResponse.ok) return;
+
+        const profile = await profileResponse.json();
+
+        document.getElementById("displayName").textContent =
+          profile.name || profile.login || USER;
+
+        if (profile.avatar_url) {
+          document.getElementById("avatar").src = profile.avatar_url;
+        }
+
+        if (profile.bio) {
+          const bio = document.getElementById("bio");
+          bio.textContent = profile.bio;
+          bio.dataset.fromProfile = "true";
+        }
+      } catch (error) {
+        console.warn("Profile refresh skipped:", error);
+      }
+    }
+
+    async function refreshRepos() {
+      try {
+        const repoData = await fetchAllRepos();
+
+        if (!Array.isArray(repoData) || !repoData.length) return;
+
+        repos = repoData
+          .filter(repo => !repo.private)
+          .sort((a, b) => new Date(b.updated_at || 0) - new Date(a.updated_at || 0));
+
+        updateStats();
+        renderPages();
+        renderRepositories(filterRepos());
+      } catch (error) {
+        // 不覆盖已经显示的内置数据。
+        console.warn("GitHub API refresh skipped; using embedded repository data:", error);
+      }
+    }
+
     async function init() {
       document.getElementById("year").textContent = new Date().getFullYear();
 
       document.getElementById("langToggle").addEventListener("click", () => {
         currentLang = currentLang === "zh" ? "en" : "zh";
-        localStorage.setItem("lang", currentLang);
+        try { localStorage.setItem("lang", currentLang); } catch (_) {}
         applyLanguage();
       });
 
@@ -794,56 +856,15 @@
         renderRepositories(filterRepos());
       });
 
+      // 先同步渲染内置数据，页面打开即有内容。
       applyLanguage();
+      updateStats();
+      renderPages();
+      renderRepositories(repos);
 
-      try {
-        const [profileResponse, repoData] = await Promise.all([
-          fetch(PROFILE_API, {
-            headers: { "Accept": "application/vnd.github+json" }
-          }),
-          fetchAllRepos()
-        ]);
-
-        if (profileResponse.ok) {
-          const profile = await profileResponse.json();
-
-          document.getElementById("displayName").textContent =
-            profile.name || profile.login || USER;
-
-          if (profile.avatar_url) {
-            document.getElementById("avatar").src = profile.avatar_url;
-          }
-
-          // Profile bio 本身不做自动翻译；没有 bio 时使用中英文内置描述。
-          if (profile.bio) {
-            const bio = document.getElementById("bio");
-            bio.textContent = profile.bio;
-            bio.dataset.fromProfile = "true";
-          }
-        }
-
-        repos = repoData
-          .filter(repo => !repo.private)
-          .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
-
-        document.getElementById("repoCount").textContent = repos.length;
-        document.getElementById("starCount").textContent =
-          repos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
-
-        renderPages();
-        renderRepositories(repos);
-      } catch (error) {
-        console.error(error);
-        const t = texts[currentLang];
-
-        document.getElementById("repoGrid").innerHTML =
-          `<div class="error">${escapeHtml(t.apiError)}</div>`;
-
-        document.getElementById("pagesGrid").innerHTML =
-          `<div class="error">${escapeHtml(t.apiError)}</div>`;
-
-        document.getElementById("pageCount").textContent = "—";
-      }
+      // 再异步尝试获取最新 GitHub 数据；失败也不会清空页面。
+      refreshProfile();
+      refreshRepos();
     }
 
     init();
