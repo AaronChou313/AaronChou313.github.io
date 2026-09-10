@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AaronChou313 的公开项目与 GitHub Pages 项目展示页" />
+  <meta name="color-scheme" content="light dark" />
+  <title>AaronChou313 · Projects</title>
+  <style>
+    :root {
+      --bg: #f6f8fa;
+      --panel: rgba(255,255,255,.88);
+      --solid: #fff;
+      --text: #1f2328;
+      --muted: #656d76;
+      --border: #d0d7de;
+      --accent: #0969da;
+      --green: #1f883d;
+      --soft: #ddf4ff;
+      --shadow: 0 6px 22px rgba(140,149,159,.12);
+      --radius: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1117;
+        --panel: rgba(22,27,34,.9);
+        --solid: #161b22;
+        --text: #e6edf3;
+        --muted: #8b949e;
+        --border: #30363d;
+        --accent: #58a6ff;
+        --green: #3fb950;
+        --soft: rgba(56,139,253,.15);
+        --shadow: 0 8px 24px rgba(0,0,0,.24);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(9,105,218,.08), transparent 24rem),
+        radial-gradient(circle at 88% 4%, rgba(130,80,223,.06), transparent 22rem),
+        var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header { padding: 42px 0 22px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .avatar {
+      width: 76px;
+      height: 76px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: var(--solid);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy { min-width: 0; }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: clamp(29px, 4vw, 40px);
+      line-height: 1.05;
+      letter-spacing: -.03em;
+    }
+
+    .bio {
+      max-width: 690px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .hero-actions,
+    .profile-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .hero-actions { margin-top: 13px; }
+
+    .button,
+    .profile-link,
+    .icon-button,
+    .mini-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      background: var(--solid);
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+
+    .button:hover,
+    .profile-link:hover,
+    .icon-button:hover,
+    .mini-link:hover {
+      transform: translateY(-1px);
+      border-color: var(--accent);
+    }
+
+    .button {
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .button.primary {
+      color: #fff;
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    .lang-toggle {
+      min-width: 54px;
+      cursor: pointer;
+    }
+
+    .profile-links {
+      max-width: 260px;
+      justify-content: flex-end;
+    }
+
+    .profile-link {
+      width: 100%;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-link strong {
+      display: block;
+      font-size: 13px;
+      line-height: 1.2;
+    }
+
+    .profile-link span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .profile-link .mark {
+      width: 28px;
+      height: 28px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--soft);
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 24px 0 30px;
+    }
+
+    .stat {
+      padding: 13px 16px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    main { padding-bottom: 56px; }
+    section { margin: 30px 0 38px; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: -.02em;
+    }
+
+    .section-head p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .search {
+      width: min(290px, 100%);
+      padding: 8px 10px;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      outline: none;
+      background: var(--solid);
+      font-size: 13px;
+    }
+
+    .search:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(9,105,218,.10);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .card {
+      min-height: 132px;
+      display: flex;
+      flex-direction: column;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      transition: transform .15s ease, border-color .15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-1px);
+      border-color: rgba(9,105,218,.5);
+    }
+
+    .web-card {
+      min-height: 126px;
+      border-top: 2px solid var(--green);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .repo-name {
+      margin: 0;
+      color: var(--accent);
+      font-size: 15px;
+      line-height: 1.3;
+      word-break: break-word;
+    }
+
+    .badge {
+      flex: 0 0 auto;
+      padding: 3px 7px;
+      border-radius: 999px;
+      color: var(--accent);
+      background: var(--soft);
+      font-size: 10px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .desc {
+      flex: 1;
+      margin: 7px 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.48;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .lang-dot {
+      width: 8px;
+      height: 8px;
+      display: inline-block;
+      margin-right: 4px;
+      border-radius: 50%;
+      background: currentColor;
+      vertical-align: 0;
+    }
+
+    .card-actions {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .mini-link {
+      min-height: 28px;
+      padding: 0 8px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 650;
+    }
+
+    .icon-button {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+    }
+
+    .icon-button svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+
+    .loading, .empty, .error {
+      grid-column: 1 / -1;
+      padding: 22px 16px;
+      color: var(--muted);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 21px 0 30px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+    }
+
+    .footer-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 920px) {
+      .hero {
+        grid-template-columns: auto 1fr;
+      }
+      .profile-links {
+        grid-column: 1 / -1;
+        max-width: none;
+        justify-content: flex-start;
+      }
+      .profile-link {
+        width: auto;
+        min-width: 230px;
+      }
+      .grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+
+    @media (max-width: 650px) {
+      header { padding-top: 30px; }
+      .avatar { width: 62px; height: 62px; }
+      .stats { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .section-head {
+        align-items: stretch;
+        flex-direction: column;
+      }
+      .search { width: 100%; }
+      .profile-link { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="hero">
+        <img
+          class="avatar"
+          id="avatar"
+          src="https://avatars.githubusercontent.com/AaronChou313"
+          alt="AaronChou313 avatar"
+        />
+
+        <div class="hero-copy">
+          <h1 id="displayName">AaronChou313</h1>
+          <p class="bio" id="bio">公开项目、实验与静态网页的集中展示页。</p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="https://github.com/AaronChou313" target="_blank" rel="noreferrer" data-i18n="profile">GitHub 主页</a>
+            <a class="button" href="#pages" data-i18n="webProjects">网页项目</a>
+            <a class="button" href="#repositories" data-i18n="repositories">公开仓库</a>
+            <button class="button lang-toggle" id="langToggle" type="button">EN</button>
+          </div>
+        </div>
+
+        <div class="profile-links" aria-label="Featured profiles">
+          <a class="profile-link" href="https://zhoumy0313.github.io/" target="_blank" rel="noreferrer">
+            <span class="mark">MZ</span>
+            <span>
+              <strong>Mingyang Zhou</strong>
+              <span data-i18n="academicSite">学术主页</span>
+            </span>
+          </a>
+
+          <a class="profile-link" href="https://cybersheep33.github.io/" target="_blank" rel="noreferrer">
+            <span class="mark">AI</span>
+            <span>
+              <strong>赛博小羊 CyberSheep</strong>
+              <span data-i18n="aiSite">AI 学习站</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <strong id="repoCount">—</strong>
+          <span data-i18n="repoCount">公开仓库</span>
+        </div>
+        <div class="stat">
+          <strong id="pageCount">—</strong>
+          <span data-i18n="pageCount">GitHub Pages 项目</span>
+        </div>
+        <div class="stat">
+          <strong id="starCount">—</strong>
+          <span data-i18n="starCount">总 Stars</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="pages">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="webProjects">网页项目</h2>
+            <p data-i18n="webDesc">已部署 GitHub Pages 的静态网页项目。</p>
+          </div>
+        </div>
+
+        <div id="pagesGrid" class="grid">
+          <div class="loading" data-i18n="loadingPages">正在加载网页项目…</div>
+        </div>
+      </section>
+
+      <section id="repositories">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="repositories">公开仓库</h2>
+            <p data-i18n="repoDesc">全部公开仓库，默认按最近更新时间排序。</p>
+          </div>
+
+          <input
+            id="search"
+            class="search"
+            type="search"
+            placeholder="搜索仓库…"
+            aria-label="Search repositories"
+          />
+        </div>
+
+        <div id="repoGrid" class="grid">
+          <div class="loading" data-i18n="loadingRepos">正在加载公开仓库…</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-line">
+        <span>© <span id="year"></span> AaronChou313</span>
+        <span data-i18n="footer">由 GitHub Pages 托管 · 仓库数据来自 GitHub API</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const USER = "AaronChou313";
+    const PROFILE_API = `https://api.github.com/users/${USER}`;
+    const REPOS_API = `https://api.github.com/users/${USER}/repos`;
+
+    let repos = [];
+    let currentLang = localStorage.getItem("lang") || "zh";
+
+    const texts = {
+      zh: {
+        profile: "GitHub 主页",
+        webProjects: "网页项目",
+        repositories: "公开仓库",
+        academicSite: "学术主页",
+        aiSite: "AI 学习站",
+        repoCount: "公开仓库",
+        pageCount: "GitHub Pages 项目",
+        starCount: "总 Stars",
+        webDesc: "已部署 GitHub Pages 的静态网页项目。",
+        repoDesc: "全部公开仓库，默认按最近更新时间排序。",
+        loadingPages: "正在加载网页项目…",
+        loadingRepos: "正在加载公开仓库…",
+        footer: "由 GitHub Pages 托管 · 仓库数据来自 GitHub API",
+        searchPlaceholder: "搜索仓库…",
+        noMatch: "没有匹配的仓库。",
+        apiError: "暂时无法从 GitHub API 加载仓库，请稍后刷新。",
+        defaultBio: "公开项目、实验与静态网页的集中展示页。",
+        noDescription: "暂无项目说明。",
+        githubPages: "GitHub Pages",
+        openWebsite: "打开网页",
+        updated: "更新于"
+      },
+      en: {
+        profile: "GitHub Profile",
+        webProjects: "Web Projects",
+        repositories: "Repositories",
+        academicSite: "Academic Homepage",
+        aiSite: "AI Learning Site",
+        repoCount: "Public Repositories",
+        pageCount: "GitHub Pages Projects",
+        starCount: "Total Stars",
+        webDesc: "Static web projects deployed with GitHub Pages.",
+        repoDesc: "All public repositories, sorted by recent update.",
+        loadingPages: "Loading web projects…",
+        loadingRepos: "Loading repositories…",
+        footer: "Hosted on GitHub Pages · Repository data from GitHub API",
+        searchPlaceholder: "Search repositories…",
+        noMatch: "No matching repositories.",
+        apiError: "GitHub API is temporarily unavailable. Please refresh later.",
+        defaultBio: "A collection of public projects, experiments and static web pages.",
+        noDescription: "No description provided.",
+        githubPages: "GitHub Pages",
+        openWebsite: "Open Website",
+        updated: "Updated"
+      }
+    };
+
+    const githubIcon = `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 .7a11.3 11.3 0 0 0-3.6 22c.6.1.8-.2.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C16.5 4 17.5 4.3 17.5 4.3c.6 1.6.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.3 11.3 0 0 0 12 .7Z"/>
+      </svg>
+    `;
+
+    const escapeHtml = (value = "") =>
+      String(value).replace(/[&<>"']/g, c => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      }[c]));
+
+    const formatDate = value => {
+      if (!value) return "";
+      return new Intl.DateTimeFormat(currentLang === "zh" ? "zh-CN" : "en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric"
+      }).format(new Date(value));
+    };
+
+    const pageUrl = repo => {
+      const homepage = (repo.homepage || "").trim();
+      if (homepage && /^https?:\/\//i.test(homepage)) return homepage;
+      if (repo.name.toLowerCase() === `${USER.toLowerCase()}.github.io`) {
+        return `https://${USER}.github.io/`;
+      }
+      return `https://${USER}.github.io/${encodeURIComponent(repo.name)}/`;
+    };
+
+    function applyLanguage() {
+      const t = texts[currentLang];
+      document.documentElement.lang = currentLang === "zh" ? "zh-CN" : "en";
+      document.getElementById("langToggle").textContent = currentLang === "zh" ? "EN" : "中文";
+      document.getElementById("search").placeholder = t.searchPlaceholder;
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key]) el.textContent = t[key];
+      });
+
+      document.querySelector('meta[name="description"]').setAttribute(
+        "content",
+        currentLang === "zh"
+          ? "AaronChou313 的公开项目与 GitHub Pages 项目展示页"
+          : "AaronChou313's public projects and GitHub Pages showcase"
+      );
+
+      document.title = currentLang === "zh"
+        ? "AaronChou313 · 项目主页"
+        : "AaronChou313 · Projects";
+
+      const bio = document.getElementById("bio");
+      if (bio.dataset.fromProfile !== "true") bio.textContent = t.defaultBio;
+
+      if (repos.length) {
+        renderPages();
+        renderRepositories(filterRepos());
+      }
+    }
+
+    function repoCard(repo) {
+      const t = texts[currentLang];
+      return `
+        <article class="card">
+          <div class="card-top">
+            <h3 class="repo-name">${escapeHtml(repo.name)}</h3>
+            ${repo.archived ? '<span class="badge">Archived</span>' : ""}
+          </div>
+
+          <p class="desc">${escapeHtml(repo.description || t.noDescription)}</p>
+
+          <div class="meta">
+            ${repo.language ? `<span><span class="lang-dot"></span>${escapeHtml(repo.language)}</span>` : ""}
+            <span>★ ${repo.stargazers_count || 0}</span>
+            <span>⑂ ${repo.forks_count || 0}</span>
+          </div>
+
+          <div class="card-actions">
+            <a
+              class="icon-button"
+              href="${escapeHtml(repo.html_url)}"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              title="GitHub"
+            >${githubIcon}</a>
+
+            ${repo.has_pages ? `
+              <a class="mini-link" href="${escapeHtml(pageUrl(repo))}" target="_blank" rel="noreferrer">
+                ${escapeHtml(t.openWebsite)} ↗
+              </a>
+            ` : ""}
+
+            <span class="meta">${escapeHtml(t.updated)} ${escapeHtml(formatDate(repo.updated_at))}</span>
+          </div>
+        </article>
+      `;
+    }
+
+    function pageRepoCard(repo) {
+      const t = texts[currentLang];
+      return `
+        <article class="card web-card">
+          <div class="card-top">
+            <h3 class="repo-name">${escapeHtml(repo.name)}</h3>
+            <span class="badge">${escapeHtml(t.githubPages)}</span>
+          </div>
+
+          <p class="desc">${escapeHtml(repo.description || t.noDescription)}</p>
+
+          <div class="meta">
+            ${repo.language ? `<span><span class="lang-dot"></span>${escapeHtml(repo.language)}</span>` : ""}
+            <span>★ ${repo.stargazers_count || 0}</span>
+          </div>
+
+          <div class="card-actions">
+            <a class="mini-link" href="${escapeHtml(pageUrl(repo))}" target="_blank" rel="noreferrer">
+              ${escapeHtml(t.openWebsite)} ↗
+            </a>
+
+            <a
+              class="icon-button"
+              href="${escapeHtml(repo.html_url)}"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              title="GitHub"
+            >${githubIcon}</a>
+          </div>
+        </article>
+      `;
+    }
+
+    async function fetchAllRepos() {
+      const all = [];
+      let page = 1;
+
+      while (true) {
+        const response = await fetch(
+          `${REPOS_API}?per_page=100&page=${page}&sort=updated&type=owner`,
+          { headers: { "Accept": "application/vnd.github+json" } }
+        );
+
+        if (!response.ok) throw new Error(`GitHub API ${response.status}`);
+
+        const batch = await response.json();
+        all.push(...batch);
+
+        if (batch.length < 100) break;
+        page += 1;
+      }
+
+      return all;
+    }
+
+    function filterRepos() {
+      const keyword = document.getElementById("search").value.trim().toLowerCase();
+      if (!keyword) return repos;
+
+      return repos.filter(repo => {
+        const haystack = [
+          repo.name,
+          repo.description,
+          repo.language,
+          ...(repo.topics || [])
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+
+        return haystack.includes(keyword);
+      });
+    }
+
+    function renderRepositories(list) {
+      const grid = document.getElementById("repoGrid");
+      const t = texts[currentLang];
+
+      if (!list.length) {
+        grid.innerHTML = `<div class="empty">${escapeHtml(t.noMatch)}</div>`;
+        return;
+      }
+
+      grid.innerHTML = list.map(repoCard).join("");
+    }
+
+    function renderPages() {
+      const grid = document.getElementById("pagesGrid");
+
+      const pageRepos = repos
+        .filter(repo =>
+          repo.has_pages &&
+          repo.name.toLowerCase() !== `${USER.toLowerCase()}.github.io`
+        )
+        .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+
+      grid.innerHTML = pageRepos.length
+        ? pageRepos.map(pageRepoCard).join("")
+        : `<div class="empty">${texts[currentLang].noMatch}</div>`;
+
+      document.getElementById("pageCount").textContent = pageRepos.length;
+    }
+
+    async function init() {
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      document.getElementById("langToggle").addEventListener("click", () => {
+        currentLang = currentLang === "zh" ? "en" : "zh";
+        localStorage.setItem("lang", currentLang);
+        applyLanguage();
+      });
+
+      document.getElementById("search").addEventListener("input", () => {
+        renderRepositories(filterRepos());
+      });
+
+      applyLanguage();
+
+      try {
+        const [profileResponse, repoData] = await Promise.all([
+          fetch(PROFILE_API, {
+            headers: { "Accept": "application/vnd.github+json" }
+          }),
+          fetchAllRepos()
+        ]);
+
+        if (profileResponse.ok) {
+          const profile = await profileResponse.json();
+
+          document.getElementById("displayName").textContent =
+            profile.name || profile.login || USER;
+
+          if (profile.avatar_url) {
+            document.getElementById("avatar").src = profile.avatar_url;
+          }
+
+          // Profile bio 本身不做自动翻译；没有 bio 时使用中英文内置描述。
+          if (profile.bio) {
+            const bio = document.getElementById("bio");
+            bio.textContent = profile.bio;
+            bio.dataset.fromProfile = "true";
+          }
+        }
+
+        repos = repoData
+          .filter(repo => !repo.private)
+          .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+
+        document.getElementById("repoCount").textContent = repos.length;
+        document.getElementById("starCount").textContent =
+          repos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
+
+        renderPages();
+        renderRepositories(repos);
+      } catch (error) {
+        console.error(error);
+        const t = texts[currentLang];
+
+        document.getElementById("repoGrid").innerHTML =
+          `<div class="error">${escapeHtml(t.apiError)}</div>`;
+
+        document.getElementById("pagesGrid").innerHTML =
+          `<div class="error">${escapeHtml(t.apiError)}</div>`;
+
+        document.getElementById("pageCount").textContent = "—";
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
