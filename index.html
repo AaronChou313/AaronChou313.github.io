@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="AaronChou313 的公开项目与 GitHub Pages 项目展示页" />
   <meta name="color-scheme" content="light dark" />
-  <title>AaronChou313 · Projects</title>
+  <title>AaronChou313 · 项目主页</title>
+
   <style>
     :root {
       --bg: #f6f8fa;
@@ -17,6 +18,8 @@
       --accent: #0969da;
       --green: #1f883d;
       --soft: #ddf4ff;
+      --pin-soft: #fff8c5;
+      --pin-text: #9a6700;
       --shadow: 0 6px 22px rgba(140,149,159,.12);
       --radius: 12px;
     }
@@ -32,12 +35,15 @@
         --accent: #58a6ff;
         --green: #3fb950;
         --soft: rgba(56,139,253,.15);
+        --pin-soft: rgba(187,128,9,.18);
+        --pin-text: #d29922;
         --shadow: 0 8px 24px rgba(0,0,0,.24);
       }
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -103,9 +109,7 @@
     .hero-actions { margin-top: 13px; }
 
     .button,
-    .profile-link,
-    .icon-button,
-    .mini-link {
+    .profile-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -115,19 +119,20 @@
     }
 
     .button:hover,
-    .profile-link:hover,
-    .icon-button:hover,
-    .mini-link:hover {
+    .profile-link:hover {
       transform: translateY(-1px);
       border-color: var(--accent);
     }
 
+    /* 中英文切换时保持固定宽度，避免按钮左右跳动。 */
     .button {
+      width: 110px;
       min-height: 34px;
-      padding: 0 12px;
+      padding: 0 8px;
       border-radius: 9px;
       font-size: 13px;
       font-weight: 650;
+      white-space: nowrap;
     }
 
     .button.primary {
@@ -137,7 +142,7 @@
     }
 
     .lang-toggle {
-      min-width: 54px;
+      width: 64px;
       cursor: pointer;
     }
 
@@ -161,7 +166,7 @@
       line-height: 1.2;
     }
 
-    .profile-link span {
+    .profile-link .subtitle {
       display: block;
       margin-top: 3px;
       color: var(--muted);
@@ -256,7 +261,8 @@
     }
 
     .card {
-      min-height: 132px;
+      position: relative;
+      min-height: 124px;
       display: flex;
       flex-direction: column;
       padding: 14px;
@@ -264,16 +270,27 @@
       border-radius: var(--radius);
       background: var(--panel);
       box-shadow: var(--shadow);
-      transition: transform .15s ease, border-color .15s ease;
+      cursor: pointer;
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
     }
 
     .card:hover {
-      transform: translateY(-1px);
-      border-color: rgba(9,105,218,.5);
+      transform: translateY(-2px);
+      border-color: rgba(9,105,218,.6);
+      box-shadow: 0 9px 25px rgba(9,105,218,.10);
+    }
+
+    .card:focus-visible {
+      outline: 3px solid rgba(9,105,218,.22);
+      outline-offset: 2px;
+    }
+
+    .card.pinned {
+      border-color: rgba(154,103,0,.35);
     }
 
     .web-card {
-      min-height: 126px;
+      min-height: 106px;
       border-top: 2px solid var(--green);
     }
 
@@ -292,8 +309,14 @@
       word-break: break-word;
     }
 
-    .badge {
+    .badges {
+      display: flex;
+      gap: 5px;
       flex: 0 0 auto;
+      align-items: center;
+    }
+
+    .badge {
       padding: 3px 7px;
       border-radius: 999px;
       color: var(--accent);
@@ -301,6 +324,17 @@
       font-size: 10px;
       font-weight: 750;
       white-space: nowrap;
+    }
+
+    .pin-badge {
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      color: var(--pin-text);
+      background: var(--pin-soft);
+      font-size: 12px;
     }
 
     .desc {
@@ -313,6 +347,10 @@
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+    }
+
+    .web-card .desc {
+      margin-bottom: 0;
     }
 
     .meta {
@@ -334,34 +372,9 @@
       vertical-align: 0;
     }
 
-    .card-actions {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      margin-top: 10px;
-    }
-
-    .mini-link {
-      min-height: 28px;
-      padding: 0 8px;
-      border-radius: 7px;
-      font-size: 11px;
-      font-weight: 650;
-    }
-
-    .icon-button {
-      width: 28px;
-      height: 28px;
-      border-radius: 7px;
-    }
-
-    .icon-button svg {
-      width: 15px;
-      height: 15px;
-      fill: currentColor;
-    }
-
-    .loading, .empty, .error {
+    .loading,
+    .empty,
+    .error {
       grid-column: 1 / -1;
       padding: 22px 16px;
       color: var(--muted);
@@ -386,18 +399,19 @@
     }
 
     @media (max-width: 920px) {
-      .hero {
-        grid-template-columns: auto 1fr;
-      }
+      .hero { grid-template-columns: auto 1fr; }
+
       .profile-links {
         grid-column: 1 / -1;
         max-width: none;
         justify-content: flex-start;
       }
+
       .profile-link {
         width: auto;
         min-width: 230px;
       }
+
       .grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
     }
 
@@ -406,15 +420,18 @@
       .avatar { width: 62px; height: 62px; }
       .stats { grid-template-columns: 1fr; }
       .grid { grid-template-columns: 1fr; }
+
       .section-head {
         align-items: stretch;
         flex-direction: column;
       }
+
       .search { width: 100%; }
       .profile-link { width: 100%; }
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <header>
@@ -438,23 +455,7 @@
           </div>
         </div>
 
-        <div class="profile-links" aria-label="Featured profiles">
-          <a class="profile-link" href="https://zhoumy0313.github.io/" target="_blank" rel="noreferrer">
-            <span class="mark">MZ</span>
-            <span>
-              <strong>Mingyang Zhou</strong>
-              <span data-i18n="academicSite">学术主页</span>
-            </span>
-          </a>
-
-          <a class="profile-link" href="https://cybersheep33.github.io/" target="_blank" rel="noreferrer">
-            <span class="mark">AI</span>
-            <span>
-              <strong>赛博小羊 CyberSheep</strong>
-              <span data-i18n="aiSite">AI 学习站</span>
-            </span>
-          </a>
-        </div>
+        <div class="profile-links" id="profileLinks" aria-label="Featured profiles"></div>
       </div>
 
       <div class="stats">
@@ -481,7 +482,6 @@
             <p data-i18n="webDesc">已部署 GitHub Pages 的静态网页项目。</p>
           </div>
         </div>
-
         <div id="pagesGrid" class="grid">
           <div class="loading" data-i18n="loadingPages">正在加载网页项目…</div>
         </div>
@@ -491,18 +491,10 @@
         <div class="section-head">
           <div>
             <h2 data-i18n="repositories">公开仓库</h2>
-            <p data-i18n="repoDesc">全部公开仓库，默认按最近更新时间排序。</p>
+            <p data-i18n="repoDesc">全部公开仓库，置顶项目优先，其余按最近更新时间排序。</p>
           </div>
-
-          <input
-            id="search"
-            class="search"
-            type="search"
-            placeholder="搜索仓库…"
-            aria-label="Search repositories"
-          />
+          <input id="search" class="search" type="search" placeholder="搜索仓库…" aria-label="Search repositories" />
         </div>
-
         <div id="repoGrid" class="grid">
           <div class="loading" data-i18n="loadingRepos">正在加载公开仓库…</div>
         </div>
@@ -512,92 +504,92 @@
     <footer>
       <div class="footer-line">
         <span>© <span id="year"></span> AaronChou313</span>
-        <span data-i18n="footer">由 GitHub Pages 托管 · 仓库数据来自 GitHub API</span>
+        <span data-i18n="footer">由 GitHub Pages 托管 · projects.json 提供本地数据 · GitHub API 可选刷新</span>
       </div>
     </footer>
   </div>
 
   <script>
     const USER = "AaronChou313";
+    const DATA_URL = "./projects.json";
     const PROFILE_API = `https://api.github.com/users/${USER}`;
     const REPOS_API = `https://api.github.com/users/${USER}/repos`;
 
-    const FALLBACK_REPOS = [{"name":"UCAS-lessons","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/UCAS-lessons","private":false,"archived":false,"topics":[],"homepage":""},{"name":"tensornote","description":"Local-first, Markdown-first executable knowledge workspace powered by Jupyter.","language":"TypeScript","stargazers_count":2,"forks_count":0,"updated_at":"2026-09-09T18:45:10Z","has_pages":true,"homepage":"https://aaronchou313.github.io/tensornote/","html_url":"https://github.com/AaronChou313/tensornote","private":false,"archived":false,"topics":[]},{"name":"SICISP-YOLO","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/SICISP-YOLO","private":false,"archived":false,"topics":[],"homepage":""},{"name":"WHURM2025-infantry","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/WHURM2025-infantry","private":false,"archived":false,"topics":[],"homepage":""},{"name":"SICISP-intelligence-algorithm","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/SICISP-intelligence-algorithm","private":false,"archived":false,"topics":[],"homepage":""},{"name":"nn-research-vault","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/nn-research-vault","private":false,"archived":false,"topics":[],"homepage":""},{"name":"wordward-game","description":"以汉字组词为核心的三国主题塔防游戏。","language":"JavaScript","stargazers_count":1,"forks_count":0,"updated_at":"2026-09-01T02:57:10Z","has_pages":false,"homepage":"https://sheepgame.top","html_url":"https://github.com/AaronChou313/wordward-game","private":false,"archived":false,"topics":[]},{"name":"learn-dl","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/learn-dl","private":false,"archived":false,"topics":[],"homepage":""},{"name":"personal-page","description":"中英双语个人学术主页模板，支持语言切换、深浅主题与响应式布局。","language":"JavaScript","stargazers_count":0,"forks_count":0,"updated_at":"2026-07-26T08:26:07Z","has_pages":false,"html_url":"https://github.com/AaronChou313/personal-page","private":false,"archived":false,"topics":[],"homepage":""},{"name":"sheep-tool","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/sheep-tool","private":false,"archived":false,"topics":[],"homepage":""},{"name":"apoarm-stm32","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/apoarm-stm32","private":false,"archived":false,"topics":[],"homepage":""},{"name":"alex-agent","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/alex-agent","private":false,"archived":false,"topics":[],"homepage":""},{"name":"AaronChou313.github.io","description":"AaronChou313 的 GitHub 项目展示主页。","language":"HTML","stargazers_count":0,"forks_count":0,"updated_at":"2026-09-10T04:09:23Z","has_pages":true,"homepage":"https://aaronchou313.github.io/","html_url":"https://github.com/AaronChou313/AaronChou313.github.io","private":false,"archived":false,"topics":[]},{"name":"trip-master","description":"旅行规划工具，包含兴趣点、行程、预算与备忘录等功能。","language":"Vue","stargazers_count":0,"forks_count":0,"updated_at":"2026-07-25T11:04:33Z","has_pages":false,"html_url":"https://github.com/AaronChou313/trip-master","private":false,"archived":false,"topics":[],"homepage":""},{"name":"transformer-graph","description":"用于学习 Transformer 网络结构的交互式单页 Web 应用。","language":"TypeScript","stargazers_count":0,"forks_count":0,"updated_at":"2026-09-10T03:55:02Z","has_pages":true,"homepage":"https://aaronchou313.github.io/transformer-graph/","html_url":"https://github.com/AaronChou313/transformer-graph","private":false,"archived":false,"topics":[]},{"name":"UCAS-measurement-data-processing","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/UCAS-measurement-data-processing","private":false,"archived":false,"topics":[],"homepage":""},{"name":"ISIMP-dace","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/ISIMP-dace","private":false,"archived":false,"topics":[],"homepage":""},{"name":"happy-llm-tensornote","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/happy-llm-tensornote","private":false,"archived":false,"topics":[],"homepage":""},{"name":"apoarm-control","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/apoarm-control","private":false,"archived":false,"topics":[],"homepage":""},{"name":"html-shelf","description":"","language":"HTML","stargazers_count":0,"forks_count":0,"updated_at":"2026-09-01T11:24:34Z","has_pages":false,"html_url":"https://github.com/AaronChou313/html-shelf","private":false,"archived":false,"topics":[],"homepage":""},{"name":"SICISP-webpoi","description":"空间智能计算与服务课程实习项目，提供地图 POI 搜索与空间范围查询。","language":"TypeScript","stargazers_count":0,"forks_count":0,"updated_at":"2026-07-21T11:37:04Z","has_pages":false,"html_url":"https://github.com/AaronChou313/SICISP-webpoi","private":false,"archived":false,"topics":[],"homepage":""},{"name":"workspace-bridge","description":"本地 MCP 工作区桥接服务。","language":"","stargazers_count":0,"forks_count":0,"updated_at":"2026-07-24T04:36:07Z","has_pages":false,"html_url":"https://github.com/AaronChou313/workspace-bridge","private":false,"archived":false,"topics":[],"homepage":""},{"name":"sheep-env-manager","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/sheep-env-manager","private":false,"archived":false,"topics":[],"homepage":""},{"name":"UCAS-intelligent-sensing-and-information-processing","description":"","language":"","stargazers_count":0,"forks_count":0,"updated_at":"","has_pages":false,"html_url":"https://github.com/AaronChou313/UCAS-intelligent-sensing-and-information-processing","private":false,"archived":false,"topics":[],"homepage":""}];
+    let siteConfig = {
+      owner: USER,
+      display_name: USER,
+      description: {
+        zh: "公开项目、实验与静态网页的集中展示页。",
+        en: "A collection of public projects, experiments and static web pages."
+      }
+    };
 
-    // 页面首先使用内置数据渲染，GitHub API 仅用于后台刷新。
-    // 这样即使 api.github.com 被限流、DNS/网络异常或浏览器拦截，内容也不会空白。
-    let repos = FALLBACK_REPOS.map(repo => ({ ...repo }));
+    let profiles = [];
+    let repos = [];
+    let manualRepoConfig = new Map();
 
     let currentLang = "zh";
     try {
       currentLang = localStorage.getItem("lang") || "zh";
-    } catch (_) {
-      currentLang = "zh";
-    }
+    } catch (_) {}
 
     const texts = {
       zh: {
         profile: "GitHub 主页",
         webProjects: "网页项目",
         repositories: "公开仓库",
-        academicSite: "学术主页",
-        aiSite: "AI 学习站",
         repoCount: "公开仓库",
         pageCount: "GitHub Pages 项目",
         starCount: "总 Stars",
         webDesc: "已部署 GitHub Pages 的静态网页项目。",
-        repoDesc: "全部公开仓库，默认按最近更新时间排序。",
+        repoDesc: "全部公开仓库，置顶项目优先，其余按最近更新时间排序。",
         loadingPages: "正在加载网页项目…",
         loadingRepos: "正在加载公开仓库…",
-        footer: "由 GitHub Pages 托管 · 仓库数据来自 GitHub API",
+        footer: "由 GitHub Pages 托管 · projects.json 提供本地数据 · GitHub API 可选刷新",
         searchPlaceholder: "搜索仓库…",
-        noMatch: "没有匹配的仓库。",
-        apiError: "暂时无法从 GitHub API 加载仓库，请稍后刷新。",
-        defaultBio: "公开项目、实验与静态网页的集中展示页。",
+        noMatch: "没有匹配的项目。",
+        dataError: "projects.json 加载失败，正在尝试 GitHub API。",
         noDescription: "暂无项目说明。",
         githubPages: "GitHub Pages",
-        openWebsite: "打开网页",
-        updated: "更新于"
+        updated: "更新于",
+        pinned: "置顶"
       },
       en: {
         profile: "GitHub Profile",
         webProjects: "Web Projects",
         repositories: "Repositories",
-        academicSite: "Academic Homepage",
-        aiSite: "AI Learning Site",
         repoCount: "Public Repositories",
         pageCount: "GitHub Pages Projects",
         starCount: "Total Stars",
         webDesc: "Static web projects deployed with GitHub Pages.",
-        repoDesc: "All public repositories, sorted by recent update.",
+        repoDesc: "Pinned repositories first, then sorted by recent update.",
         loadingPages: "Loading web projects…",
         loadingRepos: "Loading repositories…",
-        footer: "Hosted on GitHub Pages · Repository data from GitHub API",
+        footer: "Hosted on GitHub Pages · local data from projects.json · optional GitHub API refresh",
         searchPlaceholder: "Search repositories…",
-        noMatch: "No matching repositories.",
-        apiError: "GitHub API is temporarily unavailable. Please refresh later.",
-        defaultBio: "A collection of public projects, experiments and static web pages.",
+        noMatch: "No matching projects.",
+        dataError: "Failed to load projects.json. Trying the GitHub API.",
         noDescription: "No description provided.",
         githubPages: "GitHub Pages",
-        openWebsite: "Open Website",
-        updated: "Updated"
+        updated: "Updated",
+        pinned: "Pinned"
       }
     };
 
-    const githubIcon = `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 .7a11.3 11.3 0 0 0-3.6 22c.6.1.8-.2.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C16.5 4 17.5 4.3 17.5 4.3c.6 1.6.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.3 11.3 0 0 0 12 .7Z"/>
-      </svg>
-    `;
-
     const escapeHtml = (value = "") =>
-      String(value).replace(/[&<>"']/g, c => ({
+      String(value).replace(/[&<>"']/g, char => ({
         "&": "&amp;",
         "<": "&lt;",
         ">": "&gt;",
         '"': "&quot;",
         "'": "&#039;"
-      }[c]));
+      }[char]));
+
+    const localized = value => {
+      if (!value) return "";
+      if (typeof value === "string") return value;
+      return value[currentLang] || value.zh || value.en || "";
+    };
 
     const formatDate = value => {
       if (!value) return "";
@@ -608,117 +600,216 @@
       }).format(new Date(value));
     };
 
-    const pageUrl = repo => {
-      const homepage = (repo.homepage || "").trim();
-      if (homepage && /^https?:\/\//i.test(homepage)) return homepage;
-      if (repo.name.toLowerCase() === `${USER.toLowerCase()}.github.io`) {
-        return `https://${USER}.github.io/`;
-      }
+    const projectDescription = repo => {
+      const value = currentLang === "zh"
+        ? (repo.description_zh || repo.description || "")
+        : (repo.description_en || repo.description || "");
+      return value || texts[currentLang].noDescription;
+    };
+
+    const repoUrl = repo =>
+      repo.repo_url || repo.html_url || `https://github.com/${USER}/${encodeURIComponent(repo.name)}`;
+
+    const webUrl = repo => {
+      if (repo.web_url) return repo.web_url;
+      if (repo.homepage && /^https?:\/\//i.test(repo.homepage)) return repo.homepage;
       return `https://${USER}.github.io/${encodeURIComponent(repo.name)}/`;
     };
 
+    const isWebProject = repo =>
+      repo.web_project === true ||
+      (repo.web_project !== false && repo.has_pages === true);
+
+    const pinOrder = repo => {
+      if (repo.pin_order === null || repo.pin_order === undefined || repo.pin_order === "") {
+        return Number.MAX_SAFE_INTEGER;
+      }
+      const value = Number(repo.pin_order);
+      return Number.isFinite(value) ? value : Number.MAX_SAFE_INTEGER;
+    };
+
+    function sortProjects(list) {
+      return [...list].sort((a, b) => {
+        if (!!a.pinned !== !!b.pinned) return a.pinned ? -1 : 1;
+
+        if (a.pinned && b.pinned) {
+          const byPinOrder = pinOrder(a) - pinOrder(b);
+          if (byPinOrder !== 0) return byPinOrder;
+        }
+
+        return new Date(b.updated_at || 0) - new Date(a.updated_at || 0);
+      });
+    }
+
+    function renderProfileLinks() {
+      const container = document.getElementById("profileLinks");
+      container.innerHTML = profiles.map(item => `
+        <a class="profile-link" href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">
+          <span class="mark">${escapeHtml(item.mark || "↗")}</span>
+          <span>
+            <strong>${escapeHtml(item.title || "")}</strong>
+            <span class="subtitle">${escapeHtml(localized(item.subtitle))}</span>
+          </span>
+        </a>
+      `).join("");
+    }
+
     function applyLanguage() {
       const t = texts[currentLang];
+
       document.documentElement.lang = currentLang === "zh" ? "zh-CN" : "en";
       document.getElementById("langToggle").textContent = currentLang === "zh" ? "EN" : "中文";
       document.getElementById("search").placeholder = t.searchPlaceholder;
+      document.getElementById("bio").textContent = localized(siteConfig.description) || t.noDescription;
 
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.dataset.i18n;
-        if (t[key]) el.textContent = t[key];
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.dataset.i18n;
+        if (t[key]) element.textContent = t[key];
       });
 
       document.querySelector('meta[name="description"]').setAttribute(
         "content",
-        currentLang === "zh"
-          ? "AaronChou313 的公开项目与 GitHub Pages 项目展示页"
-          : "AaronChou313's public projects and GitHub Pages showcase"
+        localized(siteConfig.description) || t.noDescription
       );
 
       document.title = currentLang === "zh"
-        ? "AaronChou313 · 项目主页"
-        : "AaronChou313 · Projects";
+        ? `${siteConfig.display_name || USER} · 项目主页`
+        : `${siteConfig.display_name || USER} · Projects`;
 
-      const bio = document.getElementById("bio");
-      if (bio.dataset.fromProfile !== "true") bio.textContent = t.defaultBio;
+      renderProfileLinks();
+      renderPages();
+      renderRepositories(filterRepos());
+    }
 
-      if (repos.length) {
-        renderPages();
-        renderRepositories(filterRepos());
-      }
+    function pinBadge(repo) {
+      return repo.pinned
+        ? `<span class="badge pin-badge" title="${escapeHtml(texts[currentLang].pinned)}" aria-label="${escapeHtml(texts[currentLang].pinned)}">📌</span>`
+        : "";
     }
 
     function repoCard(repo) {
-      const t = texts[currentLang];
       return `
-        <article class="card">
+        <a class="card ${repo.pinned ? "pinned" : ""}"
+           href="${escapeHtml(repoUrl(repo))}"
+           target="_blank"
+           rel="noreferrer">
           <div class="card-top">
             <h3 class="repo-name">${escapeHtml(repo.name)}</h3>
-            ${repo.archived ? '<span class="badge">Archived</span>' : ""}
+            <div class="badges">
+              ${repo.archived ? '<span class="badge">Archived</span>' : ""}
+              ${pinBadge(repo)}
+            </div>
           </div>
 
-          <p class="desc">${escapeHtml(repo.description || t.noDescription)}</p>
+          <p class="desc">${escapeHtml(projectDescription(repo))}</p>
 
           <div class="meta">
             ${repo.language ? `<span><span class="lang-dot"></span>${escapeHtml(repo.language)}</span>` : ""}
             <span>★ ${repo.stargazers_count || 0}</span>
             <span>⑂ ${repo.forks_count || 0}</span>
+            ${repo.updated_at ? `<span>${escapeHtml(texts[currentLang].updated)} ${escapeHtml(formatDate(repo.updated_at))}</span>` : ""}
           </div>
-
-          <div class="card-actions">
-            <a
-              class="icon-button"
-              href="${escapeHtml(repo.html_url)}"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-              title="GitHub"
-            >${githubIcon}</a>
-
-            ${repo.has_pages ? `
-              <a class="mini-link" href="${escapeHtml(pageUrl(repo))}" target="_blank" rel="noreferrer">
-                ${escapeHtml(t.openWebsite)} ↗
-              </a>
-            ` : ""}
-
-            ${repo.updated_at ? `<span class="meta">${escapeHtml(t.updated)} ${escapeHtml(formatDate(repo.updated_at))}</span>` : ""}
-          </div>
-        </article>
+        </a>
       `;
     }
 
-    function pageRepoCard(repo) {
-      const t = texts[currentLang];
+    function pageCard(repo) {
       return `
-        <article class="card web-card">
+        <a class="card web-card ${repo.pinned ? "pinned" : ""}"
+           href="${escapeHtml(webUrl(repo))}"
+           target="_blank"
+           rel="noreferrer">
           <div class="card-top">
             <h3 class="repo-name">${escapeHtml(repo.name)}</h3>
-            <span class="badge">${escapeHtml(t.githubPages)}</span>
+            <div class="badges">
+              <span class="badge">${escapeHtml(texts[currentLang].githubPages)}</span>
+              ${pinBadge(repo)}
+            </div>
           </div>
-
-          <p class="desc">${escapeHtml(repo.description || t.noDescription)}</p>
-
-          <div class="meta">
-            ${repo.language ? `<span><span class="lang-dot"></span>${escapeHtml(repo.language)}</span>` : ""}
-            <span>★ ${repo.stargazers_count || 0}</span>
-          </div>
-
-          <div class="card-actions">
-            <a class="mini-link" href="${escapeHtml(pageUrl(repo))}" target="_blank" rel="noreferrer">
-              ${escapeHtml(t.openWebsite)} ↗
-            </a>
-
-            <a
-              class="icon-button"
-              href="${escapeHtml(repo.html_url)}"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-              title="GitHub"
-            >${githubIcon}</a>
-          </div>
-        </article>
+          <p class="desc">${escapeHtml(projectDescription(repo))}</p>
+        </a>
       `;
+    }
+
+    function filterRepos() {
+      const keyword = document.getElementById("search").value.trim().toLowerCase();
+
+      return sortProjects(repos.filter(repo => {
+        if (repo.hidden) return false;
+        if (!keyword) return true;
+
+        const haystack = [
+          repo.name,
+          repo.description,
+          repo.description_zh,
+          repo.description_en,
+          repo.language,
+          ...(repo.topics || [])
+        ].filter(Boolean).join(" ").toLowerCase();
+
+        return haystack.includes(keyword);
+      }));
+    }
+
+    function renderRepositories(list) {
+      const grid = document.getElementById("repoGrid");
+
+      if (!list.length) {
+        grid.innerHTML = `<div class="empty">${escapeHtml(texts[currentLang].noMatch)}</div>`;
+        return;
+      }
+
+      grid.innerHTML = list.map(repoCard).join("");
+    }
+
+    function renderPages() {
+      const grid = document.getElementById("pagesGrid");
+
+      const pageRepos = sortProjects(
+        repos.filter(repo =>
+          !repo.hidden &&
+          isWebProject(repo) &&
+          repo.name.toLowerCase() !== `${USER.toLowerCase()}.github.io`
+        )
+      );
+
+      grid.innerHTML = pageRepos.length
+        ? pageRepos.map(pageCard).join("")
+        : `<div class="empty">${escapeHtml(texts[currentLang].noMatch)}</div>`;
+
+      document.getElementById("pageCount").textContent = pageRepos.length;
+    }
+
+    function updateStats() {
+      const visibleRepos = repos.filter(repo => !repo.hidden);
+      document.getElementById("repoCount").textContent = visibleRepos.length;
+      document.getElementById("starCount").textContent =
+        visibleRepos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
+    }
+
+    function normalizeManualRepo(repo) {
+      return {
+        ...repo,
+        repo_url: repo.repo_url || `https://github.com/${USER}/${repo.name}`,
+        pinned: repo.pinned === true,
+        pin_order: repo.pin_order ?? null,
+        hidden: repo.hidden === true
+      };
+    }
+
+    async function loadProjectsJson() {
+      const response = await fetch(DATA_URL, { cache: "no-store" });
+      if (!response.ok) throw new Error(`projects.json ${response.status}`);
+
+      const data = await response.json();
+
+      siteConfig = { ...siteConfig, ...(data.site || {}) };
+      profiles = Array.isArray(data.profiles) ? data.profiles : [];
+      repos = Array.isArray(data.repositories)
+        ? data.repositories.map(normalizeManualRepo)
+        : [];
+
+      manualRepoConfig = new Map(repos.map(repo => [repo.name, repo]));
     }
 
     async function fetchAllRepos() {
@@ -743,103 +834,60 @@
       return all;
     }
 
-    function filterRepos() {
-      const keyword = document.getElementById("search").value.trim().toLowerCase();
-      if (!keyword) return repos;
+    function mergeApiRepo(apiRepo) {
+      const manual = manualRepoConfig.get(apiRepo.name) || {};
 
-      return repos.filter(repo => {
-        const haystack = [
-          repo.name,
-          repo.description,
-          repo.language,
-          ...(repo.topics || [])
-        ]
-          .filter(Boolean)
-          .join(" ")
-          .toLowerCase();
-
-        return haystack.includes(keyword);
+      return normalizeManualRepo({
+        ...apiRepo,
+        repo_url: manual.repo_url || apiRepo.html_url,
+        description: apiRepo.description || manual.description || "",
+        description_zh: manual.description_zh,
+        description_en: manual.description_en,
+        pinned: manual.pinned === true,
+        pin_order: manual.pin_order ?? null,
+        hidden: manual.hidden === true,
+        web_project: manual.web_project !== undefined ? manual.web_project : undefined,
+        web_url: manual.web_url || (apiRepo.homepage && /^https?:\/\//i.test(apiRepo.homepage) ? apiRepo.homepage : ""),
+        has_pages: apiRepo.has_pages ?? manual.has_pages ?? false
       });
     }
 
-    function renderRepositories(list) {
-      const grid = document.getElementById("repoGrid");
-      const t = texts[currentLang];
-
-      if (!list.length) {
-        grid.innerHTML = `<div class="empty">${escapeHtml(t.noMatch)}</div>`;
-        return;
-      }
-
-      grid.innerHTML = list.map(repoCard).join("");
-    }
-
-    function renderPages() {
-      const grid = document.getElementById("pagesGrid");
-
-      const pageRepos = repos
-        .filter(repo =>
-          repo.has_pages &&
-          repo.name.toLowerCase() !== `${USER.toLowerCase()}.github.io`
-        )
-        .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
-
-      grid.innerHTML = pageRepos.length
-        ? pageRepos.map(pageRepoCard).join("")
-        : `<div class="empty">${texts[currentLang].noMatch}</div>`;
-
-      document.getElementById("pageCount").textContent = pageRepos.length;
-    }
-
-    function updateStats() {
-      document.getElementById("repoCount").textContent = repos.length;
-      document.getElementById("starCount").textContent =
-        repos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
-    }
-
-    async function refreshProfile() {
+    async function refreshReposFromGitHub() {
       try {
-        const profileResponse = await fetch(PROFILE_API, {
-          headers: { "Accept": "application/vnd.github+json" }
-        });
+        const apiRepos = await fetchAllRepos();
+        if (!Array.isArray(apiRepos) || !apiRepos.length) return;
 
-        if (!profileResponse.ok) return;
+        const apiNames = new Set(apiRepos.map(repo => repo.name));
+        const merged = apiRepos.filter(repo => !repo.private).map(mergeApiRepo);
+        const manualOnly = [...manualRepoConfig.values()].filter(repo => !apiNames.has(repo.name));
 
-        const profile = await profileResponse.json();
-
-        document.getElementById("displayName").textContent =
-          profile.name || profile.login || USER;
-
-        if (profile.avatar_url) {
-          document.getElementById("avatar").src = profile.avatar_url;
-        }
-
-        if (profile.bio) {
-          const bio = document.getElementById("bio");
-          bio.textContent = profile.bio;
-          bio.dataset.fromProfile = "true";
-        }
-      } catch (error) {
-        console.warn("Profile refresh skipped:", error);
-      }
-    }
-
-    async function refreshRepos() {
-      try {
-        const repoData = await fetchAllRepos();
-
-        if (!Array.isArray(repoData) || !repoData.length) return;
-
-        repos = repoData
-          .filter(repo => !repo.private)
-          .sort((a, b) => new Date(b.updated_at || 0) - new Date(a.updated_at || 0));
-
+        repos = [...merged, ...manualOnly];
         updateStats();
         renderPages();
         renderRepositories(filterRepos());
       } catch (error) {
-        // 不覆盖已经显示的内置数据。
-        console.warn("GitHub API refresh skipped; using embedded repository data:", error);
+        console.warn("GitHub API refresh skipped; projects.json remains active:", error);
+      }
+    }
+
+    async function refreshProfile() {
+      try {
+        const response = await fetch(PROFILE_API, {
+          headers: { "Accept": "application/vnd.github+json" }
+        });
+
+        if (!response.ok) return;
+
+        const profile = await response.json();
+
+        document.getElementById("displayName").textContent =
+          siteConfig.display_name || profile.name || profile.login || USER;
+
+        if (profile.avatar_url) {
+          document.getElementById("avatar").src = profile.avatar_url;
+        }
+      } catch (error) {
+        console.warn("Profile refresh skipped:", error);
       }
     }
 
@@ -856,15 +904,36 @@
         renderRepositories(filterRepos());
       });
 
-      // 先同步渲染内置数据，页面打开即有内容。
-      applyLanguage();
-      updateStats();
-      renderPages();
-      renderRepositories(repos);
+      try {
+        await loadProjectsJson();
 
-      // 再异步尝试获取最新 GitHub 数据；失败也不会清空页面。
-      refreshProfile();
-      refreshRepos();
+        document.getElementById("displayName").textContent =
+          siteConfig.display_name || USER;
+
+        applyLanguage();
+        updateStats();
+        renderPages();
+        renderRepositories(filterRepos());
+
+        refreshProfile();
+        refreshReposFromGitHub();
+      } catch (error) {
+        console.error("projects.json load failed:", error);
+
+        document.getElementById("repoGrid").innerHTML =
+          `<div class="error">${escapeHtml(texts[currentLang].dataError)}</div>`;
+
+        try {
+          const apiRepos = await fetchAllRepos();
+          repos = apiRepos.filter(repo => !repo.private).map(normalizeManualRepo);
+          applyLanguage();
+          updateStats();
+          renderPages();
+          renderRepositories(filterRepos());
+        } catch (apiError) {
+          console.error("GitHub API fallback also failed:", apiError);
+        }
+      }
     }
 
     init();

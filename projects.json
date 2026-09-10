@@ -1,0 +1,324 @@
+{
+  "site": {
+    "owner": "AaronChou313",
+    "display_name": "AaronChou313",
+    "description": {
+      "zh": "公开项目、实验与静态网页的集中展示页。",
+      "en": "A collection of public projects, experiments and static web pages."
+    }
+  },
+  "profiles": [
+    {
+      "title": "Mingyang Zhou",
+      "url": "https://zhoumy0313.github.io/",
+      "mark": "MZ",
+      "subtitle": {
+        "zh": "学术主页",
+        "en": "Academic Homepage"
+      }
+    },
+    {
+      "title": "赛博小羊 CyberSheep",
+      "url": "https://cybersheep33.github.io/",
+      "mark": "AI",
+      "subtitle": {
+        "zh": "AI 学习站",
+        "en": "AI Learning Site"
+      }
+    }
+  ],
+  "repositories": [
+    {
+      "name": "UCAS-lessons",
+      "description": "",
+      "language": "",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/UCAS-lessons",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "tensornote",
+      "description": "Local-first, Markdown-first executable knowledge workspace powered by Jupyter.",
+      "language": "TypeScript",
+      "stargazers_count": 2,
+      "forks_count": 0,
+      "updated_at": "2026-09-09T18:45:10Z",
+      "has_pages": true,
+      "web_url": "https://aaronchou313.github.io/tensornote/",
+      "repo_url": "https://github.com/AaronChou313/tensornote",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "SICISP-YOLO",
+      "description": "",
+      "language": "",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/SICISP-YOLO",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "WHURM2025-infantry",
+      "description": "",
+      "language": "",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/WHURM2025-infantry",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "SICISP-intelligence-algorithm",
+      "description": "",
+      "language": "",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/SICISP-intelligence-algorithm",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "nn-research-vault",
+      "description": "",
+      "language": "",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/nn-research-vault",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "wordward-game",
+      "description": "以汉字组词为核心的三国主题塔防游戏。",
+      "language": "JavaScript",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2026-09-01T02:57:10Z",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/wordward-game",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "learn-dl",
+      "description": "",
+      "language": "",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/learn-dl",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "personal-page",
+      "description": "中英双语个人学术主页模板，支持语言切换、深浅主题与响应式布局。",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-07-26T08:26:07Z",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/personal-page",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "sheep-tool",
+      "description": "",
+      "language": "",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/sheep-tool",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "apoarm-stm32",
+      "description": "",
+      "language": "",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/apoarm-stm32",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "alex-agent",
+      "description": "",
+      "language": "",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/alex-agent",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "AaronChou313.github.io",
+      "description": "AaronChou313 的 GitHub 项目展示主页。",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-09-10T04:09:23Z",
+      "has_pages": true,
+      "web_project": false,
+      "web_url": "https://aaronchou313.github.io/",
+      "repo_url": "https://github.com/AaronChou313/AaronChou313.github.io",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "trip-master",
+      "description": "旅行规划工具，包含兴趣点、行程、预算与备忘录等功能。",
+      "language": "Vue",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-07-25T11:04:33Z",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/trip-master",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "transformer-graph",
+      "description": "用于学习 Transformer 网络结构的交互式单页 Web 应用。",
+      "language": "TypeScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-09-10T03:55:02Z",
+      "has_pages": true,
+      "web_url": "https://aaronchou313.github.io/transformer-graph/",
+      "repo_url": "https://github.com/AaronChou313/transformer-graph",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "UCAS-measurement-data-processing",
+      "description": "",
+      "language": "",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/UCAS-measurement-data-processing",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "ISIMP-dace",
+      "description": "",
+      "language": "",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/ISIMP-dace",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "happy-llm-tensornote",
+      "description": "",
+      "language": "",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/happy-llm-tensornote",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "apoarm-control",
+      "description": "",
+      "language": "",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/apoarm-control",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "html-shelf",
+      "description": "",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-09-01T11:24:34Z",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/html-shelf",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "SICISP-webpoi",
+      "description": "空间智能计算与服务课程实习项目，提供地图 POI 搜索与空间范围查询。",
+      "language": "TypeScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-07-21T11:37:04Z",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/SICISP-webpoi",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "workspace-bridge",
+      "description": "本地 MCP 工作区桥接服务。",
+      "language": "",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-07-24T04:36:07Z",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/workspace-bridge",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "sheep-env-manager",
+      "description": "",
+      "language": "",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/sheep-env-manager",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "UCAS-intelligent-sensing-and-information-processing",
+      "description": "",
+      "language": "",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "",
+      "has_pages": false,
+      "repo_url": "https://github.com/AaronChou313/UCAS-intelligent-sensing-and-information-processing",
+      "pinned": false,
+      "pin_order": null
+    }
+  ]
+}
