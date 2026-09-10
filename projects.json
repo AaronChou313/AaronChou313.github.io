@@ -35,9 +35,9 @@
       "stargazers_count": 0,
       "forks_count": 0,
       "updated_at": "",
-      "has_pages": false,
+      "has_pages": true,
       "repo_url": "https://github.com/AaronChou313/UCAS-lessons",
-      "pinned": false,
+      "pinned": true,
       "pin_order": null
     },
     {
@@ -50,7 +50,7 @@
       "has_pages": true,
       "web_url": "https://aaronchou313.github.io/tensornote/",
       "repo_url": "https://github.com/AaronChou313/tensornote",
-      "pinned": false,
+      "pinned": true,
       "pin_order": null
     },
     {
@@ -86,7 +86,7 @@
       "updated_at": "",
       "has_pages": false,
       "repo_url": "https://github.com/AaronChou313/SICISP-intelligence-algorithm",
-      "pinned": false,
+      "pinned": true,
       "pin_order": null
     },
     {
@@ -96,7 +96,7 @@
       "stargazers_count": 0,
       "forks_count": 0,
       "updated_at": "",
-      "has_pages": false,
+      "has_pages": true,
       "repo_url": "https://github.com/AaronChou313/nn-research-vault",
       "pinned": false,
       "pin_order": null
@@ -120,7 +120,7 @@
       "stargazers_count": 0,
       "forks_count": 0,
       "updated_at": "",
-      "has_pages": false,
+      "has_pages": true,
       "repo_url": "https://github.com/AaronChou313/learn-dl",
       "pinned": false,
       "pin_order": null
@@ -170,7 +170,7 @@
       "updated_at": "",
       "has_pages": false,
       "repo_url": "https://github.com/AaronChou313/alex-agent",
-      "pinned": false,
+      "pinned": true,
       "pin_order": null
     },
     {
@@ -257,18 +257,6 @@
       "updated_at": "",
       "has_pages": false,
       "repo_url": "https://github.com/AaronChou313/apoarm-control",
-      "pinned": false,
-      "pin_order": null
-    },
-    {
-      "name": "html-shelf",
-      "description": "",
-      "language": "HTML",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2026-09-01T11:24:34Z",
-      "has_pages": false,
-      "repo_url": "https://github.com/AaronChou313/html-shelf",
       "pinned": false,
       "pin_order": null
     },
