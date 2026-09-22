@@ -182,7 +182,7 @@
       "language": "HTML",
       "stargazers_count": 0,
       "forks_count": 0,
-      "updated_at": "2026-09-10T08:39:00Z",
+      "updated_at": "2026-09-20T13:21:49Z",
       "has_pages": true,
       "web_project": false,
       "web_url": "https://aaronchou313.github.io/",
@@ -321,6 +321,19 @@
       "has_pages": true,
       "web_url": "https://aaronchou313.github.io/ideascope/",
       "repo_url": "https://github.com/AaronChou313/ideascope",
+      "pinned": false,
+      "pin_order": null
+    },
+    {
+      "name": "arbor",
+      "description": "Arbor 是一款新型 AI 聊天工具，将 AI 回答拆成可点击的知识模块，让你从任意模块继续追问，并把不同探索方向保存为一棵清晰的对话树，适合学习探索。",
+      "language": "TypeScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-09-22T06:23:02Z",
+      "has_pages": true,
+      "web_url": "https://aaronchou313.github.io/arbor/",
+      "repo_url": "https://github.com/AaronChou313/arbor",
       "pinned": false,
       "pin_order": null
     }
