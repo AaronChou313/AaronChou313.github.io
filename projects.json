@@ -6,7 +6,7 @@
       "zh": "从一个入口，探索开源项目、使用网页工具、阅读学习笔记。",
       "en": "One place to explore open-source projects, launch web tools and read study notes."
     },
-    "synced_at": "2026-10-15T10:52:17+00:00"
+    "synced_at": "2026-10-15T16:31:08+00:00"
   },
   "profiles": [
     {
@@ -29,6 +29,56 @@
     }
   ],
   "repositories": [
+    {
+      "name": "UCAS-intelligent-sensing",
+      "description": "《智能传感与信息处理》中文自学教材：八章、知识索引、逐页来源、科学图与可复现计算",
+      "language": "JavaScript",
+      "topics": [],
+      "stargazers_count": 0,
+      "fork": false,
+      "archived": false,
+      "pushed_at": "2026-10-15T16:17:14Z",
+      "updated_at": "2026-10-15T16:30:33Z",
+      "has_pages": true,
+      "homepage": "https://aaronchou313.github.io/UCAS-intelligent-sensing/",
+      "default_branch": "main",
+      "id": 1420994005,
+      "repo_url": "https://github.com/AaronChou313/UCAS-intelligent-sensing",
+      "category": "notes",
+      "title": {
+        "zh": "智能传感与信息处理",
+        "en": "Intelligent Sensing and Information Processing"
+      },
+      "description_zh": "八章中文自学教材，涵盖传感器、处理平台、误差分析、视觉、点云、听觉与多源信息融合，附知识索引、科学图与可复现计算。",
+      "description_en": "An eight-chapter Chinese textbook on sensors, processing platforms, error analysis, vision, point clouds, audio and information fusion, with a knowledge index, scientific figures and reproducible computations.",
+      "web_url": "https://aaronchou313.github.io/UCAS-intelligent-sensing/",
+      "featured": false
+    },
+    {
+      "name": "AaronChou313.github.io",
+      "description": "简洁的 GitHub 项目索引主页。",
+      "language": "JavaScript",
+      "topics": [],
+      "stargazers_count": 0,
+      "fork": false,
+      "archived": false,
+      "pushed_at": "2026-10-15T10:55:42Z",
+      "updated_at": "2026-10-15T10:55:47Z",
+      "has_pages": true,
+      "homepage": "https://aaronchou313.github.io/",
+      "default_branch": "master",
+      "category": "projects",
+      "title": {
+        "zh": "项目导航站",
+        "en": "Project Directory"
+      },
+      "description_zh": "本站源码：集中访问公开项目、网页工具和学习笔记。",
+      "description_en": "Source of this directory: a central entry to projects, web tools and study notes.",
+      "repo_url": "https://github.com/AaronChou313/AaronChou313.github.io",
+      "web_url": "https://aaronchou313.github.io/",
+      "featured": false,
+      "id": 1363500021
+    },
     {
       "name": "UCAS-measurement-data-processing",
       "description": null,
@@ -109,31 +159,6 @@
       "web_url": "",
       "featured": false,
       "id": 1383597405
-    },
-    {
-      "name": "AaronChou313.github.io",
-      "description": "简洁的 GitHub 项目索引主页。",
-      "language": "HTML",
-      "topics": [],
-      "stargazers_count": 0,
-      "fork": false,
-      "archived": false,
-      "pushed_at": "2026-09-22T06:27:02Z",
-      "updated_at": "2026-09-22T06:27:07Z",
-      "has_pages": true,
-      "homepage": "https://aaronchou313.github.io/",
-      "default_branch": "master",
-      "category": "projects",
-      "title": {
-        "zh": "项目导航站",
-        "en": "Project Directory"
-      },
-      "description_zh": "本站源码：集中访问公开项目、网页工具和学习笔记。",
-      "description_en": "Source of this directory: a central entry to projects, web tools and study notes.",
-      "repo_url": "https://github.com/AaronChou313/AaronChou313.github.io",
-      "web_url": "https://aaronchou313.github.io/",
-      "featured": false,
-      "id": 1363500021
     },
     {
       "name": "arbor",
